@@ -51,3 +51,10 @@
 - **Paleta 60-30-10 & Regras de Ouro:** Fundo `#FAF6F0`, Vinho `#3A171C`, Ouro `#9E7B56`, Cards `#FFFFFF`. Preservação integral dos dados de OAB (40.209 e 40.642), endereço em Salinópolis e contatos oficiais.
 - **Auditoria Visual Obrigatória com Olhar Cirúrgico Humano:** Ativação mandatória de `@[surgical-design-audit]` diante de prints.
 - **Inteligência de Benchmarking de Nicho:** Ativação de `@[niche-benchmark-intel]` para referências do top 1%.
+
+---
+
+## 🏭 Fábrica de Landing Pages da LS Digital (`landing-page-factory`)
+- **Gatilho Inteligente Sob Demanda:** Sempre que o usuário solicitar a criação, planejamento, estruturação ou manutenção de uma Landing Page ou site institucional para um cliente (Planos Express, Comercial ou VIP), ative imediatamente a skill `@[landing-page-factory]`.
+- **Diretriz de Execução:** Carrega a esteira em 4 etapas (Triagem do Briefing, Montagem Modular, Quality Gate de 5 min e Homologação dos 7 dias). Mantém os agentes ágeis e sem poluição de contexto para projetos de apps, dashboards e automações.
+- **Localização:** Global em `C:\Users\NOC 01\.gemini\config\skills\landing-page-factory\SKILL.md` e Local em `.agents/skills/landing-page-factory\SKILL.md`.
