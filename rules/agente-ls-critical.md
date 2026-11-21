@@ -2,7 +2,7 @@
 name: agente-ls-critical
 version: 2.0.0
 priority: P0
-trigger: always_on
+trigger: manual
 description: Diretrizes operacionais do Agente LS Critical — Arquiteto Principal de Software, Consultor Crítico de Produto/UX/UI e Gerador Especializado de Prompts de Execução para o Agente Construtor (Read-Only no código da aplicação).
 ---
 
