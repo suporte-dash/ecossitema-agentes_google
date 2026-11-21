@@ -1,6 +1,15 @@
 # PROJECT_STATE — LS Tecnologia (Página LS Vendas)
 
 ## 📌 Onde parámos
+- **Homologação da Melhor Prática de Implantação em Máquina Nova (`[skill:senior-critical-advisor]` + `[skill:architecture]`)**:
+  - Dúvida de Sandro: *"Vou instalar o Antigravity 2.0 e IDE em uma outra maquina minha nova. Vamos criar um documento para que eu possa implantar na raiz da maquina nova e que contenha todas as estruturas, regras e skills que temos no nosso ecossistema ate agora. Ou prefere fazer uma verificação e mandar direto lá pro meu repositorio ecossitema-agentes_google.git? Qual a melhor pratica."*
+  - **Veredito & Execução da Melhor Prática (GitOps de 1 Clique)**:
+    1. *Por que documento manual é contraindicado*: O ecossistema possui mais de 170 arquivos e 35.000 linhas de código; copiar manualmente geraria horas de trabalho e risco de arquivos corrompidos ou esquecidos.
+    2. *A Solução Profissional Implementada*:
+       - Auditoria completa e push de 100% dos arquivos para `https://github.com/suporte-dash/ecossitema-agentes_google.git` (commit `84f81f9`).
+       - `restore.ps1` aprimorado para criar automaticamente as pastas globais e restaurar as 59 skills, regras P0 e `MEMORY.md` em menos de 20 segundos.
+       - Criado o documento executivo [`GUIA_IMPLANTACAO_MAQUINA_NOVA.md`](file:///c:/Users/NOC%2001/Desktop/AGENTE%20FRONT/GUIA_IMPLANTACAO_MAQUINA_NOVA.md) com os 3 comandos simples de terminal para rodar na máquina nova.
+
 - **Roteiro Papo Reto: Choque de Realidade & Alavanca de Instalação Grátis (`[skill:senior-critical-advisor]`)**:
   - Calibração cirúrgica solicitada por Sandro: *"Não mano! Ficou muito amigável. Quero aquele choque de realidade que tem no primeiro."*
   - **Entrega do Script "Papo Reto de Sócio"**:
