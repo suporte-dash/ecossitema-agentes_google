@@ -8,7 +8,8 @@
 
 ```
 ecossitema-agentes_google/
-├── rules/                  # Regras Mandatórias P0 (agente-ls-critical, core-protocol, code-rules, etc.)
+├── AGENTS.md               # Protocolo Operacional de Engenharia Agêntica (Arquiteto & Construtor, PROMPT-XXX / ADR-XXX)
+├── rules/                  # Regras Mandatórias P0 (ecosystem-protocol, agente-ls-critical, core-protocol, code-rules, etc.)
 ├── skills/                 # Catálogo Completo de 59+ Skills Especializadas (YAML + Markdown)
 │   ├── landing-page-factory/
 │   ├── surgical-eye-audit/

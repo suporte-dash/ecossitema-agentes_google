@@ -1,6 +1,15 @@
 # PROJECT_STATE — LS Tecnologia (Página LS Vendas)
 
 ## 📌 Onde parámos
+- **Implantação do Protocolo Operacional de Engenharia Agêntica (Arquiteto & Construtor) [ADR-001 | PROMPT-001] (`[skill:senior-critical-advisor]` + `[skill:ecosystem-protocol]` + `[skill:project-memory-manager]`)**:
+  - Diretriz Estratégica: Incorporar o protocolo operacional de engenharia agêntica (Arquiteto & Construtor), controle de escrita read-only, perfis de skills (Perfil A Cirúrgico / Perfil B Construção), paridade multi-página, imutabilidade de dados reais, decomposição atômica de tarefas complexas, validação contínua e rastreabilidade sequencial contínua (`PROMPT-XXX` / `ADR-XXX`).
+  - **Entregas Arquiteturais Realizadas**:
+    1. *Criação de `AGENTS.md`*: Persistido na raiz do repositório Git com as 7 seções completas de governança.
+    2. *Regra Global P0 `ecosystem-protocol.md`*: Criada no repositório (`rules/ecosystem-protocol.md`) e injetada nas regras globais do Antigravity (`C:\Users\NOC 01\.gemini\config\rules\ecosystem-protocol.md`).
+    3. *Atualização de `agente-ls-critical.md` (v2.1.0)*: Inclusão do `[skill:ecosystem-protocol]` com os 7 pilares mandatórios (Perfil A/B, paridade de rotas irmãs, template padronizado e rastreamento).
+    4. *Atualização de `MEMORY.md`*: Memória permanente universal sincronizada no repositório.
+    5. *Rastreabilidade Sequencial Fixada*: Inicialização formal do contador contínuo `ADR-001` e `PROMPT-001`.
+
 - **Homologação da Melhor Prática de Implantação em Máquina Nova (`[skill:senior-critical-advisor]` + `[skill:architecture]`)**:
   - Dúvida de Sandro: *"Vou instalar o Antigravity 2.0 e IDE em uma outra maquina minha nova. Vamos criar um documento para que eu possa implantar na raiz da maquina nova e que contenha todas as estruturas, regras e skills que temos no nosso ecossistema ate agora. Ou prefere fazer uma verificação e mandar direto lá pro meu repositorio ecossitema-agentes_google.git? Qual a melhor pratica."*
   - **Veredito & Execução da Melhor Prática (GitOps de 1 Clique)**:
@@ -50,13 +59,15 @@
     3. *Material Estruturado*: Criado [`CATALOGO_SERVICOS_E_PARCERIA_LS.md`](file:///c:/Users/NOC%2001/Desktop/AGENTE%20FRONT/CATALOGO_SERVICOS_E_PARCERIA_LS.md) contendo os 7 serviços prontos para venda, tabela de repasse vs. preço sugerido de venda com lucro para a LS, e o script de resposta para fechar a parceria.
 
 ## ⚙️ Estado atual
+- **Governança Agêntica:** `AGENTS.md` e `rules/ecosystem-protocol.md` homologados e ativos nas regras globais (`.gemini/config/rules/`) e no repositório GitHub.
 - **Produção Oficial:** `https://lstecnogestao.com.br` **100% no ar com Selo Quádruplo Verde (90 | 96 | 96 | 100)**.
-- **Nuvem no GitHub:** Sincronizada e segura com 59 skills.
+- **Nuvem no GitHub:** Sincronizada e segura com 59 skills e regras de engenharia versionadas.
 - **Modelo de Parceria:** Alinhado e validado pelo próprio fundador; catálogo de serviços pronto para envio.
 
 ## 🎯 Próximos passos imediatos
-1. Enviar a tabela de serviços e o áudio/mensagem de alinhamento para o parceiro.
-2. Iniciar a divulgação dos serviços complementares (Sites, Google Maps, E-mails e Automações) na esteira comercial da LS.
+1. Conduzir todas as alterações via esteira Arquiteto (`PROMPT-002` / `ADR-002`) -> Construtor (`npm.cmd run build` Exit Code 0).
+2. Enviar a tabela de serviços e o áudio/mensagem de alinhamento para o parceiro da LS Tecnologia.
+3. Iniciar a divulgação dos serviços complementares (Sites, Google Maps, E-mails e Automações) na esteira comercial da LS.
 
 - **Criação do Plano de Ação de Prospecção Ativa B2B (`[skill:senior-critical-advisor]` + `[skill:documentation-templates]`)**:
   - Solicitação e visão estratégica de autonomia do cliente: *"não posso depender somente deles para conseguir clientes. Qual seria uma boa estrategia para localizar possiveis clientes e como aborda-los? Monta um plano de ação para que eu tbm consiga clientes atrás dessa demanda."*
