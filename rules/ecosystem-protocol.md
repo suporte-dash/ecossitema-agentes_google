@@ -1,9 +1,9 @@
 ---
 name: ecosystem-protocol
-version: 1.0.0
+version: 1.1.0
 priority: P0
 trigger: always
-description: Protocolo Operacional de Engenharia Agêntica (Arquiteto & Construtor), controle de escrita read-only, perfis de skills, paridade multi-página, validação com build e rastreabilidade sequencial (PROMPT-XXX / ADR-XXX).
+description: Protocolo Operacional de Engenharia Agêntica (Arquiteto & Construtor), controle de escrita read-only, perfis de skills, paridade multi-página, validação com build, rastreabilidade sequencial (PROMPT-XXX / ADR-XXX) e controle de concorrência Mutex Multi-Lock.
 ---
 
 # 📜 PROTOCOLO OPERACIONAL DE ENGENHARIA AGÊNTICA (ARQUITETO & CONSTRUTOR)
@@ -51,7 +51,7 @@ Para maximizar a precisão e evitar alterações colaterais fora de escopo, o Ar
 ## 5. GATE DE VALIDAÇÃO (WINDOWS POWERSHELL), DOCUMENTAÇÃO E GIT
 Toda execução do Agente Construtor só é considerada concluída após cumprir esta sequência obrigatória:
 1. **Build de Validação:** Executar `npm.cmd run build` no PowerShell e confirmar **Exit Code 0** (zero erros de empacotamento, assets ou sintaxe).
-2. **Atualização de Estado:** Registrar o resumo técnico do `ADR-XXX` concluído no arquivo `PROJECT_STATE.md`.
+2. **Atualização de Estado & Liberação de Trava:** Registrar o resumo técnico do `ADR-XXX` concluído no arquivo `PROJECT_STATE.md` e liberar/remover a linha correspondente na tabela `## 🔒 Travas Ativas de Concorrência (Tabela Multi-Lock)`.
 3. **Padrão de Commit Git:** Sugerir ou preparar o commit seguindo o padrão semântico atrelado ao ADR:
    * Formato: `tipo(escopo): descrição curta [ADR-XXX]` (ex: `refactor(footer): reordenar colunas e remover créditos [ADR-119]`).
 
@@ -108,3 +108,17 @@ Confirme Exit Code 0 antes de concluir.
 ### 📚 SKILLS MANDATÓRIAS DO AGENTE CONSTRUTOR:
 [...]
 ```
+
+---
+
+## 8. PIPELINE PARALELO, ISOLAMENTO DE ESCOPO & TRAVA DE CONCORRÊNCIA (MUTEX MULTI-LOCK)
+* **Aplicação Condicional Inteligente:** Esta seção aplica-se a qualquer projeto com `PROJECT_STATE.md` ou pipeline multi-agente (Arquiteto 01 / 02 / Clones + Construtor), sem engessar scripts simples sem estado persistente.
+* **Isolamento de Escopo entre Instâncias:** Agentes arquitetos operando em paralelo devem atuar exclusivamente em frentes desacopladas (arquivos ou seções distintas do sistema, ex: `index.html` vs. `servicos.html` / `src/sofia.js`), garantindo zero conflitos de compilação.
+* **Inspeção Prévia Obrigatória (Antes de Gerar Prompt ou Editar):** Verifique a tabela `## 🔒 Travas Ativas de Concorrência (Tabela Multi-Lock)` no `PROJECT_STATE.md`:
+  * **Trava Ativa Recente (`🔒 Ocupado` ou `[BLOQUEADO]`, emitida há `< 2 horas` no mesmo dia) no arquivo/seção alvo:** **INTERROMPA IMEDIATAMENTE** a geração do prompt! Exiba o alerta na tela:
+    > 🛑 **ALERTA DE CONCORRÊNCIA DETECTADO!**  
+    > O arquivo `[arquivo]` está atualmente sob edição/bloqueio na tarefa **`ADR-XXX`** (`[Agente]`). Geração interrompida para evitar quebra de código. Aguarde a conclusão na IDE (ou confirme se já finalizou) ou escolha uma frente desacoplada livre.
+  * **Trava Expirada / Antiga (`>= 2 horas` ou data anterior — TTL Anti-Deadlock):** Não bloqueie cegamente; emita um **Aviso de Confirmação** perguntando ao usuário se a tarefa anterior já foi concluída antes de prosseguir.
+  * **Arquivo Livre:** Prossiga normalmente.
+* **Registro Multi-Lock:** Ao emitir um novo prompt que modifique arquivos físicos, adicione uma linha na tabela `## 🔒 Travas Ativas de Concorrência (Tabela Multi-Lock)` (`Arquivo sob Edição | Seção / Componente | Agente | Tarefa Vinculada | Emitido em | Status = 🔒 Ocupado`) preservando quaisquer travas ativas de outros arquivos diferentes.
+* **Liberação da Trava:** Quando o usuário confirmar que o Construtor concluiu a tarefa na IDE (ou que o build passou), remova ou marque a linha correspondente como livre.

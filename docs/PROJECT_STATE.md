@@ -1,21 +1,25 @@
 # PROJECT_STATE — LS Tecnologia (Página LS Vendas)
 
 ## 📌 Onde parámos
-- **Consultoria de Engenharia de Mídias Web (WebP, AVIF, SVG e PNG) (`[skill:senior-critical-advisor]` + `[skill:clean-code]`)**:
-  - Dúvida de Sandro: *"Só uma duvida minha. O melhor tipo de imagens para sites em geral hj em dia seria o modelo webp? me explica mais sobre isso."*
-  - **Diagnóstico do Arquiteto Sênior**:
-    1. *O Veredito do WebP*: Sim, para fotos, mockups e vitrines, o WebP é o padrão da indústria moderna (25-35% menor que JPEG e até 70% menor que PNG com suporte a transparência).
-    2. *O Papel do SVG*: Para ícones, logos vetoriais e grafismos, o SVG é insuperável (peso de 1-3 KB com nitidez infinita em qualquer resolução).
-    3. *A Nova Fronteira (AVIF)*: Formato de ultra-compressão para fotografia pesada com fallback em `<picture>`.
-    4. *A Regra de Bolso Prática*: Criado o guia definitivo de escolha de formatos para futuros projetos e aplicações.
+- **Instituição & Sincronização Global da Regra `web-media-standard` (`[skill:senior-critical-advisor]` + `[skill:clean-code]` + `[skill:agy-customizations]`)**:
+  - Solicitação de Sandro: *"Podemos criar uma regra global com esses parametros para projetos futuros e implementar no nosso ecossistema ?"*
+  - **Entrega Arquitetural Realizada**:
+    1. *Criação da Regra Global & Local*:
+       - `c:\Users\NOC 01\Desktop\AGENTE FRONT\.agents\rules\web-media-standard.md` (Workspace Local).
+       - `C:\Users\NOC 01\.gemini\config\rules\web-media-standard.md` (Configuração Global Antigravity / IDE).
+    2. *Injeção de Governança no `MEMORY.md`*:
+       - Registrada a seção `## 🖼️ Diretriz Mestre de Formatos de Mídia Web (web-media-standard)` definindo os padrões inegociáveis: SVG para ícones, WebP para fotos/vitrines/mockups 3D, AVIF progressivo, e Favicons redondos com WebP + PNG 48px.
+    3. *GitOps & Sincronização na Nuvem*:
+       - Executado `sync.ps1` com sucesso: commit `b58b0c0` (*feat(sync): atualizacao completa do ecossistema de agentes*) enviado para `https://github.com/suporte-dash/ecossitema-agentes_google.git`.
 
 ## ⚙️ Estado atual
 - **Produção Oficial:** `https://lstecnogestao.com.br` **100% no ar com Selo Quádruplo Verde (90 | 96 | 96 | 100)**.
-- **Ecossistema:** Totalmente alinhado em infraestrutura, SEO, mídias e performance.
+- **Nuvem do Ecossistema:** Sincronizada no GitHub (commit `b58b0c0`) contendo 59 skills, regras P0, `web-media-standard.md` e `MEMORY.md`.
+- **Governança:** A nova regra de mídia está ativa e valerá automaticamente para todos os projetos atuais e futuros.
 
 ## 🎯 Próximos passos imediatos
-1. Apresentar a aula prática e executiva sobre formatos de imagem modernos para Sandro.
-2. Definir o próximo passo comercial ou de produto.
+1. Apresentar o resumo da implantação da regra global para Sandro.
+2. Definir o próximo passo comercial ou técnico do ecossistema.
   - Solicitação de Sandro: *"Quando o usuario pesquisa no google, o logo do site parece assim e com o fundo branco ainda. Como podemos melhorar isso?"* (com print mostrando o logo prateado lavado sobre o fundo branco do Google).
   - **Diagnóstico & Solução Arquitetural de Alto Contraste**:
     1. *Causa-Raiz*: O Google Search opera sobre tela branca `#FFFFFF` e o ícone anterior com transparência/fundo claro anulava o contraste do Lobo Alfa prateado (1.2:1), gerando aspecto anêmico/fantasma.
