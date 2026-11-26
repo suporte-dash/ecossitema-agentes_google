@@ -1,6 +1,15 @@
 # PROJECT_STATE — LS Tecnologia (Página LS Vendas)
 
 ## 📌 Onde parámos
+- **Padronização Mandatória de Ordem de Serviço (OS) e Procedimento Resumido em Todos os Prompts de Execução [ADR-002 | OS-002 | PROMPT-002] (`[skill:senior-critical-advisor]` + `[skill:ecosystem-protocol]` + `[skill:project-memory-manager]`)**:
+  - Diretriz Estratégica: Estabelecer formalmente que todo prompt gerado pelos agentes no ecossistema é uma **Ordem de Serviço (OS)** de engenharia. Passa a ser mandatório incluir no cabeçalho o número sequencial da OS/Prompt (`OS-XXX (PROMPT-XXX | ADR-XXX)`) acompanhado expressamente de um **título indicando o procedimento resumido** da ação (`[Procedimento: Título Curto e Autoexplicativo]`), além da linha executiva `**Procedimento:** [Resumo em 1 linha da ação]`.
+  - **Entregas Arquiteturais Realizadas**:
+    1. *Atualização Global P0 `ecosystem-protocol.md`*: Modificadas as seções 6 (Template) e 7 (Rastreabilidade) nas regras globais (`C:\Users\NOC 01\.gemini\config\rules\ecosystem-protocol.md`) e no repositório (`rules/ecosystem-protocol.md`).
+    2. *Atualização de `agente-ls-critical.md`*: Sincronizado nas regras globais e no repositório de agentes.
+    3. *Atualização de `AGENTS.md`*: Especificação formal da Ordem de Serviço e Procedimento na raiz do repositório Git.
+    4. *Atualização de `MEMORY.md`*: Memória permanente sincronizada com os novos requisitos mandatórios de geração de prompts.
+    5. *Rastreabilidade Sequencial Fixada*: Incremento do contador contínuo para `ADR-002` e `OS-002 / PROMPT-002`.
+
 - **Implantação do Protocolo Operacional de Engenharia Agêntica (Arquiteto & Construtor) [ADR-001 | PROMPT-001] (`[skill:senior-critical-advisor]` + `[skill:ecosystem-protocol]` + `[skill:project-memory-manager]`)**:
   - Diretriz Estratégica: Incorporar o protocolo operacional de engenharia agêntica (Arquiteto & Construtor), controle de escrita read-only, perfis de skills (Perfil A Cirúrgico / Perfil B Construção), paridade multi-página, imutabilidade de dados reais, decomposição atômica de tarefas complexas, validação contínua e rastreabilidade sequencial contínua (`PROMPT-XXX` / `ADR-XXX`).
   - **Entregas Arquiteturais Realizadas**:
@@ -59,13 +68,13 @@
     3. *Material Estruturado*: Criado [`CATALOGO_SERVICOS_E_PARCERIA_LS.md`](file:///c:/Users/NOC%2001/Desktop/AGENTE%20FRONT/CATALOGO_SERVICOS_E_PARCERIA_LS.md) contendo os 7 serviços prontos para venda, tabela de repasse vs. preço sugerido de venda com lucro para a LS, e o script de resposta para fechar a parceria.
 
 ## ⚙️ Estado atual
-- **Governança Agêntica:** `AGENTS.md` e `rules/ecosystem-protocol.md` homologados e ativos nas regras globais (`.gemini/config/rules/`) e no repositório GitHub.
+- **Governança Agêntica:** `AGENTS.md` e `rules/ecosystem-protocol.md` homologados e atualizados com o padrão mandatório de Ordem de Serviço (OS) e Procedimento Resumido em todas as regras globais e repositório.
 - **Produção Oficial:** `https://lstecnogestao.com.br` **100% no ar com Selo Quádruplo Verde (90 | 96 | 96 | 100)**.
 - **Nuvem no GitHub:** Sincronizada e segura com 59 skills e regras de engenharia versionadas.
 - **Modelo de Parceria:** Alinhado e validado pelo próprio fundador; catálogo de serviços pronto para envio.
 
 ## 🎯 Próximos passos imediatos
-1. Conduzir todas as alterações via esteira Arquiteto (`PROMPT-002` / `ADR-002`) -> Construtor (`npm.cmd run build` Exit Code 0).
+1. Conduzir todas as novas alterações operacionais via esteira Arquiteto (`OS-003` / `ADR-003`) -> Construtor (`npm.cmd run build` Exit Code 0).
 2. Enviar a tabela de serviços e o áudio/mensagem de alinhamento para o parceiro da LS Tecnologia.
 3. Iniciar a divulgação dos serviços complementares (Sites, Google Maps, E-mails e Automações) na esteira comercial da LS.
 

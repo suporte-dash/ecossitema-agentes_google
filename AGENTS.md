@@ -57,12 +57,13 @@ Toda execução do Agente Construtor só é considerada concluída após cumprir
 
 ---
 
-## 6. TEMPLATE OBRIGATÓRIO DE SAÍDA DO AGENTE ARQUITETO
+## 6. TEMPLATE OBRIGATÓRIO DE SAÍDA DO AGENTE ARQUITETO (ORDEM DE SERVIÇO)
 
-Toda vez que o usuário solicitar uma alteração ou implementação no projeto, o Arquiteto responde estruturando o plano de execução obrigatoriamente neste formato:
+Toda vez que o usuário solicitar uma alteração ou implementação no projeto, o Arquiteto responde estruturando o plano de execução/ordem de serviço obrigatoriamente neste formato:
 
 ````markdown
-## 🆔 PROMPT-XXX | ADR-XXX — [Título Curto da Alteração]
+## 🆔 ORDEM DE SERVIÇO: OS-XXX (PROMPT-XXX | ADR-XXX) — [Procedimento: Título Curto e Autoexplicativo da Ação]
+**Procedimento:** [Resumo executivo em 1 linha explicando o procedimento exato a ser executado pelo Construtor]
 **Status:** Pendente de Execução | **Modo:** [Cirúrgico / Construção]
 
 ### 📚 SKILLS MANDATÓRIAS DO AGENTE CONSTRUTOR:
@@ -96,13 +97,17 @@ Confirme Exit Code 0 antes de concluir.
 
 ---
 
-## 7. RASTREABILIDADE E NUMERAÇÃO DE PROMPTS (`PROMPT-XXX`)
+## 7. RASTREABILIDADE, ORDEM DE SERVIÇO E NUMERAÇÃO DE PROMPTS (`OS-XXX` / `PROMPT-XXX`)
 
-* **Numeração Sequencial Contínua:** Todo prompt gerado pelo Agente Arquiteto deve receber um identificador único e crescente no topo (`PROMPT-001`, `PROMPT-002`, etc.).
-* **Sub-numeração para Etapas Atômicas:** Quando uma tarefa for dividida em etapas sequenciais, utilize sufixos decimais (`PROMPT-004.1`, `PROMPT-004.2`, `PROMPT-004.3`) para impedir que o Agente Construtor pule etapas.
+* **Equivalência Mandatória de Ordem de Serviço:** Todo prompt gerado pelos agentes é uma **Ordem de Serviço (OS)** de engenharia formal e deve conter obrigatoriamente o número sequencial da OS/Prompt e o **título indicando o procedimento resumido**.
+* **Numeração Sequencial Contínua:** Todo prompt gerado pelo Agente Arquiteto deve receber um identificador único e crescente no topo (`OS-001 (PROMPT-001 | ADR-001)`, `OS-002 (PROMPT-002 | ADR-002)`, etc.).
+* **Título Obrigatório com Procedimento Resumido:** É estritamente proibido emitir prompts sem título ou com descrições genéricas. O título deve declarar expressamente a ação executiva e o componente/escopo afetado (ex: `OS-005 (PROMPT-005 | ADR-005) — [Procedimento: Otimização WebP e Limpeza de Assets Órfãos]`).
+* **Linha de Procedimento Executivo:** Todo prompt deve incluir a linha `**Procedimento:** [Ação em 1 linha]` logo abaixo do cabeçalho, permitindo ao Construtor saber imediatamente o que executar sem ambiguidade.
+* **Sub-numeração para Etapas Atômicas:** Quando uma tarefa for dividida em etapas sequenciais, utilize sufixos decimais (`OS-004.1 / PROMPT-004.1`, `OS-004.2 / PROMPT-004.2`) para impedir que o Agente Construtor pule etapas.
 * **Ancoragem de Estado:** Antes de gerar um novo prompt, o Arquiteto deve consultar o último `PROMPT-XXX` e `ADR-XXX` registrado no `PROJECT_STATE.md` para manter a sequência contínua mesmo após reiniciar a sessão.
 * **Cabeçalho Padrão Atualizado:** Todo plano gerado pelo Arquiteto deve iniciar obrigatoriamente com a identificação:
   ```markdown
-  ## 🆔 PROMPT-XXX | ADR-XXX — [Título Curto da Alteração]
+  ## 🆔 ORDEM DE SERVIÇO: OS-XXX (PROMPT-XXX | ADR-XXX) — [Procedimento: Título Curto e Autoexplicativo da Ação]
+  **Procedimento:** [Resumo executivo em 1 linha explicando o procedimento exato a ser executado pelo Construtor]
   **Status:** Pendente de Execução | **Modo:** [Cirúrgico / Construção]
   ```

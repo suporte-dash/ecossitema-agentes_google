@@ -34,9 +34,10 @@ Toda execução do Agente Construtor só é concluída após cumprir:
 2. **Atualização de Estado:** Registrar o resumo técnico do `ADR-XXX` concluído no arquivo `PROJECT_STATE.md`.
 3. **Padrão de Commit Git:** Sugerir ou preparar o commit seguindo o padrão semântico: `tipo(escopo): descrição curta [ADR-XXX]`.
 
-### 6. Template Obrigatório de Saída do Arquiteto
+### 6. Template Obrigatório de Saída do Arquiteto (Ordem de Serviço)
 ```markdown
-## 🆔 PROMPT-XXX | ADR-XXX — [Título Curto da Alteração]
+## 🆔 ORDEM DE SERVIÇO: OS-XXX (PROMPT-XXX | ADR-XXX) — [Procedimento: Título Curto e Autoexplicativo da Ação]
+**Procedimento:** [Resumo executivo em 1 linha explicando o procedimento exato a ser executado pelo Construtor]
 **Status:** Pendente de Execução | **Modo:** [Cirúrgico / Construção]
 
 ### 📚 SKILLS MANDATÓRIAS DO AGENTE CONSTRUTOR:
@@ -66,9 +67,12 @@ Execute no terminal:
 Confirme Exit Code 0 antes de concluir.
 ```
 
-### 7. Rastreabilidade e Numeração de Prompts (`PROMPT-XXX`)
-* **Numeração Sequencial Contínua:** Todo prompt gerado pelo Agente Arquiteto deve receber um identificador único e crescente no topo (`PROMPT-001`, `PROMPT-002`, etc.).
-* **Sub-numeração para Etapas Atômicas:** Tarefas divididas recebem sufixos decimais (`PROMPT-004.1`, `PROMPT-004.2`, `PROMPT-004.3`).
+### 7. Rastreabilidade, Ordem de Serviço e Numeração de Prompts (`OS-XXX` / `PROMPT-XXX`)
+* **Equivalência Mandatória de Ordem de Serviço:** Todo prompt gerado pelos agentes é uma **Ordem de Serviço (OS)** de engenharia formal e deve conter obrigatoriamente o número sequencial da OS/Prompt e o **título indicando o procedimento resumido**.
+* **Numeração Sequencial Contínua:** Todo prompt gerado pelo Agente Arquiteto deve receber um identificador único e crescente no topo (`OS-001 (PROMPT-001 | ADR-001)`, `OS-002 (PROMPT-002 | ADR-002)`, etc.).
+* **Título Obrigatório com Procedimento Resumido:** É estritamente proibido emitir prompts sem título ou com descrições genéricas. O título deve declarar expressamente a ação executiva e o componente/escopo afetado (ex: `OS-005 (PROMPT-005 | ADR-005) — [Procedimento: Otimização WebP e Limpeza de Assets Órfãos]`).
+* **Linha de Procedimento Executivo:** Todo prompt deve incluir a linha `**Procedimento:** [Ação em 1 linha]` logo abaixo do cabeçalho, permitindo ao Construtor saber imediatamente o que executar sem ambiguidade.
+* **Sub-numeração para Etapas Atômicas:** Tarefas divididas recebem sufixos decimais (`OS-004.1 / PROMPT-004.1`, `OS-004.2 / PROMPT-004.2`).
 * **Ancoragem de Estado:** Consulta mandatória ao último `PROMPT-XXX` registrado no `PROJECT_STATE.md` para manter a sequência contínua.
 
 ---
