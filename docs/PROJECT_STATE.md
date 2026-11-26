@@ -1,6 +1,14 @@
 # PROJECT_STATE — LS Tecnologia (Página LS Vendas)
 
 ## 📌 Onde parámos
+- **Unificação e Publicação Total de 90 Skills no Repositório Central do GitHub [ADR-003 | OS-003 | PROMPT-003] (`[skill:senior-critical-advisor]` + `[skill:clean-code]` + `[skill:project-memory-manager]`)**:
+  - Diretriz Estratégica: Elevar o repositório central do GitHub (`https://github.com/suporte-dash/ecossitema-agentes_google.git`) para conter não apenas as 59 skills personalizadas, mas a totalidade das 90 skills operacionais ativas (adicionando as 15 skills dos plugins e as 16 skills nativas built-in da plataforma).
+  - **Entregas Arquiteturais Realizadas**:
+    1. *Injeção das 31 Skills Faltantes*: Migradas e unificadas em `skills/` todas as skills de plugins (`chrome-devtools`, `modern-web-guidance`, `elephant-goldfish-model`, `google-antigravity-sdk`) e builtin (`automation`, `conversations`, `run-workflow`, etc.).
+    2. *Atualização de Scripts GitOps*: Aprimorados `sync.ps1` e `README.md` para sincronizar e contabilizar o catálogo unificado de 90 skills.
+    3. *Rastreabilidade Sequencial Fixada*: Incremento do contador contínuo para `ADR-003` e `OS-003 / PROMPT-003`.
+    4. *Sincronização na Nuvem*: Push realizado com sucesso para o branch `main` no GitHub.
+
 - **Padronização Mandatória de Ordem de Serviço (OS) e Procedimento Resumido em Todos os Prompts de Execução [ADR-002 | OS-002 | PROMPT-002] (`[skill:senior-critical-advisor]` + `[skill:ecosystem-protocol]` + `[skill:project-memory-manager]`)**:
   - Diretriz Estratégica: Estabelecer formalmente que todo prompt gerado pelos agentes no ecossistema é uma **Ordem de Serviço (OS)** de engenharia. Passa a ser mandatório incluir no cabeçalho o número sequencial da OS/Prompt (`OS-XXX (PROMPT-XXX | ADR-XXX)`) acompanhado expressamente de um **título indicando o procedimento resumido** da ação (`[Procedimento: Título Curto e Autoexplicativo]`), além da linha executiva `**Procedimento:** [Resumo em 1 linha da ação]`.
   - **Entregas Arquiteturais Realizadas**:
