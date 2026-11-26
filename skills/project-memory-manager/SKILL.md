@@ -1,13 +1,13 @@
 ---
 name: project-memory-manager
-description: Mandatory persistent session memory manager. Maintains, audits, and synchronizes the project's single source of truth (PROJECT_STATE.md). Enforces the opening 3-part greeting (📌 Onde parámos, ⚙️ Estado atual, 🎯 Próximos passos imediatos) at every interaction and guarantees complete tracking of architectural decisions, code changes, and pending tasks at completion.
+description: Mandatory persistent session memory manager. Maintains, audits, and synchronizes the project's single source of truth (PROJECT_STATE.md). Enforces the opening 3-part greeting (📌 Onde parámos, ⚙️ Estado atual, 🎯 Próximos passos imediatos) at every interaction and guarantees complete tracking of architectural decisions, code changes, pending tasks, and multi-agent concurrency locks at completion.
 when_to_use: "In every session start and close, whenever user returns to a project, after modifying code or architecture, and when tracking milestones or technical debt."
 allowed-tools: Read, Write, Edit, Grep, Glob
 effort: medium
-version: 2.0.0
+version: 2.1.0
 ---
 
-# Project Memory Manager — Persistent Session Memory & State Architect (v2.0)
+# Project Memory Manager — Persistent Session Memory & State Architect (v2.1)
 
 > "A project without persistent memory is doomed to reinvent past mistakes, lose context across sessions, and frustrate both user and agent. Total state visibility is the foundation of high-velocity senior engineering."
 
@@ -69,6 +69,11 @@ Every `PROJECT_STATE.md` must adhere to this structured layout:
 - Registro de escolhas estruturais importantes (ex: Mobile-First Scroll-Snap vs Carrossel JS, Tailwind v4 vs v3, Decoupled API Service Layer).
 - Justificativa técnica, prós, contras e impacto no longo prazo.
 
+## 🔒 Travas Ativas de Concorrência (Tabela Multi-Lock — Opcional para Pipeline Multi-Agente)
+| Arquivo sob Edição | Seção / Componente | Agente | Tarefa Vinculada | Emitido em | Status |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| `[caminho/arquivo]` | `[seção/escopo]` | `[Construtor/Agente 02]` | `ADR-XXX` | `YYYY-MM-DDTHH:mm` | `🔒 Ocupado` |
+
 ## ⚠️ Débito Técnico, Riscos & Pontos de Atenção
 - Elementos pendentes de validação, limites de taxa de APIs externas ou pendências de responsividade identificadas.
 ```
@@ -86,6 +91,7 @@ Whenever code, configuration, or architectural plans are implemented or modified
    - Update `## ⚙️ Estado atual` with the new compilation/test status.
    - Check off completed items in `## 🎯 Próximos passos imediatos` and add newly discovered next steps.
    - Record any new architectural decision in the ADR section.
+   - **Concurrency Locks (If present):** Register active locks (`🔒 Ocupado` + ISO timestamp) when issuing async prompts/tasks, and remove or mark them free once completed.
 4. **Deliver Accountability:** Present an executive summary to the user reflecting the updated state.
 
 ---
