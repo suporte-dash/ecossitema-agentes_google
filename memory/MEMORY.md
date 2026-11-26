@@ -58,3 +58,15 @@
 - **Gatilho Inteligente Sob Demanda:** Sempre que o usuário solicitar a criação, planejamento, estruturação ou manutenção de uma Landing Page ou site institucional para um cliente (Planos Express, Comercial ou VIP), ative imediatamente a skill `@[landing-page-factory]`.
 - **Diretriz de Execução:** Carrega a esteira em 4 etapas (Triagem do Briefing, Montagem Modular, Quality Gate de 5 min e Homologação dos 7 dias). Mantém os agentes ágeis e sem poluição de contexto para projetos de apps, dashboards e automações.
 - **Localização:** Global em `C:\Users\NOC 01\.gemini\config\skills\landing-page-factory\SKILL.md` e Local em `.agents/skills/landing-page-factory\SKILL.md`.
+
+---
+
+## 🖼️ Diretriz Mestre de Formatos de Mídia Web (`web-media-standard`)
+- **Origem & Propósito:** Criada para padronizar e blindar a arquitetura de imagens de todo e qualquer projeto web do ecossistema, garantindo pontuações verdes no Google (Core Web Vitals) e eliminando bloat.
+- **Diretrizes Inegociáveis:**
+  1. *Ícones e Elementos Vetoriais*: Estritamente em **SVG** (1-3 KB, nitidez infinita, cores dinâmicas via CSS). Proibido usar PNG/JPG para ícones de UI.
+  2. *Vitrines, Fotos e Mockups 3D*: Estritamente em **WebP** (25-35% menor que JPEG, até 75-80% menor que PNG, com suporte nativo a canal Alpha e bordas suaves).
+  3. *Fotografia de Alta Densidade / E-commerce*: Tag `<picture>` com **AVIF** primário e fallback universal em **WebP**.
+  4. *Favicons de Alto Padrão*: Recorte circular com cantos transparentes (`alpha: 0`), tag dupla limpa (`WebP` + `PNG 48x48`) e `/favicon.ico` raiz. Proibido empilhar matrizes redundantes na pasta.
+  5. *LCP & CLS Zero*: Atributos `width` e `height` obrigatórios em todas as imagens; `loading="lazy"` abaixo da dobra; `<link rel="preload">` no Hero LCP acima da dobra.
+- **Localização:** Global em `C:\Users\NOC 01\.gemini\config\rules\web-media-standard.md` e Local em `.agents/rules/web-media-standard.md`.
