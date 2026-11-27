@@ -768,6 +768,73 @@ Por favor:
     </div>
   </section>
 
+  <!-- SEÇÃO 5: PÓS-LANÇAMENTO NO GOOGLE -->
+  <section class="sec grid">
+    <div class="col-12">
+      <h2>5. Pós-lançamento no Google: Checklist de 5 minutos e Serviços Extras</h2>
+      <p class="measure">
+        Depois que o <code>.com.br</code> oficial estiver ativo e a chave <code>emProducao: true</code> ligada, siga esta divisão para o Google indexar rápido sem você trabalhar de graça em serviços extras:
+      </p>
+
+      <div class="strip-2">
+        <div>
+          <h3>✅ Faz parte da entrega básica (5 min)</h3>
+          <ul class="clean">
+            <li><strong><a href="https://search.google.com/search-console" target="_blank" rel="noopener noreferrer">Google Search Console</a>:</strong> cadastrar o domínio oficial, enviar o <code>sitemap.xml</code> e clicar em <em>"Solicitar indexação"</em>.</li>
+            <li><strong>Testes oficiais na URL final:</strong> validar nota 90+ no <a href="https://pagespeed.web.dev/?hl=pt" target="_blank" rel="noopener noreferrer">PageSpeed Insights</a>, Schema no <a href="https://search.google.com/test/rich-results" target="_blank" rel="noopener noreferrer">Rich Results Test</a> e miniatura no WhatsApp.</li>
+            <li><strong>Arquivos públicos &amp; HTTPS:</strong> abrir <code>/robots.txt</code>, <code>/sitemap.xml</code>, <code>/llms.txt</code> no navegador conferindo a URL oficial.</li>
+            <li><strong>Link no Google Maps:</strong> enviar a URL pronta para o cliente colar no campo "Site" do perfil dele no Google.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>💰 Cobrar à parte ou incluir no Plano Mensal</h3>
+          <ul class="clean">
+            <li><strong>Google Meu Negócio completo (Maps):</strong> criar ficha do zero, configurar categorias, subir fotos e cadastrar produtos/serviços lá dentro é serviço extra de SEO Local.</li>
+            <li><strong>Relatório de Acessos (Cloudflare Web Analytics):</strong> ativar só para clientes do <strong>Plano Mensal</strong>, mandando print mensal de visitas para reter o cliente.</li>
+            <li><strong>Google Analytics 4 / Pixel / Tag Manager:</strong> instalar apenas se o cliente pedir ou pagar à parte para tráfego pago.</li>
+          </ul>
+        </div>
+      </div>
+
+      <details class="howto">
+        <summary>▸ Passo a passo: Cadastrar no Google Search Console, enviar Sitemap e pedir indexação</summary>
+        <div class="howto-body">
+          <ol class="steps">
+            <li>Acesse o <a href="https://search.google.com/search-console" target="_blank" rel="noopener noreferrer">Google Search Console</a> e clique em <strong>Adicionar propriedade</strong>.</li>
+            <li>Escolha <strong>Domínio</strong> (lado esquerdo), digite <code>nomedocliente.com.br</code> (sem <code>https://</code>) e clique em <strong>Continuar</strong>.</li>
+            <li>Copie o código <strong>TXT</strong> gerado pelo Google.</li>
+            <li>No painel DNS do domínio (Cloudflare ou Registro.br), crie um registro <strong>TXT</strong> com nome <code>@</code>, cole o código, salve e clique em <strong>Verificar</strong> no Google.</li>
+            <li>No menu esquerdo → <strong>Sitemaps</strong> → digite <code>sitemap.xml</code> e clique em <strong>Enviar</strong>.</li>
+            <li>Na barra superior <strong>Inspecionar qualquer URL</strong>, cole <code>https://nomedocliente.com.br</code>, dê Enter e clique em <strong>Solicitar indexação</strong>.</li>
+          </ol>
+        </div>
+      </details>
+
+      <details class="howto">
+        <summary>▸ Passo a passo: Validar PageSpeed, Rich Results (Schema), WhatsApp e Arquivos Públicos</summary>
+        <div class="howto-body">
+          <ol class="steps">
+            <li><strong>Velocidade:</strong> teste <code>https://nomedocliente.com.br</code> no <a href="https://pagespeed.web.dev/?hl=pt" target="_blank" rel="noopener noreferrer">PageSpeed Insights</a> (aba Celular e Computador — meta 90+).</li>
+            <li><strong>Dados Estruturados:</strong> teste no <a href="https://search.google.com/test/rich-results" target="_blank" rel="noopener noreferrer">Rich Results Test</a> confirmando que o <code>LocalBusiness</code> aparece válido sem erros.</li>
+            <li><strong>WhatsApp Preview:</strong> mande o link oficial no grupo da dupla confirmando foto de capa, título e descrição.</li>
+            <li><strong>Arquivos públicos:</strong> abra no navegador <code>/robots.txt</code> (liberado para o Google + apontando sitemap), <code>/sitemap.xml</code> e <code>/llms.txt</code> confirmando a URL <code>.com.br</code> oficial.</li>
+          </ol>
+        </div>
+      </details>
+
+      <details class="howto">
+        <summary>▸ Passo a passo: Ativar Cloudflare Web Analytics grátis (sem cookies) para Plano Mensal</summary>
+        <div class="howto-body">
+          <ol class="steps">
+            <li>No painel da <a href="https://dash.cloudflare.com" target="_blank" rel="noopener noreferrer">Cloudflare Pages</a>, entre no projeto → aba <strong>Metrics</strong> (ou <strong>Web Analytics</strong>).</li>
+            <li>Clique em <strong>Enable Web Analytics</strong> para o domínio oficial do cliente.</li>
+            <li>Sem cookies e sem banner de LGPD — use os números mensais de acessos para mostrar resultado ao cliente na renovação da mensalidade.</li>
+          </ol>
+        </div>
+      </details>
+    </div>
+  </section>
+
   <aside class="full-band">
     <p class="pull-quote">
       Fluxo limpo do Sandro: Molde no GitHub → Cloudflare Pages → Agentes Duais (Chave desligada no teste) → PageSpeed 90+ → Domínio .com.br + Ligar chave de produção → Purga Pré-Git sempre ativa.

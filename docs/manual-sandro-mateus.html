@@ -1426,6 +1426,73 @@ A maioria dos clientes prefere a opção mensal justamente pela praticidade de m
     </div>
   </section>
 
+  <!-- SEÇÃO 9: PÓS-LANÇAMENTO NO GOOGLE (SANDRO) -->
+  <section class="sec grid">
+    <div class="col-12">
+      <h2>Pós-lançamento no Google: Checklist de 5 minutos e Serviços Extras (Sandro)</h2>
+      <p class="measure">
+        Assim que o domínio <code>.com.br</code> oficial estiver ativo e a chave <code>emProducao: true</code> ligada, siga esta divisão para garantir que o Google enxergue o site rápido sem trabalhar de graça em serviços extras:
+      </p>
+
+      <div class="strip-2">
+        <div>
+          <h3>✅ Faz parte da entrega básica (5 min)</h3>
+          <ul class="clean">
+            <li><strong><a href="https://search.google.com/search-console" target="_blank" rel="noopener noreferrer">Google Search Console</a>:</strong> cadastrar o domínio oficial, enviar o <code>sitemap.xml</code> e clicar em <em>"Solicitar indexação"</em> para o Google mostrar o site rápido.</li>
+            <li><strong>Testes oficiais na URL final:</strong> validar nota 90+ no <a href="https://pagespeed.web.dev/?hl=pt" target="_blank" rel="noopener noreferrer">PageSpeed Insights</a>, leitura do Schema no <a href="https://search.google.com/test/rich-results" target="_blank" rel="noopener noreferrer">Rich Results Test</a> e miniatura no WhatsApp.</li>
+            <li><strong>Conferência de arquivos públicos:</strong> abrir <code>/robots.txt</code>, <code>/sitemap.xml</code>, <code>/llms.txt</code> e cadeado HTTPS no navegador.</li>
+            <li><strong>Link no Google Maps:</strong> enviar a URL pronta para o cliente colar no campo "Site" do perfil dele no Google.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>💰 Cobrar à parte ou incluir no Plano Mensal</h3>
+          <ul class="clean green">
+            <li><strong>Criação/Otimização do Google Meu Negócio (Maps):</strong> criar ficha do zero, configurar categorias, subir fotos e cadastrar produtos/serviços lá dentro é serviço extra de SEO Local.</li>
+            <li><strong>Relatório de Acessos (Cloudflare Web Analytics):</strong> ativar só para clientes do <strong>Plano Mensal</strong>, enviando todo mês quantas visitas o site teve para justificar a recorrência.</li>
+            <li><strong>Google Analytics 4 / Pixel do Meta / Tag Manager:</strong> instalar apenas se o cliente pedir ou pagar à parte para rodar anúncios pagos.</li>
+          </ul>
+        </div>
+      </div>
+
+      <details class="howto">
+        <summary>▸ Passo a passo detalhado: Cadastrar no Google Search Console, enviar Sitemap e pedir indexação</summary>
+        <div class="howto-body">
+          <ol class="steps">
+            <li>Acesse o <a href="https://search.google.com/search-console" target="_blank" rel="noopener noreferrer">Google Search Console</a> logado na conta Google do projeto/cliente e clique em <strong>Adicionar propriedade</strong>.</li>
+            <li>Escolha a opção <strong>Domínio</strong> (lado esquerdo), digite apenas <code>nomedocliente.com.br</code> (sem <code>https://</code>) e clique em <strong>Continuar</strong>.</li>
+            <li>Copie o código de verificação <strong>TXT</strong> que o Google mostrar na tela.</li>
+            <li>No painel DNS do domínio (Cloudflare ou Registro.br), adicione um registro tipo <strong>TXT</strong>, nome <code>@</code>, colando esse código e salve. Volte ao Search Console e clique em <strong>Verificar</strong>.</li>
+            <li>No menu esquerdo, clique em <strong>Sitemaps</strong>, digite <code>sitemap.xml</code> no campo de URL e clique em <strong>Enviar</strong>.</li>
+            <li>No topo da tela, cole <code>https://nomedocliente.com.br</code> na barra <strong>Inspecionar qualquer URL</strong>, aperte Enter e clique em <strong>Solicitar indexação</strong>. Pronto!</li>
+          </ol>
+        </div>
+      </details>
+
+      <details class="howto">
+        <summary>▸ Passo a passo detalhado: Validar velocidade, dados do Google (Schema) e arquivos públicos</summary>
+        <div class="howto-body">
+          <ol class="steps">
+            <li><strong>Velocidade:</strong> cole <code>https://nomedocliente.com.br</code> no <a href="https://pagespeed.web.dev/?hl=pt" target="_blank" rel="noopener noreferrer">PageSpeed Insights</a> e confira a aba <strong>Celular</strong> e <strong>Computador</strong> (meta: faixa verde 90+).</li>
+            <li><strong>Leitura do Google (Rich Results):</strong> cole a mesma URL no <a href="https://search.google.com/test/rich-results" target="_blank" rel="noopener noreferrer">Teste de Pesquisa Aprimorada</a> para confirmar que o bloco <code>LocalBusiness</code> (nome, endereço, telefone e horários) foi lido sem erros.</li>
+            <li><strong>Miniatura no WhatsApp:</strong> mande o link oficial no grupo da dupla para validar foto de capa, título e descrição.</li>
+            <li><strong>Conferência no navegador (30 seg):</strong> abra <code>https://nomedocliente.com.br/robots.txt</code> (deve estar liberando o Google e apontando o sitemap), <code>/sitemap.xml</code> e <code>/llms.txt</code> — confirmando que todos exibem o domínio <code>.com.br</code> oficial e não o antigo <code>.pages.dev</code>.</li>
+          </ol>
+        </div>
+      </details>
+
+      <details class="howto">
+        <summary>▸ Passo a passo detalhado: Ativar estatísticas grátis na Cloudflare (para clientes do Plano Mensal)</summary>
+        <div class="howto-body">
+          <ol class="steps">
+            <li>No painel da <a href="https://dash.cloudflare.com" target="_blank" rel="noopener noreferrer">Cloudflare Pages</a>, entre no projeto do cliente → aba <strong>Metrics</strong> (ou <strong>Web Analytics</strong> no menu lateral).</li>
+            <li>Clique em <strong>Enable Web Analytics</strong> para o domínio do cliente.</li>
+            <li><strong>Vantagem gigante:</strong> ele não usa cookies rastreadores (dispensa banner chato de LGPD), não deixa o site lento e mostra quantos acessos e visualizações de página o cliente recebeu no mês — perfeito para você mandar um print no WhatsApp junto com a cobrança mensal!</li>
+          </ol>
+        </div>
+      </details>
+    </div>
+  </section>
+
   <!-- FULL-BLEED BAND -->
   <aside class="full-band">
     <p class="pull-quote">
