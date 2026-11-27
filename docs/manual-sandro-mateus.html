@@ -1056,6 +1056,11 @@ Regras obrigatórias:
               <li>Após o Construtor finalizar o build sem erros, envie para o GitHub (<code>git push</code>). Em cerca de 1 minuto o link da Cloudflare Pages estará atualizado.</li>
             </ol>
 
+            <div class="prompt-label">Como funciona a "Chave Liga/Desliga" (para não confundir o Google com o link de teste):</div>
+            <p style="margin-bottom: 12px;">
+              Enquanto vocês ainda não compraram o <code>.com.br</code> oficial, o site fica no link provisório da Cloudflare (<code>.pages.dev</code>). Para o Google não indexar esse link de teste antes da hora, o projeto usa uma <strong>chave liga/desliga</strong> (<code>emProducao: false</code>) em um único arquivo (<code>src/config/site.ts</code>): vocês testam tudo no celular e no WhatsApp normalmente, mas com uma "placa de Em Obras" invisível para o Google. No <strong>Passo 6</strong>, quando o <code>.com.br</code> for comprado, basta ligar essa chave!
+            </p>
+
             <div class="prompt-label">Prompt pronto para o Sandro colar no Agente Arquiteto:</div>
             <pre class="prompt">Meu parceiro de design subiu o arquivo rascunho.html e as fotos dentro da pasta entrega-design/ para o cliente [NOME DO CLIENTE].
 
@@ -1065,7 +1070,10 @@ Inspecione o material em entrega-design/ e gere a Ordem de Serviço estruturada 
 2. Padrão de Mídia (web-media-standard): converter todas as imagens de entrega-design/ para .webp (máx. 1200px capa e 800px cards), salvar em public/images/, definir width/height explícitos para CLS=0, loading="lazy" abaixo da dobra, preload com fetchpriority="high" na imagem Hero e gerar o kit de favicons (WebP + PNG 48x48 + favicon.ico).
 3. Captura e WhatsApp: conectar todos os CTAs ao src/config/site.ts e ligar o componente LeadWhatsAppForm.astro para redirecionar o cliente direto ao WhatsApp com os campos preenchidos (usando Formspree com honeypot apenas se configurado).
 4. Auditoria Cirúrgica (surgical-eye-audit + mobile-web-first): validar alvos de toque mínimos de 48x48px, zero overflow horizontal em 360px-390px e contraste adequado.
-5. SEO Local, IAs (geo-fundamentals) e Arquivos de Infra em public/: preencher título, meta description, Open Graph (WhatsApp Preview) e Schema.org (LocalBusiness em JSON-LD) no BaseLayout.astro usando os dados do site.ts; criar e preencher na pasta public/ os arquivos robots.txt, sitemap.xml, llms.txt, site.webmanifest e humans.txt.
+5. Chave Geral de Produção, SEO Local e Arquivos de Infra:
+   - Adicione em src/config/site.ts os campos emProducao (começando como false) e siteUrl (começando com a URL provisória .pages.dev).
+   - Gere os arquivos robots.txt, sitemap.xml e llms.txt dinamicamente (src/pages/robots.txt.ts, sitemap.xml.ts e llms.txt.ts) lendo direto do site.ts: enquanto emProducao for false, bloqueie a indexação do Google (Disallow: / e meta noindex) sem bloquear o WhatsApp Preview (Open Graph); quando virar true, libere tudo com a URL oficial.
+   - Preencha título, meta description, Open Graph e Schema.org (LocalBusiness em JSON-LD) no BaseLayout.astro, além de site.webmanifest e humans.txt em public/.
 6. Purga Pré-Git (autonomous-deadcode-purger): após validar que tudo está funcionando em public/images/, purgar código morto, CSS zumbi, console.log e o rascunho.html/fotos brutas de entrega-design/ (preservando sempre entrega-design/LEIA-ME.txt, .agents/**, AGENTS.md, GEMINI.md e PROJECT_STATE.md).
 
 Ao final, peça ao Construtor para rodar npm.cmd run build, confirmar Exit Code 0 e atualizar o PROJECT_STATE.md.</pre>
@@ -1114,8 +1122,16 @@ Ao final, peça ao Construtor para rodar npm.cmd run build, confirmar Exit Code 
               <li><strong>Rodada única de ajustes:</strong> se o cliente pediu troca de texto ou foto, o Mateus sobe na pasta <code>entrega-design/</code> e o Sandro aplica e atualiza no GitHub.</li>
               <li><strong>Adicionar o domínio na hospedagem:</strong> no painel do projeto no Cloudflare Pages, vá em <strong>Custom Domains</strong> e digite o domínio do cliente (ex.: <code>nomedocliente.com.br</code>). A plataforma vai te mostrar os dados de DNS/CNAME ou Nameservers.</li>
               <li><strong>Apontar no Registro.br:</strong> acesse a conta do cliente no <a href="https://registro.br/dominio/" target="_blank" rel="noopener noreferrer">Registro.br</a> (ou oriente-o por chamada rápida), cole os dados de DNS fornecidos e salve. Aguarde a ativação e confira o cadeado HTTPS no navegador.</li>
+              <li><strong>Ligar a Chave para Produção (Inauguração no Google):</strong> com o <code>.com.br</code> comprado e ativo, cole o mini-prompt abaixo no seu agente para trocar o endereço no <code>site.ts</code> e ligar <code>emProducao: true</code> — todos os arquivos de Google e IA (<code>robots.txt</code>, <code>sitemap.xml</code>, <code>llms.txt</code> e <code>Schema</code>) se atualizam sozinhos na hora!</li>
               <li><strong>Receber 50/50 e pedir indicação:</strong> enviem o link oficial, recebam os <strong>50% finais</strong> no Pix, confirmem o plano de gestão/suporte (com teto claro abaixo), salvem prints para o portfólio e peçam indicação: <em>"Se conhecer algum amigo empresário precisando de uma página assim, pode passar nosso contato!"</em></li>
             </ol>
+
+            <div class="prompt-label">Mini-prompt pronto para ligar a chave no Passo 6 (colar quando o .com.br estiver comprado):</div>
+            <pre class="prompt">O domínio oficial do cliente foi comprado e configurado na Cloudflare Pages: https://[NOMEDOCLIENTE.COM.BR]
+
+Por favor:
+1. Atualize src/config/site.ts definindo emProducao: true e siteUrl: "https://[NOMEDOCLIENTE.COM.BR]".
+2. Rode o pre-flight-quality-gate, execute npm.cmd run build (confirmando Exit Code 0) e faça o git commit + git push para liberar o site oficial para o Google e IAs!</pre>
           </div>
         </details>
       </div>
