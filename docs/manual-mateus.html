@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guia Prático do Mateus — Design, Vendas e Referências (Parceria 50/50)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --canvas: #F1F5F9;
+      --paper: #FFFFFF;
+      --band: #0F172A;
+      --ink: #0F172A;
+      --ink2: #334155;
+      --mute: #475569;
+      --hair: #E2E8F0;
+      --hair-strong: #CBD5E1;
+      --accent: #059669;
+      --accent-soft: #ECFDF5;
+      --accent-border: #A7F3D0;
+      --accent-text: #065F46;
+      --blue: #1D4ED8;
+      --blue-soft: #EFF6FF;
+      --blue-border: #BFDBFE;
+      --blue-text: #1E3A8A;
+      --wa-bg: #F0FDF4;
+      --wa-border: #BBF7D0;
+      --wa-accent: #16A34A;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      background: var(--canvas);
+      color: var(--ink);
+      font-family: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background: var(--canvas);
+      color: var(--ink);
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 40px clamp(16px, 4vw, 48px) 84px;
+      overflow-x: hidden;
+    }
+
+    header.grid {
+      background: var(--paper);
+      border: 1px solid var(--hair);
+      border-top: 5px solid var(--accent);
+      border-radius: 16px;
+      padding: clamp(28px, 4vw, 48px);
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+    }
+
+    a {
+      color: var(--accent-text);
+      font-weight: 500;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    a:hover {
+      color: var(--ink);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      column-gap: 24px;
+    }
+
+    .col-12 { grid-column: 1 / -1; }
+
+    .measure {
+      max-width: 68ch;
+    }
+
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: clamp(30px, 3.8vw, 44px);
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+      color: var(--ink);
+      text-wrap: balance;
+      max-width: 26ch;
+    }
+
+    .deck {
+      margin-top: 16px;
+      font-size: 17.5px;
+      line-height: 1.6;
+      color: var(--ink2);
+      max-width: 66ch;
+    }
+
+    h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: clamp(22px, 2.2vw, 28px);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      text-wrap: balance;
+      margin-bottom: 14px;
+    }
+
+    h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 19px;
+      line-height: 1.3;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: var(--ink2);
+      font-size: 15.5px;
+      line-height: 1.65;
+    }
+
+    p + p {
+      margin-top: 12px;
+    }
+
+    strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    code {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 13px;
+      color: var(--ink);
+      background: #E2E8F0;
+      padding: 2px 6px;
+      border-radius: 5px;
+    }
+
+    .sec {
+      margin-top: 28px;
+      background: var(--paper);
+      border: 1px solid var(--hair);
+      border-radius: 16px;
+      padding: clamp(24px, 3.5vw, 42px);
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+    }
+
+    .role-strip {
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid var(--hair);
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .role-strip > div {
+      border-radius: 12px;
+      padding: 18px 20px;
+      border: 1px solid var(--hair);
+    }
+
+    .role-strip > div.mateus-box {
+      background: var(--accent-soft);
+      border-color: var(--accent-border);
+    }
+
+    .role-strip > div.sandro-box {
+      background: var(--blue-soft);
+      border-color: var(--blue-border);
+    }
+
+    .role-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 19px;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    .mateus { color: var(--accent-text); }
+    .sandro { color: var(--blue-text); }
+
+    .role-desc {
+      font-size: 14.5px;
+      line-height: 1.55;
+      color: var(--ink2);
+    }
+
+    .strip-2 {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .strip-3 {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .strip-2 > div,
+    .strip-3 > div {
+      background: #F8FAFC;
+      border: 1px solid var(--hair);
+      border-radius: 12px;
+      padding: 20px 22px;
+    }
+
+    .step-block {
+      margin-top: 18px;
+      background: #F8FAFC;
+      border: 1px solid var(--hair);
+      border-left: 4px solid var(--accent);
+      border-radius: 14px;
+      padding: 24px 26px;
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      column-gap: 24px;
+    }
+
+    .step-meta {
+      grid-column: 1 / span 4;
+    }
+
+    .step-body {
+      grid-column: 5 / -1;
+    }
+
+    .owner-line {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 600;
+      margin-top: 8px;
+      padding: 4px 10px;
+      border-radius: 99px;
+    }
+
+    .owner-line.mateus {
+      background: var(--accent-soft);
+      color: var(--accent-text);
+      border: 1px solid var(--accent-border);
+    }
+
+    .owner-line.juntos {
+      background: #E2E8F0;
+      color: var(--ink);
+      border: 1px solid var(--hair-strong);
+    }
+
+    .time-line {
+      font-size: 13.5px;
+      color: var(--mute);
+      margin-top: 8px;
+    }
+
+    details.howto {
+      margin-top: 18px;
+      background: var(--paper);
+      border: 1px solid var(--accent-border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    details.howto > summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 13px 18px;
+      background: var(--accent-soft);
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--accent-text);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      user-select: none;
+      transition: background-color 0.15s ease;
+    }
+
+    details.howto > summary:hover {
+      background: #D1FAE5;
+    }
+
+    details.howto > summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details.howto > summary::before {
+      content: "▸";
+      display: inline-block;
+      font-size: 14px;
+      line-height: 1;
+      transition: transform 0.15s ease;
+    }
+
+    details.howto[open] > summary::before {
+      transform: rotate(90deg);
+    }
+
+    .howto-body {
+      padding: 18px 20px 20px;
+      border-top: 1px solid var(--hair);
+      background: var(--paper);
+    }
+
+    .howto-body p {
+      font-size: 15px;
+    }
+
+    .prompt-label {
+      margin-top: 18px;
+      margin-bottom: 8px;
+      font-size: 13.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--ink);
+    }
+
+    pre.prompt {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 13px;
+      line-height: 1.65;
+      color: #F8FAFC;
+      background: #0F172A;
+      border-left: 4px solid #10B981;
+      border-radius: 10px;
+      padding: 18px 20px;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    pre.prompt.script-msg {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--ink);
+      background: var(--wa-bg);
+      border: 1px solid var(--wa-border);
+      border-left: 4px solid var(--wa-accent);
+      border-radius: 10px;
+    }
+
+    ol.steps, ul.clean {
+      margin-top: 12px;
+      padding-left: 20px;
+      color: var(--ink2);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    ul.clean {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    ul.clean li {
+      position: relative;
+      padding-left: 18px;
+    }
+
+    ul.clean li::before {
+      content: "–";
+      position: absolute;
+      left: 0;
+      color: var(--accent-text);
+      font-weight: 700;
+    }
+
+    ol.steps li + li,
+    ul.clean li + li {
+      margin-top: 10px;
+    }
+
+    .table-wrap {
+      margin-top: 20px;
+      width: 100%;
+      overflow-x: auto;
+      border: 1px solid var(--hair);
+      border-radius: 12px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 14.5px;
+      background: var(--paper);
+    }
+
+    thead th {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--ink);
+      background: #F1F5F9;
+      padding: 13px 16px;
+      border-bottom: 2px solid var(--hair-strong);
+      white-space: nowrap;
+    }
+
+    tbody tr:nth-child(even) {
+      background: #F8FAFC;
+    }
+
+    tbody td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--hair);
+      color: var(--ink2);
+      vertical-align: top;
+      line-height: 1.55;
+    }
+
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    tbody td:first-child {
+      color: var(--ink);
+      font-weight: 600;
+      background: rgba(241, 245, 249, 0.45);
+    }
+
+    .full-band {
+      margin-top: 28px;
+      padding: clamp(28px, 4vw, 44px);
+      background: var(--band);
+      color: #F8FAFC;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.12);
+    }
+
+    .pull-quote {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(20px, 2.2vw, 26px);
+      font-weight: 600;
+      line-height: 1.38;
+      color: #FFFFFF;
+      max-width: 54ch;
+    }
+
+    .pull-note {
+      margin-top: 14px;
+      font-size: 15.5px;
+      color: #CBD5E1;
+      max-width: 66ch;
+    }
+
+    @media (max-width: 900px) {
+      .step-meta, .step-body {
+        grid-column: 1 / -1;
+      }
+      .step-body {
+        margin-top: 16px;
+      }
+      .role-strip, .strip-2, .strip-3 {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="grid">
+    <div class="col-12">
+      <h1>Guia Prático do Mateus — Design, Vendas e Referências</h1>
+      <p class="deck">
+        Tudo o que você precisa no dia a dia da nossa parceria 50/50, sem nenhum termo complicado de programação. Clique nas barras verdes <strong>▸ Veja como fazer passo a passo</strong> para abrir os textos prontos de WhatsApp e os prompts para colar no Claude.
+      </p>
+
+      <div class="role-strip">
+        <div class="mateus-box">
+          <div class="role-name mateus">O seu papel (Mateus)</div>
+          <p class="role-desc">
+            Prospectar novos clientes no Google Maps, criar o visual e os textos dos sites usando o <strong>Claude</strong> + geradores de imagem, fazer prévias rápidas de capa e subir o arquivo <code>rascunho.html</code> no GitHub com poucos cliques.
+          </p>
+        </div>
+        <div class="sandro-box">
+          <div class="role-name sandro">O que fica com o Sandro</div>
+          <p class="role-desc">
+            Você não precisa mexer com código avançado, servidor nem DNS: o Sandro transforma o seu rascunho no site final ultrarrápido, otimiza as imagens, liga a captura no WhatsApp, hospeda e coloca o <code>.com.br</code> no ar.
+          </p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- SEÇÃO 1: O QUE FAZER PRIMEIRO (PORTFÓLIO) -->
+  <section class="sec grid">
+    <div class="col-12">
+      <h2>1. Preparo inicial: montar o nosso Portfólio com os 3 sites</h2>
+      <p class="measure">
+        Nós já saímos na frente porque já temos <strong>3 sites prontos</strong> (2 do Sandro + 1 seu daquele cliente que desistiu). Antes de sair prospectando, a sua missão inicial é bem simples:
+      </p>
+
+      <div class="strip-3">
+        <div>
+          <h3>1. Adaptar seu site antigo</h3>
+          <p>Abra aquele projeto no Claude e peça para trocar o nome, logo, endereço e WhatsApp por uma <strong>empresa fictícia</strong> (para não expor o ex-cliente).</p>
+        </div>
+        <div>
+          <h3>2. Tirar os prints no celular</h3>
+          <p>Assim que os 3 links estiverem no ar, abra cada um no celular e tire um print bonito da primeira tela (use a extensão <strong>GoFullPage</strong> se quiser a página toda).</p>
+        </div>
+        <div>
+          <h3>3. Salvar o link rápido</h3>
+          <p>Quando o nosso site de Portfólio estiver publicado com os 3 projetos, salve o link nas respostas rápidas do seu WhatsApp para mandar aos interessados.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO 2: ONDE BUSCAR REFERÊNCIAS VISUAIS POR NICHO -->
+  <section class="sec grid">
+    <div class="col-12">
+      <h2>2. Onde buscar referências visuais por nicho (sites, cardápios e extensões)</h2>
+      <p class="measure">
+        Nunca crie um visual no "chutômetro". Antes de abrir o Claude para um cliente novo, escolha <strong>1 referência forte do ramo dele</strong> em uma das galerias abaixo:
+      </p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Site (clique para abrir)</th>
+              <th>Para que serve</th>
+              <th>O que você encontra e como buscar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="https://www.lapa.ninja" target="_blank" rel="noopener noreferrer">Lapa Ninja</a></td>
+              <td>Landing Pages completas</td>
+              <td>Mostra o print da página inteira (do topo ao rodapé). Clique em <strong>Categories</strong> e filtre pelo nicho (<em>Health, Food, Legal, Real Estate</em>).</td>
+            </tr>
+            <tr>
+              <td><a href="https://onepagelove.com" target="_blank" rel="noopener noreferrer">One Page Love</a></td>
+              <td>Sites de página única</td>
+              <td>O maior acervo de sites de 1 página (ideal para negócios locais). Use a busca em inglês (ex.: <em>"restaurant"</em>, <em>"dentist"</em>, <em>"lawyer"</em>).</td>
+            </tr>
+            <tr>
+              <td><a href="https://land-book.com" target="_blank" rel="noopener noreferrer">Land-book</a></td>
+              <td>Landing Pages e Portfólios</td>
+              <td>Curadoria limpa e moderna. Filtre por <strong>Landing Pages</strong> ou <strong>Portfolios</strong> e escolha o estilo que combina com o cliente.</td>
+            </tr>
+            <tr>
+              <td><a href="https://www.siteinspire.com" target="_blank" rel="noopener noreferrer">Siteinspire</a></td>
+              <td>Filtro por Nicho + Estilo</td>
+              <td>Permite cruzar <strong>Subjects</strong> (Restaurantes, Advocacia, Saúde) com <strong>Styles</strong> (Minimal, Editorial, Bold).</td>
+            </tr>
+            <tr>
+              <td><a href="https://godly.website" target="_blank" rel="noopener noreferrer">Godly</a></td>
+              <td>Visual Premium / Luxo</td>
+              <td>Referências de altíssimo padrão visual, tipografia forte e animações elegantes. Ótimo para clientes que querem visual diferenciado.</td>
+            </tr>
+            <tr>
+              <td><a href="https://mobbin.com" target="_blank" rel="noopener noreferrer">Mobbin</a></td>
+              <td>Cardápios Digitais &amp; Mobile</td>
+              <td>Biblioteca gigante de telas reais de celular (iFood, Uber Eats, Starbucks). Perfeita para copiar estrutura de <strong>cardápio digital</strong> (foto, preço, abas e botão "+").</td>
+            </tr>
+            <tr>
+              <td><a href="https://dribbble.com" target="_blank" rel="noopener noreferrer">Dribbble</a> &amp; <a href="https://www.behance.net" target="_blank" rel="noopener noreferrer">Behance</a></td>
+              <td>Conceitos e Cardápios</td>
+              <td>No Dribbble, busque em inglês (<code>"digital menu mobile ui"</code>, <code>"dental landing page"</code>). No Behance, busque projetos completos brasileiros.</td>
+            </tr>
+            <tr>
+              <td><a href="https://www.pinterest.com" target="_blank" rel="noopener noreferrer">Pinterest</a></td>
+              <td>Busca visual rápida</td>
+              <td>Pesquise <code>"food menu ui"</code> ou <code>"law firm web design"</code> para montar um painel rápido de ideias por nicho.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="col-12" style="margin-top: 30px;">
+      <h3>4 extensões gratuitas no navegador para copiar fontes, cores e prints</h3>
+      <div class="strip-2">
+        <div>
+          <ul class="clean">
+            <li><strong><a href="https://www.fonts.ninja" target="_blank" rel="noopener noreferrer">Fonts Ninja</a>:</strong> Passe o mouse sobre qualquer site bonito e descubra o nome exato da fonte (ex: <em>Fraunces</em>, <em>Plus Jakarta Sans</em>) para pedir ao Claude.</li>
+            <li><strong><a href="https://www.colorzilla.com" target="_blank" rel="noopener noreferrer">ColorZilla</a>:</strong> Conta-gotas que copia com 1 clique o código <code>#HEX</code> exato de qualquer cor da tela.</li>
+          </ul>
+        </div>
+        <div>
+          <ul class="clean">
+            <li><strong><a href="https://gofullpage.com" target="_blank" rel="noopener noreferrer">GoFullPage</a>:</strong> Tira um print inteiro da página (do topo ao rodapé) em 1 clique para anexar no Claude como referência visual.</li>
+            <li><strong><a href="https://muz.li" target="_blank" rel="noopener noreferrer">Muzli 2</a>:</strong> Transforma a "Nova Aba" do Chrome/Brave em um painel diário automático com inspirações de design.</li>
+          </ul>
+        </div>
+      </div>
+
+      <details class="howto">
+        <summary>▸ Veja como usar em 3 minutos (Referência + Claude)</summary>
+        <div class="howto-body">
+          <ol class="steps">
+            <li><strong>Escolha 1 referência:</strong> abra o <strong>Lapa Ninja</strong> (para sites) ou o <strong>Mobbin</strong> (para cardápios digitais) e encontre uma página forte do ramo do cliente.</li>
+            <li><strong>Capture os ingredientes:</strong> use o <strong>Fonts Ninja</strong> para anotar os nomes das fontes, o <strong>ColorZilla</strong> para copiar as 2 cores principais e o <strong>GoFullPage</strong> para tirar o print completo da tela.</li>
+            <li><strong>Mande para o Claude:</strong> anexe o print no Claude junto com o prompt de criação dizendo: <em>"Siga essa mesma hierarquia visual e use as fontes [Nome das Fontes], adaptando 100% para os dados e fotos da empresa [Nome]."</em></li>
+          </ol>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- SEÇÃO 3: PROSPECÇÃO E VENDAS NO WHATSAPP -->
+  <section class="sec grid">
+    <div class="col-12">
+      <h2>3. Como achar clientes e responder quando pedirem protótipo</h2>
+      <p class="measure">
+        Sua meta semanal: separar <strong>20 minutos em 3 dias da semana</strong> (15 empresas por semana sua parte) buscando empresas no Google Maps que tenham <strong>boas avaliações (4+ estrelas)</strong>, <strong>WhatsApp visível</strong> e <strong>NENHUM site cadastrado</strong>.
+      </p>
+
+      <div class="strip-2">
+        <div>
+          <h3>Mensagem pronta — 1ª abordagem (Sem link!)</h3>
+          <pre class="prompt script-msg">Olá, [Nome ou equipe da Empresa]! Tudo bem?
+
+Encontrei o perfil de vocês aqui no Google Maps (vi as ótimas avaliações de quem atende aí no [bairro/cidade]!) e notei que vocês ainda não têm um site ligado ali no perfil.
+
+Eu e meu sócio criamos páginas rápidas focadas em trazer clientes direto para o WhatsApp de quem pesquisa por [ramo] aqui na região.
+
+Posso te mandar alguns modelos prontos que já fizemos para você ver como fica no celular? Sem compromisso.</pre>
+        </div>
+        <div>
+          <h3>Regra do Follow-up (Anti-bloqueio no WhatsApp)</h3>
+          <ul class="clean">
+            <li><strong>Regra de Ouro:</strong> nunca envie links clicáveis na 1ª mensagem nem no Dia 3 antes de a pessoa responder <em>"Pode mandar"</em> (evita bloqueio por spam).</li>
+            <li><strong>Dia 3 (sem resposta):</strong> <em>"Oi [Nome], passando só para saber se conseguiu ver minha mensagem. Posso te mostrar rapidinho alguns exemplos que fizemos para negócios da região?"</em></li>
+            <li><strong>Dia 6 (último toque):</strong> <em>"Oi [Nome], para não te incomodar, vou encerrar por aqui. Se em algum momento quiserem colocar a página de vocês no Google para receber mais contatos no WhatsApp, fico à disposição!"</em></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12" style="margin-top: 30px;">
+      <h3>Regra dos 2 Níveis quando pedirem demonstração / protótipo</h3>
+      <div class="strip-2">
+        <div>
+          <h3>Nível 1: Mostrar o Portfólio (90% dos casos)</h3>
+          <ol class="steps">
+            <li>Mande o link do nosso <strong>Portfólio</strong> destacando o site mais próximo do ramo dele.</li>
+            <li>Mande um <strong>áudio curto de 30 segundos</strong> explicando como vamos adaptar com as cores e o WhatsApp da empresa dele.</li>
+            <li>Se gostar, passe o valor, o formato <strong>50% entrada + 50% entrega</strong> e o prazo combinado na nossa agenda.</li>
+          </ol>
+        </div>
+        <div>
+          <h3>Nível 2: Cliente insiste em ver "com a cara dele"</h3>
+          <ol class="steps">
+            <li><strong>NUNCA faça o site inteiro antes do sinal!</strong> Crie apenas a <strong>1ª tela (Capa)</strong> no Claude em 15 minutos.</li>
+            <li>Tire um <strong>print ou vídeo curto de 15 segundos</strong> no tamanho de celular (nunca envie o arquivo HTML para ele).</li>
+            <li>Envie o print com a mensagem de fechamento abaixo. O restante só começa após os 50%!</li>
+          </ol>
+        </div>
+      </div>
+
+      <details class="howto">
+        <summary>▸ Veja como fazer: prompt da Prévia da Capa (15 min) + mensagem de fechamento</summary>
+        <div class="howto-body">
+          <div class="prompt-label">Prompt para você colar no Claude (gera só a 1ª tela):</div>
+          <pre class="prompt">Crie APENAS a primeira seção (capa/Hero) de uma landing page moderna e focada em celular, em um único arquivo HTML com Tailwind CSS via CDN, para eu tirar um print de demonstração comercial.
+
+Empresa: [NOME DA EMPRESA]
+Cidade: [CIDADE]
+Ramo: [EX: SORVETERIA / ADVOCACIA / CLÍNICA]
+Estilo visual desejado: [EX: EDITORIAL SÓBRIO / VIBRANTE GASTRONÔMICO / CLÍNICO LIMPO]
+Cor principal (se tiver): [COR OU SUGERIR A MELHOR]
+
+Inclua somente:
+- Cabeçalho limpo com o nome da empresa e botão "Falar no WhatsApp"
+- Título chamativo focado em benefício para o cliente da cidade
+- Subtítulo curto de 2 linhas
+- Botão principal grande de chamada para ação (WhatsApp)
+- Espaço visual elegante simulando a foto principal do negócio
+
+Não gere o resto do site — apenas essa primeira tela caprichada para visualização rápida.</pre>
+
+          <div class="prompt-label">Mensagem para mandar no WhatsApp junto com o print:</div>
+          <pre class="prompt script-msg">Oi [Nome]! Montei rapidinho essa prévia só da primeira tela com a cara da [Empresa] para você sentir o nível do visual que a gente entrega.
+
+Se você curtiu essa linha, a gente já garante sua vaga na nossa agenda: fechando os 50% de entrada, construímos a página completa (com seus serviços, depoimentos, mapa, botão direto pro WhatsApp e captura de contatos) com previsão de entrega em [X dias úteis] após o envio das informações. Podemos dar o start?</pre>
+        </div>
+      </details>
+    </div>
+
+    <div class="col-12" style="margin-top: 30px;">
+      <h3>Como responder às 4 objeções mais comuns</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>O que o cliente diz</th>
+              <th>Por que ele diz isso</th>
+              <th>Resposta pronta (adaptar no seu tom)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>"Já tenho Instagram"</td>
+              <td>Acha que rede social substitui o Google.</td>
+              <td>"O Instagram é ótimo para quem já te segue! A página serve para capturar quem está procurando no Google agora mesmo — além de deixar um link profissional na sua bio com seus serviços e botão direto pro WhatsApp."</td>
+            </tr>
+            <tr>
+              <td>"Está caro / agora não dá"</td>
+              <td>Ainda não viu o retorno financeiro.</td>
+              <td>"Entendo total. A gente facilita em 50% na entrada e 50% só quando o site estiver pronto e aprovado por você. Com poucos clientes novos vindos pelo Google, a página já se paga e trabalha para o seu negócio o dia inteiro."</td>
+            </tr>
+            <tr>
+              <td>"Vou pensar e te aviso"</td>
+              <td>Ficou com dúvida ou sem urgência.</td>
+              <td>"Combinado! Ficou alguma dúvida sobre o que vai na página ou sobre como funciona o pagamento? Posso te chamar na [quinta-feira] só para alinhar, porque a gente limita a agenda a 2 projetos por vez para entregar bem feito."</td>
+            </tr>
+            <tr>
+              <td>"Não tenho tempo nem fotos"</td>
+              <td>Acha que vai dar trabalho para ele.</td>
+              <td>"Fica tranquilo: a gente só precisa de 15 minutos no WhatsApp para você responder 6 perguntas simples. Os textos e as imagens que faltarem nós mesmos criamos para você só aprovar pelo celular."</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO 4: PASSO A PASSO DA PRODUÇÃO (PARTE DO MATEUS) -->
+  <section class="sec">
+    <h2>4. Suas tarefas depois que o cliente fecha e paga os 50%</h2>
+    <p class="measure">
+      Depois que o cliente diz "sim", você participa destas etapas até o site ir para o ar:
+    </p>
+
+    <!-- TAREFA 1 -->
+    <div class="step-block">
+      <div class="step-meta">
+        <h3>Etapa A: Acordo e as 6 perguntas</h3>
+        <div class="owner-line juntos">Quem faz: Você e o Sandro</div>
+        <div class="time-line">Quando: Logo após o "sim" (20 min)</div>
+      </div>
+      <div class="step-body">
+        <p>
+          <strong>Regra fundamental:</strong> antes de mandar o Pix dos 50%, enviem o resumo de "De acordo" abaixo. E o prazo combinado só começa a contar depois que o cliente <strong>pagar a entrada E mandar as 6 respostas</strong>:
+        </p>
+        <ol class="steps">
+          <li>Nome exato do negócio e cidade/bairro onde atende.</li>
+          <li>Os 3 a 5 produtos ou serviços principais para destacar.</li>
+          <li>Número do WhatsApp e horário de funcionamento.</li>
+          <li>Logotipo, cores da marca e fotos reais disponíveis.</li>
+          <li>Principal diferencial (ex.: entrega rápida, experiência, atendimento).</li>
+          <li>Se já possui domínio <code>.com.br</code> ou quer registrar um novo.</li>
+        </ol>
+
+        <details class="howto">
+          <summary>▸ Veja como fazer: mensagem de "De acordo" no WhatsApp (enviar antes do Pix)</summary>
+          <div class="howto-body">
+            <pre class="prompt script-msg">Perfeito, [Nome]! Só para deixar tudo bem alinhado e transparente antes de começarmos, segue o resumo do nosso combinado para a página da [Empresa]:
+
+• O que está incluso: criação da landing page otimizada para celular e computador, botão direto para WhatsApp, formulário inteligente de captura e 1 rodada de ajustes após a apresentação do link de teste.
+• Investimento: R$ [VALOR], sendo 50% na entrada (R$ [METADE]) e 50% na aprovação final antes da publicação no domínio oficial.
+• Prazo de entrega: [X dias úteis], contados a partir da confirmação da entrada e do envio das 6 informações/materiais iniciais.
+• Domínio (.com.br): registrado no CPF/CNPJ do cliente no Registro.br (taxa anual de R$ 40 paga direto ao Registro.br).
+• Gestão e ajustes futuros: opção de plano mensal (R$ [VALOR]/mês com até 3 ajustes simples por mês) ou atendimento por ajustes avulsos após a entrega, a definir no fechamento.
+
+Se estiver tudo certinho, responde um "De acordo" por aqui que eu já te envio a chave Pix da entrada e as 6 perguntinhas rápidas!</pre>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <!-- TAREFA 2 -->
+    <div class="step-block">
+      <div class="step-meta">
+        <h3>Etapa B: Criar visual, fotos e subir no GitHub</h3>
+        <div class="owner-line mateus">Quem faz: Mateus (Você!)</div>
+        <div class="time-line">Quando: Primeiros blocos noturnos</div>
+      </div>
+      <div class="step-body">
+        <p>
+          Aqui é onde você brilha: gerar as fotos/ícones que faltarem, montar o arquivo <code>rascunho.html</code> no Claude já no padrão visual da referência escolhida e subir na pasta <code>entrega-design/</code> do GitHub (sem precisar usar nenhum comando de terminal).
+        </p>
+
+        <details class="howto">
+          <summary>▸ Veja como fazer: prompt completo do Claude + como subir os arquivos no GitHub</summary>
+          <div class="howto-body">
+            <ol class="steps">
+              <li>Salve as fotos reais do cliente + imagens criadas por IA em uma pasta no seu PC chamada <code>imagens-brutas</code>.</li>
+              <li>Cole o prompt abaixo no <strong>Claude</strong> (anexando o print da sua referência do Lapa Ninja/Mobbin se quiser), baixe o arquivo como <code>rascunho.html</code> e abra no navegador para conferir se ficou lindo.</li>
+              <li><strong>Como entregar para o Sandro (100% pelo navegador):</strong> abra o link do repositório no GitHub que o Sandro te mandou, entre na pasta <code>entrega-design</code>, clique em <strong>Add file → Upload files</strong>, arraste o <code>rascunho.html</code> e todas as fotos, e clique no botão verde <strong>Commit changes</strong>. Aí é só avisar o Sandro no WhatsApp!</li>
+            </ol>
+
+            <div class="prompt-label">Prompt pronto para você colar no Claude (site completo):</div>
+            <pre class="prompt">Atue como um diretor de arte e designer especialista em landing pages de alta conversão para negócios locais no Brasil.
+
+Crie o esboço completo de uma landing page autoral, limpa e focada em celular (mobile-first) usando HTML semântico e Tailwind CSS (via CDN apenas para pré-visualização).
+
+Dados do cliente:
+- Nome do negócio: [NOME]
+- Cidade/Bairro: [CIDADE]
+- Tipo de negócio: [EX: LANCHONETE / ADVOCACIA / SORVETERIA]
+- Direção visual / Personalidade: [EX: EDITORIAL SÓBRIO / VIBRANTE ARTESANAL / CLÍNICO MODERNO]
+- Principais ofertas: [LISTAR 3 A 5 ITENS]
+- Diferencial: [DIFERENCIAL]
+- WhatsApp: [NÚMERO]
+
+Monte exatamente estas 6 seções bem separadas por comentários no código:
+1. Topo (Hero) com título direto, subtítulo curto, botão principal para WhatsApp e espaço para foto principal.
+2. Benefícios / Diferenciais (3 blocos curtos com ícones SVG inline simples).
+3. Cardápio ou Serviços principais (com espaço para foto e descrição curta).
+4. Prova social (espaço para 3 depoimentos de clientes locais).
+5. Formulário simples de captura (Nome + Serviço desejado + botão "Continuar no WhatsApp") e endereço/horário.
+6. Rodapé com resumo do negócio e link direto para WhatsApp.
+
+Regras obrigatórias:
+- Declare no topo do arquivo (em comentário HTML e na tag &lt;link&gt;) exatamente quais fontes do Google Fonts foram escolhidas (ex.: Fraunces + Plus Jakarta Sans) e a paleta hex principal.
+- Escreva textos reais e persuasivos em português do Brasil (nada de Lorem Ipsum).
+- Indique onde cada imagem deve entrar usando nomes simples: imagem-capa.webp, imagem-1.webp, imagem-2.webp.
+- Evite layouts genéricos e repetitivos: use hierarquia tipográfica marcante e bom respiro visual.
+- Entregue o código completo em um único arquivo HTML para eu abrir no navegador e enviar ao meu sócio.</pre>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <!-- TAREFA 3 -->
+    <div class="step-block">
+      <div class="step-meta">
+        <h3>Etapa C: Revisão no celular e ajustes finais</h3>
+        <div class="owner-line juntos">Quem faz: Você e o Sandro</div>
+        <div class="time-line">Quando: Antes e depois de mostrar ao cliente</div>
+      </div>
+      <div class="step-body">
+        <p>Assim que o Sandro montar a versão final e te mandar o link de teste, abra no seu celular e confira:</p>
+        <ul class="clean">
+          <li><strong>Visual e textos no celular:</strong> nada cortado na lateral, fontes legíveis e fotos nítidas.</li>
+          <li><strong>Botões e formulário:</strong> clique para ter certeza de que tudo abre no WhatsApp certo.</li>
+          <li><strong>Rodada única de ajustes:</strong> se o cliente pedir para trocar uma frase ou foto na aprovação, você gera o ajuste e sobe em <code>entrega-design/</code> para o Sandro publicar.</li>
+          <li><strong>Print pro Portfólio:</strong> com o site oficial no ar e os 50% finais pagos, tire os prints para atualizar o nosso portfólio e peça indicação ao cliente!</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO 5: PLANO MENSAL (PÓS-VENDA) -->
+  <section class="sec grid">
+    <div class="col-12">
+      <h2>5. Como oferecer o Plano Mensal (Renda Recorrente 50/50)</h2>
+      <p class="measure">
+        Todo cliente precisa trocar preço, foto ou horário de vez em quando. Deixe as duas opções bem claras (sempre com o <strong>limite de até 3 ajustes simples por mês</strong> para ninguém abusar):
+      </p>
+
+      <div class="strip-2">
+        <div>
+          <h3>Opção 1 — Plano Mensal (Recomendada)</h3>
+          <ul class="clean">
+            <li>Site monitorado no ar com segurança e alta velocidade.</li>
+            <li>Direito a <strong>até 3 ajustes pontuais por mês</strong> direto no WhatsApp (trocar preços, horários, fotos existentes ou promoções).</li>
+            <li>Páginas novas ou mudanças grandes são orçadas à parte.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Opção 2 — Sem mensalidade (Avulso)</h3>
+          <ul class="clean">
+            <li>Site entregue no ar após o pagamento final.</li>
+            <li>Depois da rodada única de revisão da entrega, qualquer mudança futura é cobrada como ajuste avulso na hora.</li>
+          </ul>
+        </div>
+      </div>
+
+      <details class="howto">
+        <summary>▸ Mensagem pronta no WhatsApp para oferecer o plano mensal ao cliente</summary>
+        <div class="howto-body">
+          <pre class="prompt script-msg">Sobre a parte de manter o site atualizado depois que for ao ar, [Nome], a gente trabalha com duas opções bem simples para você escolher o que fica melhor:
+
+1. Plano Mensal de Gestão + Suporte (R$ [VALOR A TRATAR]/mês): a gente cuida do monitoramento do seu site, segurança e atualizações, e você tem direito a até 3 ajustes pontuais por mês direto pelo WhatsApp (trocar um preço, atualizar horário, colocar foto de produto novo ou subir uma promoção da semana), sem dor de cabeça. *(Páginas novas ou mudanças grandes de layout são orçadas à parte).*
+
+2. Sem mensalidade: entregamos o site publicado e, sempre que você precisar mudar alguma informação no futuro, a gente passa um valor avulso na hora só pelo ajuste pedido.
+
+A maioria dos clientes prefere a opção mensal justamente pela praticidade de mandar um áudio no WhatsApp e já ver a página atualizada no mesmo dia. Qual das duas faz mais sentido para você?</pre>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- BAND FINAL -->
+  <aside class="full-band">
+    <p class="pull-quote">
+      5 regras de ouro para você sempre lembrar: "De acordo" + 50% antes de começar, nunca faça site completo grátis (só print da 1ª tela), nunca mande link antes do "sim" no WhatsApp, sempre pegue 1 referência visual antes de abrir o Claude e deixe o teto de 3 ajustes/mês claro no plano mensal.
+    </p>
+    <p class="pull-note">
+      Qualquer parte técnica de Git, servidores, otimização de velocidade ou registro de domínio fica 100% por conta do Sandro — o seu foco total é vender bem e entregar um visual impossível de ignorar!
+    </p>
+  </aside>
+
+</body>
+</html>
