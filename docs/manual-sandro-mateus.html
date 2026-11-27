@@ -1059,13 +1059,14 @@ Regras obrigatórias:
             <div class="prompt-label">Prompt pronto para o Sandro colar no Agente Arquiteto:</div>
             <pre class="prompt">Meu parceiro de design subiu o arquivo rascunho.html e as fotos dentro da pasta entrega-design/ para o cliente [NOME DO CLIENTE].
 
-Inspecione o material em entrega-design/ e gere o plano estruturado (PROMPT-XXX | ADR-XXX) para o Agente Construtor executar no projeto Astro + Tailwind CSS preservando a identidade visual aprovada e aplicando nosso padrão de engenharia:
+Inspecione o material em entrega-design/ e gere a Ordem de Serviço estruturada (OS-XXX | PROMPT-XXX | ADR-XXX) para o Agente Construtor executar no projeto Astro + Tailwind CSS preservando a identidade visual aprovada e aplicando nosso padrão completo de engenharia:
 
 1. Estrutura de componentes: fatiar o rascunho.html em componentes limpos dentro de src/components/ (Hero, Beneficios, Ofertas, Depoimentos, Captura, Rodape) mantendo exatamente as fontes do Google Fonts declaradas no rascunho, e montar em src/pages/index.astro.
-2. Padrão de Mídia (web-media-standard): converter todas as imagens de entrega-design/ para .webp (máx. 1200px capa e 800px cards), salvar em public/images/, definir width/height explícitos para CLS=0, loading="lazy" abaixo da dobra e preload com fetchpriority="high" na imagem Hero.
+2. Padrão de Mídia (web-media-standard): converter todas as imagens de entrega-design/ para .webp (máx. 1200px capa e 800px cards), salvar em public/images/, definir width/height explícitos para CLS=0, loading="lazy" abaixo da dobra, preload com fetchpriority="high" na imagem Hero e gerar o kit de favicons (WebP + PNG 48x48 + favicon.ico).
 3. Captura e WhatsApp: conectar todos os CTAs ao src/config/site.ts e ligar o componente LeadWhatsAppForm.astro para redirecionar o cliente direto ao WhatsApp com os campos preenchidos (usando Formspree com honeypot apenas se configurado).
 4. Auditoria Cirúrgica (surgical-eye-audit + mobile-web-first): validar alvos de toque mínimos de 48x48px, zero overflow horizontal em 360px-390px e contraste adequado.
-5. SEO e WhatsApp Preview: preencher título, meta description e Open Graph (título, descrição e imagem de capa em WebP) no BaseLayout.astro.
+5. SEO Local, IAs (geo-fundamentals) e Arquivos de Infra em public/: preencher título, meta description, Open Graph (WhatsApp Preview) e Schema.org (LocalBusiness em JSON-LD) no BaseLayout.astro usando os dados do site.ts; criar e preencher na pasta public/ os arquivos robots.txt, sitemap.xml, llms.txt, site.webmanifest e humans.txt.
+6. Purga Pré-Git (autonomous-deadcode-purger): após validar que tudo está funcionando em public/images/, purgar código morto, CSS zumbi, console.log e o rascunho.html/fotos brutas de entrega-design/ (preservando sempre entrega-design/LEIA-ME.txt, .agents/**, AGENTS.md, GEMINI.md e PROJECT_STATE.md).
 
 Ao final, peça ao Construtor para rodar npm.cmd run build, confirmar Exit Code 0 e atualizar o PROJECT_STATE.md.</pre>
           </div>
