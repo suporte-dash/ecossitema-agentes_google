@@ -638,7 +638,7 @@
 
 Encontrei o perfil de vocês aqui no Google Maps (vi as ótimas avaliações de quem atende aí no [bairro/cidade]!) e notei que vocês ainda não têm um site ligado ali no perfil.
 
-Eu e meu sócio criamos páginas rápidas focadas em trazer clientes direto para o WhatsApp de quem pesquisa por [ramo] aqui na região.
+Eu e meu sócio criamos sites, cardápios digitais e páginas rápidas focadas em trazer clientes direto para o WhatsApp de quem pesquisa por [ramo] aqui na região.
 
 Posso te mandar alguns modelos prontos que já fizemos para você ver como fica no celular? Sem compromisso.</pre>
         </div>
@@ -698,7 +698,7 @@ Não gere o resto do site — apenas essa primeira tela caprichada para visualiz
           <div class="prompt-label">Mensagem para mandar no WhatsApp junto com o print:</div>
           <pre class="prompt script-msg">Oi [Nome]! Montei rapidinho essa prévia só da primeira tela com a cara da [Empresa] para você sentir o nível do visual que a gente entrega.
 
-Se você curtiu essa linha, a gente já garante sua vaga na nossa agenda: fechando os 50% de entrada, construímos a página completa (com seus serviços, depoimentos, mapa, botão direto pro WhatsApp e captura de contatos) com previsão de entrega em [X dias úteis] após o envio das informações. Podemos dar o start?</pre>
+Se você curtiu essa linha, a gente já garante sua vaga na nossa agenda: fechando os 50% de entrada, construímos o projeto completo (adaptado para o seu [site institucional / cardápio digital / página], com seus serviços, botão direto pro WhatsApp e captura de contatos) com previsão de entrega em [X dias úteis] após o envio das informações. Podemos dar o start?</pre>
         </div>
       </details>
     </div>
@@ -809,24 +809,22 @@ Se estiver tudo certinho, responde um "De acordo" por aqui que eu já te envio a
             <div class="prompt-label">Prompt pronto para você colar no Claude (site completo):</div>
             <pre class="prompt">Atue como um diretor de arte e designer especialista em landing pages de alta conversão para negócios locais no Brasil.
 
-Crie o esboço completo de uma landing page autoral, limpa e focada em celular (mobile-first) usando HTML semântico e Tailwind CSS (via CDN apenas para pré-visualização).
+Crie o esboço completo de um projeto web autoral, limpo e focado em celular (mobile-first) usando HTML semântico e Tailwind CSS (via CDN apenas para pré-visualização).
 
 Dados do cliente:
+- Tipo de projeto: [ESCOLHER: LANDING PAGE / SITE INSTITUCIONAL / CARDÁPIO DIGITAL]
 - Nome do negócio: [NOME]
 - Cidade/Bairro: [CIDADE]
-- Tipo de negócio: [EX: LANCHONETE / ADVOCACIA / SORVETERIA]
+- Ramo de atuação: [EX: LANCHONETE / ADVOCACIA / CLÍNICA / SORVETERIA]
 - Direção visual / Personalidade: [EX: EDITORIAL SÓBRIO / VIBRANTE ARTESANAL / CLÍNICO MODERNO]
-- Principais ofertas: [LISTAR 3 A 5 ITENS]
+- Principais ofertas / serviços / pratos: [LISTAR]
 - Diferencial: [DIFERENCIAL]
 - WhatsApp: [NÚMERO]
 
-Monte exatamente estas 6 seções bem separadas por comentários no código:
-1. Topo (Hero) com título direto, subtítulo curto, botão principal para WhatsApp e espaço para foto principal.
-2. Benefícios / Diferenciais (3 blocos curtos com ícones SVG inline simples).
-3. Cardápio ou Serviços principais (com espaço para foto e descrição curta).
-4. Prova social (espaço para 3 depoimentos de clientes locais).
-5. Formulário simples de captura (Nome + Serviço desejado + botão "Continuar no WhatsApp") e endereço/horário.
-6. Rodapé com resumo do negócio e link direto para WhatsApp.
+Adapte a estrutura de seções (bem separadas por comentários no código) conforme o Tipo de projeto:
+- Se for LANDING PAGE: Hero com CTA WhatsApp, Diferenciais, Ofertas/Serviços, Depoimentos, Formulário de captura para WhatsApp e Rodapé.
+- Se for SITE INSTITUCIONAL: Cabeçalho de navegação, Apresentação/Hero, Quem Somos/História, Áreas de Atuação ou Serviços detalhados, Equipe/Diferenciais, Contato/Mapa e Rodapé.
+- Se for CARDÁPIO DIGITAL: Topo com marca/horário de atendimento, Abas/filtros por categoria, Lista de itens com foto/descrição/preço e Botão de pedido direto para o WhatsApp.
 
 Regras obrigatórias:
 - Declare no topo do arquivo (em comentário HTML e na tag &lt;link&gt;) exatamente quais fontes do Google Fonts foram escolhidas (ex.: Fraunces + Plus Jakarta Sans) e a paleta hex principal.

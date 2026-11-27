@@ -588,7 +588,7 @@ VALIDAÇÃO FINAL E ENVIO AO GITHUB:
 
 Encontrei o perfil de vocês aqui no Google Maps (vi as ótimas avaliações de quem atende aí no [bairro/cidade]!) e notei que vocês ainda não têm um site ligado ali no perfil.
 
-Eu e meu sócio criamos páginas rápidas focadas em trazer clientes direto para o WhatsApp de quem pesquisa por [ramo] aqui na região.
+Eu e meu sócio criamos sites, cardápios digitais e páginas rápidas focadas em trazer clientes direto para o WhatsApp de quem pesquisa por [ramo] aqui na região.
 
 Posso te mandar alguns modelos prontos que já fizemos para você ver como fica no celular? Sem compromisso.</pre>
         </div>
@@ -670,7 +670,7 @@ Se estiver tudo certinho, responde um "De acordo" por aqui que eu já te envio a
 
 Inspecione o material em entrega-design/ e gere a Ordem de Serviço estruturada (OS-XXX | PROMPT-XXX | ADR-XXX) para o Agente Construtor executar no projeto Astro + Tailwind CSS preservando a identidade visual aprovada e aplicando nosso padrão completo de engenharia:
 
-1. Estrutura de componentes: fatiar o rascunho.html em componentes limpos dentro de src/components/ (Hero, Beneficios, Ofertas, Depoimentos, Captura, Rodape) mantendo exatamente as fontes do Google Fonts declaradas no rascunho, e montar em src/pages/index.astro.
+1. Estrutura de componentes e rotas: fatiar o rascunho.html em componentes limpos dentro de src/components/ respeitando a estrutura real do projeto (Landing Page, Site Institucional com seções de Quem Somos/Serviços/Equipe ou Cardápio Digital com categorias e itens), mantendo exatamente as fontes do Google Fonts declaradas no rascunho e montando as páginas em src/pages/.
 2. Padrão de Mídia (web-media-standard): converter todas as imagens de entrega-design/ para .webp (máx. 1200px capa e 800px cards), salvar em public/images/, definir width/height explícitos para CLS=0, loading="lazy" abaixo da dobra, preload com fetchpriority="high" na imagem Hero e gerar o kit de favicons (WebP + PNG 48x48 + favicon.ico).
 3. Captura e WhatsApp: conectar todos os CTAs ao src/config/site.ts e ligar o componente LeadWhatsAppForm.astro para redirecionar o cliente direto ao WhatsApp com os campos preenchidos (usando Formspree com honeypot apenas se configurado).
 4. Auditoria Cirúrgica (surgical-eye-audit + mobile-web-first): validar alvos de toque mínimos de 48x48px, zero overflow horizontal em 360px-390px e contraste adequado.

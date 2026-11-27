@@ -765,7 +765,7 @@ VALIDAÇÃO FINAL E ENVIO AO GITHUB:
 
 Encontrei o perfil de vocês aqui no Google Maps (vi as ótimas avaliações de quem atende aí no [bairro/cidade]!) e notei que vocês ainda não têm um site ligado ali no perfil.
 
-Eu e meu sócio criamos páginas rápidas focadas em trazer clientes direto para o WhatsApp de quem pesquisa por [ramo] aqui na região.
+Eu e meu sócio criamos sites, cardápios digitais e páginas rápidas focadas em trazer clientes direto para o WhatsApp de quem pesquisa por [ramo] aqui na região.
 
 Posso te mandar alguns modelos prontos que já fizemos para você ver como fica no celular? Sem compromisso.</pre>
       </div>
@@ -832,7 +832,7 @@ Não gere o resto do site — apenas essa primeira tela caprichada para visualiz
           <div class="prompt-label">Mensagem para enviar no WhatsApp junto com o print:</div>
           <pre class="prompt script-msg">Oi [Nome]! Montei rapidinho essa prévia só da primeira tela com a cara da [Empresa] para você sentir o nível do visual que a gente entrega.
 
-Se você curtiu essa linha, a gente já garante sua vaga na nossa agenda: fechando os 50% de entrada, construímos a página completa (com seus serviços, depoimentos, mapa, botão direto pro WhatsApp e captura de contatos) com previsão de entrega em [X dias úteis] após o envio das informações. Podemos dar o start?</pre>
+Se você curtiu essa linha, a gente já garante sua vaga na nossa agenda: fechando os 50% de entrada, construímos o projeto completo (adaptado para o seu [site institucional / cardápio digital / página], com seus serviços, botão direto pro WhatsApp e captura de contatos) com previsão de entrega em [X dias úteis] após o envio das informações. Podemos dar o start?</pre>
         </div>
       </details>
     </div>
@@ -1103,24 +1103,22 @@ Se estiver tudo certinho, responde um "De acordo" por aqui que eu já te envio a
             <div class="prompt-label">Prompt pronto para o Mateus colar no Claude (site completo sem cara genérica):</div>
             <pre class="prompt mateus-prompt">Atue como um diretor de arte e designer especialista em landing pages de alta conversão para negócios locais no Brasil.
 
-Crie o esboço completo de uma landing page autoral, limpa e focada em celular (mobile-first) usando HTML semântico e Tailwind CSS (via CDN apenas para pré-visualização).
+Crie o esboço completo de um projeto web autoral, limpo e focada em celular (mobile-first) usando HTML semântico e Tailwind CSS (via CDN apenas para pré-visualização).
 
 Dados do cliente:
+- Tipo de projeto: [ESCOLHER: LANDING PAGE / SITE INSTITUCIONAL / CARDÁPIO DIGITAL]
 - Nome do negócio: [NOME]
 - Cidade/Bairro: [CIDADE]
-- Tipo de negócio: [EX: LANCHONETE / ADVOCACIA / SORVETERIA]
+- Ramo de atuação: [EX: LANCHONETE / ADVOCACIA / CLÍNICA / SORVETERIA]
 - Direção visual / Personalidade: [EX: EDITORIAL SÓBRIO / VIBRANTE ARTESANAL / CLÍNICO MODERNO]
-- Principais ofertas: [LISTAR 3 A 5 ITENS]
+- Principais ofertas / serviços / pratos: [LISTAR]
 - Diferencial: [DIFERENCIAL]
 - WhatsApp: [NÚMERO]
 
-Monte exatamente estas 6 seções bem separadas por comentários no código:
-1. Topo (Hero) com título direto, subtítulo curto, botão principal para WhatsApp e espaço para foto principal.
-2. Benefícios / Diferenciais (3 blocos curtos com ícones SVG inline simples).
-3. Cardápio ou Serviços principais (com espaço para foto e descrição curta).
-4. Prova social (espaço para 3 depoimentos de clientes locais).
-5. Formulário simples de captura (Nome + Serviço desejado + botão "Continuar no WhatsApp") e endereço/horário.
-6. Rodapé com resumo do negócio e link direto para WhatsApp.
+Adapte a estrutura de seções (bem separadas por comentários no código) conforme o Tipo de projeto:
+- Se for LANDING PAGE: Hero com CTA WhatsApp, Diferenciais, Ofertas/Serviços, Depoimentos, Formulário de captura para WhatsApp e Rodapé.
+- Se for SITE INSTITUCIONAL: Cabeçalho de navegação, Apresentação/Hero, Quem Somos/História, Áreas de Atuação ou Serviços detalhados, Equipe/Diferenciais, Contato/Mapa e Rodapé.
+- Se for CARDÁPIO DIGITAL: Topo com marca/horário de atendimento, Abas/filtros por categoria, Lista de itens com foto/descrição/preço e Botão de pedido direto para o WhatsApp.
 
 Regras obrigatórias:
 - Declare no topo do arquivo (em comentário HTML e na tag &lt;link&gt;) exatamente quais fontes do Google Fonts foram escolhidas (ex.: Fraunces + Plus Jakarta Sans) e a paleta hex principal.
@@ -1163,7 +1161,7 @@ Regras obrigatórias:
 
 Inspecione o material em entrega-design/ e gere a Ordem de Serviço estruturada (OS-XXX | PROMPT-XXX | ADR-XXX) para o Agente Construtor executar no projeto Astro + Tailwind CSS preservando a identidade visual aprovada e aplicando nosso padrão completo de engenharia:
 
-1. Estrutura de componentes: fatiar o rascunho.html em componentes limpos dentro de src/components/ (Hero, Beneficios, Ofertas, Depoimentos, Captura, Rodape) mantendo exatamente as fontes do Google Fonts declaradas no rascunho, e montar em src/pages/index.astro.
+1. Estrutura de componentes e rotas: fatiar o rascunho.html em componentes limpos dentro de src/components/ respeitando a estrutura real do projeto (Landing Page, Site Institucional com seções de Quem Somos/Serviços/Equipe ou Cardápio Digital com categorias e itens), mantendo exatamente as fontes do Google Fonts declaradas no rascunho e montando as páginas em src/pages/.
 2. Padrão de Mídia (web-media-standard): converter todas as imagens de entrega-design/ para .webp (máx. 1200px capa e 800px cards), salvar em public/images/, definir width/height explícitos para CLS=0, loading="lazy" abaixo da dobra, preload com fetchpriority="high" na imagem Hero e gerar o kit de favicons (WebP + PNG 48x48 + favicon.ico).
 3. Captura e WhatsApp: conectar todos os CTAs ao src/config/site.ts e ligar o componente LeadWhatsAppForm.astro para redirecionar o cliente direto ao WhatsApp com os campos preenchidos (usando Formspree com honeypot apenas se configurado).
 4. Auditoria Cirúrgica (surgical-eye-audit + mobile-web-first): validar alvos de toque mínimos de 48x48px, zero overflow horizontal em 360px-390px e contraste adequado.
