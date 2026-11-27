@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manual Completo — Sandro e Mateus (Portfólio, Vendas e Entrega)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #FFFFFF;
+      --band: #F4F6F8;
+      --ink: #0F172A;
+      --ink2: #334155;
+      --mute: #475569;
+      --hair: #CBD5E1;
+      --accent: #1D4ED8;
+      --accent-text: #1E3A8A;
+      --accent-2: #059669;
+      --accent-2-text: #065F46;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      padding: 64px clamp(24px, 10vw, 112px) 92px;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: var(--accent-text);
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    a:hover {
+      color: var(--ink);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      column-gap: 24px;
+    }
+
+    .col-12 { grid-column: 1 / -1; }
+    .col-10 { grid-column: 1 / span 10; }
+
+    .measure {
+      max-width: 68ch;
+    }
+
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: clamp(34px, 4.2vw, 50px);
+      line-height: 1.08;
+      letter-spacing: -0.025em;
+      color: var(--ink);
+      text-wrap: balance;
+      max-width: 25ch;
+    }
+
+    .deck {
+      margin-top: 18px;
+      font-size: 18px;
+      line-height: 1.55;
+      color: var(--ink2);
+      max-width: 66ch;
+    }
+
+    h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: clamp(24px, 2.3vw, 30px);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      text-wrap: balance;
+      margin-bottom: 16px;
+    }
+
+    h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 1.3;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: var(--ink2);
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    p + p {
+      margin-top: 14px;
+    }
+
+    strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    code {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 13.5px;
+      color: var(--ink);
+    }
+
+    .sec {
+      margin-top: 64px;
+      padding-top: 32px;
+      border-top: 1px solid var(--hair);
+    }
+
+    /* Role Legend Strip (Emphasis Moment) */
+    .role-strip {
+      margin-top: 34px;
+      padding-top: 24px;
+      border-top: 2px solid var(--ink);
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 28px;
+    }
+
+    .role-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+
+    .sandro { color: var(--accent-text); }
+    .mateus { color: var(--accent-2-text); }
+    .juntos { color: var(--ink); }
+
+    .role-desc {
+      font-size: 15px;
+      line-height: 1.55;
+      color: var(--ink2);
+    }
+
+    /* Open Multi-Column Strips */
+    .strip-2 {
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid var(--hair);
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 32px;
+    }
+
+    .strip-3 {
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid var(--hair);
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 28px;
+    }
+
+    /* Step Blocks */
+    .step-block {
+      padding: 32px 0;
+      border-top: 1px solid var(--hair);
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      column-gap: 24px;
+    }
+
+    .step-block:first-of-type {
+      margin-top: 20px;
+    }
+
+    .step-meta {
+      grid-column: 1 / span 4;
+    }
+
+    .step-body {
+      grid-column: 5 / -1;
+    }
+
+    .owner-line {
+      font-size: 14px;
+      font-weight: 600;
+      margin-top: 6px;
+    }
+
+    .time-line {
+      font-size: 14px;
+      color: var(--mute);
+      margin-top: 4px;
+    }
+
+    /* Native HTML Expandable How-To Drawers */
+    details.howto {
+      margin-top: 20px;
+      border-top: 1px solid var(--hair);
+      border-bottom: 1px solid var(--hair);
+    }
+
+    details.howto + details.howto {
+      margin-top: 12px;
+    }
+
+    details.howto > summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 13px 0;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 15.5px;
+      color: var(--accent-text);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      user-select: none;
+    }
+
+    details.howto.green > summary {
+      color: var(--accent-2-text);
+    }
+
+    details.howto > summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details.howto > summary::before {
+      content: "▸";
+      display: inline-block;
+      font-size: 14px;
+      line-height: 1;
+      transition: transform 0.15s ease;
+    }
+
+    details.howto[open] > summary::before {
+      transform: rotate(90deg);
+    }
+
+    details.howto > summary:hover {
+      color: var(--ink);
+    }
+
+    .howto-body {
+      padding: 4px 0 20px 22px;
+      border-left: 2px solid var(--accent);
+      margin-left: 4px;
+      margin-bottom: 12px;
+    }
+
+    details.howto.green .howto-body {
+      border-left-color: var(--accent-2);
+    }
+
+    .howto-body p {
+      font-size: 15px;
+    }
+
+    /* Copy-paste Prompt / Script Blocks */
+    .prompt-label {
+      margin-top: 20px;
+      margin-bottom: 8px;
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    pre.prompt {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: var(--ink);
+      background: #F8FAFC;
+      border-left: 3px solid var(--accent);
+      padding: 16px 20px;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    pre.prompt.mateus-prompt {
+      border-left-color: var(--accent-2);
+    }
+
+    pre.prompt.script-msg {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      border-left-color: var(--ink);
+    }
+
+    /* Lists */
+    ol.steps, ul.clean {
+      margin-top: 12px;
+      padding-left: 20px;
+      color: var(--ink2);
+      font-size: 15.5px;
+      line-height: 1.6;
+    }
+
+    ul.clean {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    ul.clean li {
+      position: relative;
+      padding-left: 18px;
+    }
+
+    ul.clean li::before {
+      content: "–";
+      position: absolute;
+      left: 0;
+      color: var(--accent-text);
+      font-weight: 600;
+    }
+
+    ul.clean.green li::before {
+      color: var(--accent-2-text);
+    }
+
+    ol.steps li + li,
+    ul.clean li + li {
+      margin-top: 10px;
+    }
+
+    /* Figures */
+    figure {
+      margin-top: 28px;
+      width: 100%;
+    }
+
+    .fig-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 19px;
+      line-height: 1.3;
+      color: var(--ink);
+      margin-bottom: 14px;
+    }
+
+    figure svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    figcaption {
+      margin-top: 10px;
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--mute);
+    }
+
+    /* Open Tables */
+    .table-wrap {
+      margin-top: 22px;
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 15px;
+    }
+
+    thead th {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--mute);
+      padding: 0 16px 12px 0;
+      border-bottom: 2px solid var(--ink);
+      white-space: nowrap;
+    }
+
+    thead th:last-child,
+    tbody td:last-child {
+      padding-right: 0;
+    }
+
+    tbody td {
+      padding: 14px 16px 14px 0;
+      border-bottom: 1px solid var(--hair);
+      color: var(--ink2);
+      vertical-align: top;
+      line-height: 1.5;
+    }
+
+    tbody td:first-child {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    /* Full-bleed band */
+    .full-band {
+      margin-top: 64px;
+      margin-left: calc(clamp(24px, 10vw, 112px) * -1);
+      margin-right: calc(clamp(24px, 10vw, 112px) * -1);
+      padding: 44px clamp(24px, 10vw, 112px);
+      background: var(--band);
+      border-top: 1px solid var(--hair);
+      border-bottom: 1px solid var(--hair);
+    }
+
+    .pull-quote {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: clamp(21px, 2.3vw, 28px);
+      font-weight: 500;
+      line-height: 1.4;
+      color: var(--ink);
+      max-width: 52ch;
+    }
+
+    .pull-note {
+      margin-top: 14px;
+      font-size: 15.5px;
+      color: var(--ink2);
+      max-width: 66ch;
+    }
+
+    ol.sources {
+      margin-top: 16px;
+      padding-left: 22px;
+      color: var(--ink2);
+      font-size: 14.5px;
+      line-height: 1.65;
+    }
+
+    ol.sources li + li {
+      margin-top: 6px;
+    }
+
+    @media (max-width: 900px) {
+      .col-10, .step-meta, .step-body {
+        grid-column: 1 / -1;
+      }
+      .step-body {
+        margin-top: 16px;
+      }
+      .role-strip, .strip-2, .strip-3 {
+        grid-template-columns: 1fr;
+        gap: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="grid">
+    <div class="col-12">
+      <h1>Manual completo: portfólio, vendas, protótipos e entrega (Sandro e Mateus)</h1>
+      <p class="deck">
+        O passo a passo definitivo da parceria 50/50 em linguagem simples — já blindado contra falhas operacionais e integrado com a arquitetura de Agentes Duais. Clique nos botões <strong>▸ Veja como fazer passo a passo</strong> para abrir o tutorial detalhado, textos prontos de WhatsApp e prompts para copiar na IA.
+      </p>
+
+      <div class="role-strip">
+        <div>
+          <div class="role-name mateus">Mateus — Visual e Textos</div>
+          <p class="role-desc">
+            Usa o Claude e geradores de imagem para criar a cara do site, fotos/ícones, prévia rápida quando o cliente pedir demonstração e o rascunho da página (com direção de estilo e fontes declaradas).
+          </p>
+        </div>
+        <div>
+          <div class="role-name sandro">Sandro — Estrutura e Publicação</div>
+          <p class="role-desc">
+            Opera o ecossistema de Agentes Duais (Arquiteto + Construtor) para organizar o Astro, otimizar imagens em WebP, ligar a captura direta no WhatsApp, cuidar do GitHub, hospedar na Cloudflare Pages e conectar o domínio.
+          </p>
+        </div>
+        <div>
+          <div class="role-name juntos">Sandro + Mateus (50/50)</div>
+          <p class="role-desc">
+            Os dois prospectam toda semana com segurança anti-ban, conduzem o alinhamento inicial, definem prazo e plano de gestão/suporte com teto claro, revisam no celular e fecham a entrega.
+          </p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- SEÇÃO 1: MONTAR O PORTFÓLIO + PREPARO ÚNICO -->
+  <section class="sec grid">
+    <div class="col-12">
+      <h2>Preparo inicial: portfólio com os 3 sites prontos e molde no GitHub</h2>
+      <p class="measure">
+        Vocês já saem na frente porque <strong>não precisam começar do zero</strong>: o Sandro já tem 1 site hospedado e 1 finalizando agora, e o Mateus tem 1 site pronto de um cliente que desistiu. Antes de prospectar, vocês fazem estes 3 preparos uma única vez:
+      </p>
+    </div>
+
+    <div class="col-12 strip-3">
+      <div>
+        <h3>1. Página do Portfólio</h3>
+        <p>
+          Reúnam os <strong>3 sites existentes</strong> em uma única página da dupla com visual caprichado (ela é o cartão de visitas de vocês nos primeiros 3 segundos), print no celular e link clicável para o cliente abrir ao vivo.
+        </p>
+      </div>
+      <div>
+        <h3>2. Projeto Modelo no GitHub</h3>
+        <p>
+          O Sandro configura <strong>1 repositório molde</strong> (<code>Modelo_pasta-vertex</code>) em Astro + Tailwind já equipado com a estrutura de Agentes Duais (<code>.agents/</code>), componentes de WhatsApp e captura pronta para duplicar em 1 clique.
+        </p>
+      </div>
+      <div>
+        <h3>3. Planilha de Leads</h3>
+        <p>
+          Criem 1 planilha compartilhada no Google Sheets com 5 colunas: <em>Empresa</em>, <em>Cidade</em>, <em>WhatsApp</em>, <em>Status</em> e <em>Data do próximo toque</em>.
+        </p>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <!-- EXPANDABLE 1: PROJETO MODELO NO GITHUB -->
+      <details class="howto">
+        <summary>Veja como fazer passo a passo: montar o Projeto Modelo (Template repository) no GitHub — Sandro</summary>
+        <div class="howto-body">
+          <p>
+            <strong>O que é isso na prática?</strong> Pense como um "arquivo molde" no Word: em vez de instalar Astro, Tailwind, botão do WhatsApp, formulário inteligente e regras dos agentes toda vez que fechar um cliente, você monta uma única vez na pasta do modelo e depois o GitHub cria uma cópia limpinha em 30 segundos sem alterar o original.
+          </p>
+          <ol class="steps">
+            <li><strong>Abra a pasta do molde no Antigravity:</strong> abra a pasta <code>Modelo_pasta-vertex</code> (que já possui <code>.agents/rules/</code> com o Agente Arquiteto e o Agente Construtor e o <code>PROJECT_STATE.md</code>) e cole o prompt abaixo para o agente da própria pasta criar todo o esqueleto do projeto.</li>
+            <li><strong>Suba para o GitHub:</strong> após o agente finalizar e validar o build, envie os arquivos para o repositório privado no GitHub (<code>git push</code>).</li>
+            <li><strong>Marque a caixinha de molde:</strong> abra esse repositório no site do GitHub, clique na aba <strong>Settings</strong> (Configurações) lá em cima e marque a caixinha <strong>Template repository</strong> (<a href="https://docs.github.com/pt/repositories/creating-and-managing-repositories/creating-a-template-repository" target="_blank" rel="noopener noreferrer">guia oficial do GitHub</a>).</li>
+            <li><strong>Como usar depois em todo cliente novo:</strong> entre no repositório molde, clique no botão verde <strong>Use this template → Create a new repository</strong>, dê o nome do cliente (ex.: <code>lp-sorveteria-sol</code>) e pronto — o GitHub gera uma cópia zerada com código base e Agentes Duais já instalados!</li>
+          </ol>
+
+          <div class="prompt-label">Prompt oficial para o Sandro colar para o agente dentro da pasta Modelo_pasta-vertex:</div>
+          <pre class="prompt">Crie a estrutura completa do nosso Projeto Modelo (Template Repository) para landing pages comerciais de negócios locais utilizando Astro + Tailwind CSS.
+
+ATENÇÃO À GOVERNANÇA EXISTENTE:
+- Esta pasta já contém a Arquitetura Dual de Agentes (.agents/rules/agente-arquiteto.md, agente-construtor.md, AGENTS.md, GEMINI.md e PROJECT_STATE.md). PRESERVE integralmente esses arquivos e NÃO os sobrescreva.
+- Garanta que o .gitignore ignore node_modules/, dist/, .astro/ e arquivos temporários, mas NUNCA ignore a pasta .agents/ nem o PROJECT_STATE.md.
+
+ESTRUTURA OBRIGATÓRIA A CONSTRUIR:
+1. Pasta de entrega do designer: crie a pasta entrega-design/ na raiz com um arquivo LEIA-ME.txt explicando em linguagem simples que o parceiro de design (Mateus) deve subir ali o rascunho.html, as imagens brutas e informar as fontes do Google Fonts utilizadas.
+2. Pasta de imagens otimizadas: crie public/images/ pronta para receber assets em WebP (padrão web-media-standard).
+3. Layout base (src/layouts/BaseLayout.astro): preparado com HTML semântico pt-BR, meta viewport mobile-first, suporte dinâmico a título, meta description, tags Open Graph completas (para miniatura bonita no WhatsApp), links de favicon limpos e slots para Google Fonts.
+4. Componente de Botão WhatsApp (src/components/WhatsAppButton.astro): botão flutuante discreto no canto inferior direito + variação reutilizável para CTAs, com área mínima de toque 48x48px (WCAG), recebendo número, texto e mensagem pré-formatada via props.
+5. Componente de Captura Inteligente (src/components/LeadWhatsAppForm.astro): formulário limpo e responsivo (Nome, Serviço/Interesse e Telefone opcional) que, ao enviar, monta a mensagem personalizada e abre o WhatsApp oficial do cliente com o texto pronto — custo zero, sem limite mensal de envios e resposta instantânea. Inclua também suporte opcional a um endpoint de Formspree (com campo honeypot anti-spam oculto) caso o cliente faça questão de receber cópia por e-mail.
+6. Página inicial de exemplo (src/pages/index.astro): uma base limpa demonstrando o uso do BaseLayout, LeadWhatsAppForm e WhatsAppButton.
+7. Configuração centralizada (src/config/site.ts): arquivo único tipado com os dados do cliente (nomeEmpresa, cidade, whatsapp, mensagemPadrao, cores, formspreeEndpoint opcional) para facilitar a troca rápida em cada projeto novo.
+
+VALIDAÇÃO FINAL E ENVIO AO GITHUB:
+- Instale as dependências, rode o build de produção (npm.cmd run build) e confirme Exit Code 0 sem erros.
+- Atualize o PROJECT_STATE.md registrando o ADR da criação da estrutura base do template.
+- Ao final, faça o commit semântico e envie toda a estrutura para o GitHub:
+  git branch -M main
+  git add .
+  git commit -m "feat(template): estrutura base Astro + Tailwind + captura WhatsApp [ADR-001]"
+  git push -u origin main</pre>
+        </div>
+      </details>
+
+      <!-- EXPANDABLE 2: PORTFÓLIO COM OS 3 SITES -->
+      <details class="howto green">
+        <summary>Veja como fazer passo a passo: transformar o site do Mateus em demo e publicar o Portfólio</summary>
+        <div class="howto-body">
+          <ol class="steps">
+            <li><strong>Ajustar o site do Mateus:</strong> como o cliente original desistiu, o Mateus abre o projeto no Claude e pede para trocar o nome, logotipo, endereço e WhatsApp por uma <strong>empresa fictícia</strong> (para não expor o ex-cliente).</li>
+            <li><strong>Hospedar como demonstração:</strong> o Sandro sobe esse projeto do Mateus no <strong>Cloudflare Pages</strong> para gerar um link funcional que abre rápido no celular.</li>
+            <li><strong>Tirar os prints:</strong> o Mateus abre os 3 sites (os 2 do Sandro + o 1 do Mateus) no celular e tira um print bonito da primeira tela de cada um.</li>
+            <li><strong>Publicar a página de Portfólio:</strong> usem o mesmo fluxo de landing page para criar uma página da dupla com visual impecável (passando pela auditoria cirúrgica do Agente Arquiteto) mostrando esses 3 projetos com botão <em>"Ver site ao vivo"</em> e o WhatsApp de vocês. Salvem o link nas mensagens rápidas do WhatsApp.</li>
+          </ol>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- SEÇÃO 2: MÁQUINA DE CLIENTES + PROTOCOLO DE DEMONSTRAÇÃO -->
+  <section class="sec grid">
+    <div class="col-12">
+      <h2>Passo 0: como conseguir clientes e responder quando pedirem protótipo</h2>
+      <p class="measure">
+        O método mais direto para negócios locais é a <strong>Busca Filtrada no Google Maps</strong> combinada com mensagens personalizadas (sem links no primeiro contato para evitar bloqueio no WhatsApp) e o protocolo de 2 níveis para demonstrações.
+      </p>
+    </div>
+
+    <div class="col-12 strip-3">
+      <div>
+        <h3>1. Onde achar empresas quentes</h3>
+        <p>
+          No Google Maps, pesquisem categoria + cidade (ex.: <em>"advocacia [cidade]"</em>, <em>"clínica odontológica [cidade]"</em>, <em>"hamburgueria [cidade]"</em>, <em>"sorveteria [cidade]"</em>).
+        </p>
+      </div>
+      <div>
+        <h3>2. Filtro dos 3 sinais</h3>
+        <p>
+          Só coloquem na planilha empresas com: <strong>boas avaliações (4+ estrelas)</strong>, <strong>WhatsApp visível</strong> e <strong>NENHUM site cadastrado</strong> (ou um site antigo/quebrado no celular).
+        </p>
+      </div>
+      <div>
+        <h3>3. Ritmo semanal constante</h3>
+        <p>
+          Cada um separa <strong>20 minutos em 3 dias da semana</strong> (ou sábado de manhã) para listar 5 empresas e mandar 5 mensagens personalizadas (30 abordagens/semana juntos), mantendo no máximo <strong>2 projetos ativos ao mesmo tempo</strong>.
+        </p>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <details class="howto">
+        <summary>Veja como fazer passo a passo: rotina de 20 minutos no Google Maps (com regra anti-banimento)</summary>
+        <div class="howto-body">
+          <ol class="steps">
+            <li>Abra o Google Maps no computador e digite um ramo + sua cidade ou cidade vizinha (ex.: <em>"dentista Ananindeua"</em> ou <em>"sorveteria Castanhal"</em>).</li>
+            <li>Clique nos resultados um por um na coluna da esquerda: ignore quem já tem site bonito e pare em quem <strong>não tem o ícone de globo (Website)</strong> ou tem apenas link de Instagram.</li>
+            <li>Confirme que tem boas avaliações recentes (sinal de que a empresa está ativa e faturando), anote um <strong>detalhe real da empresa</strong> (bairro, nota ou serviço que chamou atenção) e copie o número do WhatsApp.</li>
+            <li>Lance na planilha compartilhada (com seu nome na coluna Responsável para os dois não mandarem mensagem para a mesma empresa).</li>
+            <li><strong>Regra anti-ban no WhatsApp:</strong> nunca dispare textos idênticos em massa e <strong>nunca envie links clicáveis na 1ª mensagem nem no follow-up sem resposta</strong>. O link do portfólio só vai depois que o empresário responder <em>"Pode mandar"</em>.</li>
+          </ol>
+        </div>
+      </details>
+
+      <figure>
+        <div class="fig-title">Trinta abordagens bem filtradas por semana geram de 1 a 2 fechamentos constantes</div>
+        <svg viewBox="0 0 700 320" width="100%" role="img" aria-label="Funil semanal de prospecção local mostrando de 30 abordagens até 1 a 2 vendas">
+          <text x="16" y="54" font-family="IBM Plex Sans, sans-serif" font-size="14.5" font-weight="600" fill="#0F172A">1. Abordagens enviadas</text>
+          <text x="16" y="72" font-family="IBM Plex Sans, sans-serif" font-size="13" fill="#475569">15 Sandro + 15 Mateus</text>
+          <rect x="235" y="34" width="380" height="38" fill="#1D4ED8"/>
+          <text x="627" y="59" font-family="IBM Plex Mono, monospace" font-size="14" font-weight="500" fill="#0F172A">30 / sem</text>
+
+          <text x="16" y="122" font-family="IBM Plex Sans, sans-serif" font-size="14.5" font-weight="600" fill="#0F172A">2. Empresas que respondem</text>
+          <text x="16" y="140" font-family="IBM Plex Sans, sans-serif" font-size="13" fill="#475569">Com follow-up no Dia 3</text>
+          <rect x="235" y="102" width="152" height="38" fill="#3B82F6"/>
+          <text x="399" y="127" font-family="IBM Plex Mono, monospace" font-size="14" font-weight="500" fill="#0F172A">9 a 12</text>
+
+          <text x="16" y="190" font-family="IBM Plex Sans, sans-serif" font-size="14.5" font-weight="600" fill="#0F172A">3. Pedem portfólio / demo</text>
+          <text x="16" y="208" font-family="IBM Plex Sans, sans-serif" font-size="13" fill="#475569">Mostram interesse real</text>
+          <rect x="235" y="170" width="76" height="38" fill="#059669"/>
+          <text x="323" y="195" font-family="IBM Plex Mono, monospace" font-size="14" font-weight="500" fill="#0F172A">3 a 5</text>
+
+          <text x="16" y="258" font-family="IBM Plex Sans, sans-serif" font-size="14.5" font-weight="600" fill="#0F172A">4. Fecham e pagam sinal</text>
+          <text x="16" y="276" font-family="IBM Plex Sans, sans-serif" font-size="13" fill="#475569">Prazo conforme agenda</text>
+          <rect x="235" y="238" width="38" height="38" fill="#0F172A"/>
+          <text x="285" y="263" font-family="IBM Plex Mono, monospace" font-size="14" font-weight="500" fill="#0F172A">1 a 2 vendas</text>
+
+          <line x1="16" y1="298" x2="684" y2="298" stroke="#CBD5E1" stroke-width="1"/>
+          <text x="16" y="316" font-family="IBM Plex Sans, sans-serif" font-size="13" fill="#475569">Estimativa prática para prospecção ativa local via WhatsApp com acompanhamento na planilha compartilhada.</text>
+        </svg>
+        <figcaption>Referência de ritmo semanal: constância de 30 abordagens/semana evita períodos sem vendas.</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-12 strip-2">
+      <div>
+        <h3>Mensagem pronta — Primeira abordagem no WhatsApp</h3>
+        <pre class="prompt script-msg">Olá, [Nome ou equipe da Empresa]! Tudo bem?
+
+Encontrei o perfil de vocês aqui no Google Maps (vi as ótimas avaliações de quem atende aí no [bairro/cidade]!) e notei que vocês ainda não têm um site ligado ali no perfil.
+
+Eu e meu sócio criamos páginas rápidas focadas em trazer clientes direto para o WhatsApp de quem pesquisa por [ramo] aqui na região.
+
+Posso te mandar alguns modelos prontos que já fizemos para você ver como fica no celular? Sem compromisso.</pre>
+      </div>
+      <div>
+        <h3>Regra do Follow-up (3 toques educados e sem link frio)</h3>
+        <ul class="clean">
+          <li><strong>Dia 1:</strong> Envia a mensagem acima personalizada (curta, sem link e sem falar preço ainda).</li>
+          <li><strong>Dia 3 (sem resposta):</strong> <em>"Oi [Nome], passando só para saber se conseguiu ver minha mensagem. Posso te mostrar rapidinho alguns exemplos que fizemos para negócios da região?"</em> (Só envie o link após o "sim").</li>
+          <li><strong>Dia 6 (último toque):</strong> <em>"Oi [Nome], para não te incomodar, vou encerrar por aqui. Se em algum momento quiserem colocar a página de vocês no Google para receber mais contatos no WhatsApp, fico à disposição!"</em></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- PROTOCOLO DE DEMONSTRAÇÃO E PROTÓTIPO -->
+    <div class="col-12" style="margin-top: 40px;">
+      <h3>O que fazer quando o cliente pedir uma demonstração ou protótipo</h3>
+      <p class="measure">
+        Para fechar vendas sem perder tempo fazendo site inteiro de graça antes do sinal, sigam a <strong>Regra dos 2 Níveis</strong>:
+      </p>
+    </div>
+
+    <div class="col-12 strip-2">
+      <div>
+        <h3>Nível 1: Mostrar o Portfólio (90% dos casos)</h3>
+        <ol class="steps">
+          <li>Mandem o link do <strong>Portfólio da dupla</strong> destacando o projeto mais próximo do ramo dele.</li>
+          <li>Mandem um <strong>áudio curto de 30 segundos</strong> explicando como adaptariam com as cores, serviços e WhatsApp da empresa dele.</li>
+          <li>Se ele gostar, já passem o valor, o formato <strong>50% entrada + 50% entrega</strong> e o <strong>prazo estimado conforme a agenda da semana</strong>.</li>
+        </ol>
+      </div>
+      <div>
+        <h3>Nível 2: Cliente insiste em ver um protótipo "com a cara dele"</h3>
+        <ol class="steps">
+          <li><strong>NUNCA façam o site inteiro antes do sinal!</strong> O <strong>Mateus</strong> gera apenas a <strong>Capa (primeira tela do celular)</strong> no Claude em 15 minutos.</li>
+          <li>Tirem um <strong>print da tela ou vídeo curto de 15 segundos</strong> (não enviem o código nem link editável).</li>
+          <li>Enviem o print com a mensagem de fechamento; o restante do site só entra na fila depois do sinal de 50%.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <details class="howto green">
+        <summary>Veja como fazer passo a passo: gerar a Prévia da Capa (15 min) + mensagem de fechamento — Mateus</summary>
+        <div class="howto-body">
+          <p>Cole este prompt no Claude, abra o arquivo gerado no navegador no tamanho de celular, tire um print limpo e envie com a mensagem abaixo:</p>
+          <div class="prompt-label">Prompt para o Mateus gerar apenas a 1ª tela (Capa):</div>
+          <pre class="prompt mateus-prompt">Crie APENAS a primeira seção (capa/Hero) de uma landing page moderna e focada em celular, em um único arquivo HTML com Tailwind CSS via CDN, para eu tirar um print de demonstração comercial.
+
+Empresa: [NOME DA EMPRESA]
+Cidade: [CIDADE]
+Ramo: [EX: SORVETERIA / ADVOCACIA / CLÍNICA]
+Estilo visual desejado: [EX: EDITORIAL SÓBRIO / VIBRANTE GASTRONÔMICO / CLÍNICO LIMPO]
+Cor principal (se tiver): [COR OU SUGERIR A MELHOR]
+
+Inclua somente:
+- Cabeçalho limpo com o nome da empresa e botão "Falar no WhatsApp"
+- Título chamativo focado em benefício para o cliente da cidade
+- Subtítulo curto de 2 linhas
+- Botão principal grande de chamada para ação (WhatsApp)
+- Espaço visual elegante simulando a foto principal do negócio
+
+Não gere o resto do site — apenas essa primeira tela caprichada para visualização rápida.</pre>
+
+          <div class="prompt-label">Mensagem para enviar no WhatsApp junto com o print:</div>
+          <pre class="prompt script-msg">Oi [Nome]! Montei rapidinho essa prévia só da primeira tela com a cara da [Empresa] para você sentir o nível do visual que a gente entrega.
+
+Se você curtiu essa linha, a gente já garante sua vaga na nossa agenda: fechando os 50% de entrada, construímos a página completa (com seus serviços, depoimentos, mapa, botão direto pro WhatsApp e captura de contatos) com previsão de entrega em [X dias úteis] após o envio das informações. Podemos dar o start?</pre>
+        </div>
+      </details>
+    </div>
+
+    <div class="col-12" style="margin-top: 36px;">
+      <h3>Como responder às 4 objeções mais comuns</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>O que o cliente diz</th>
+              <th>Por que ele diz isso</th>
+              <th>Resposta pronta (adaptar no seu tom)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>"Já tenho Instagram"</td>
+              <td>Acha que rede social substitui o Google.</td>
+              <td>"O Instagram é ótimo para quem já te segue! A página serve para capturar quem está procurando no Google agora mesmo — além de deixar um link profissional na sua bio com seus serviços e botão direto pro WhatsApp."</td>
+            </tr>
+            <tr>
+              <td>"Está caro / agora não dá"</td>
+              <td>Ainda não viu o retorno financeiro.</td>
+              <td>"Entendo total. A gente facilita em 50% na entrada e 50% só quando o site estiver pronto e aprovado por você. Com poucos clientes novos vindos pelo Google, a página já se paga e trabalha para o seu negócio o dia inteiro."</td>
+            </tr>
+            <tr>
+              <td>"Vou pensar e te aviso"</td>
+              <td>Ficou com dúvida ou sem urgência.</td>
+              <td>"Combinado! Ficou alguma dúvida sobre o que vai na página ou sobre como funciona o pagamento? Posso te chamar na [quinta-feira] só para alinhar, porque a gente limita a agenda a 2 projetos por vez para entregar bem feito."</td>
+            </tr>
+            <tr>
+              <td>"Não tenho tempo nem fotos"</td>
+              <td>Acha que vai dar trabalho para ele.</td>
+              <td>"Fica tranquilo: a gente só precisa de 15 minutos no WhatsApp para você responder 6 perguntas simples. Os textos e as imagens que faltarem nós mesmos criamos para você só aprovar pelo celular."</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO 3: FERRAMENTAS PADRÃO -->
+  <section class="sec grid">
+    <div class="col-12">
+      <h2>As 5 ferramentas padrão da dupla (explicadas sem enrolação)</h2>
+      <p class="measure">
+        O Claude (Mateus) e os Agentes Duais (Sandro) escrevem o código. Vocês só precisam saber o papel de cada peça e evitar armadilhas de planos gratuitos:
+      </p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>O que é</th>
+              <th>Ferramenta</th>
+              <th>Explicação simples</th>
+              <th>Quem cuida</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Formato do site</td>
+              <td><a href="https://docs.astro.build/en/concepts/why-astro/" target="_blank" rel="noopener noreferrer">Astro</a> + <a href="https://tailwindcss.com/docs" target="_blank" rel="noopener noreferrer">Tailwind CSS</a></td>
+              <td>O Astro cria sites leves que abrem rápido no 4G. O Tailwind é o padrão visual que o Claude e os agentes dominam melhor.</td>
+              <td>Mateus (rascunho) + Sandro (estrutura)</td>
+            </tr>
+            <tr>
+              <td>Pasta na nuvem</td>
+              <td><a href="https://docs.github.com/pt/get-started/using-github/github-flow" target="_blank" rel="noopener noreferrer">GitHub</a></td>
+              <td>Funciona como um "Google Drive" do código: guarda o projeto, carrega os Agentes Duais e permite os dois trocarem arquivos sem perder nada.</td>
+              <td>Sandro gerencia; Mateus sobe na pasta <code>entrega-design/</code></td>
+            </tr>
+            <tr>
+              <td>Hospedagem oficial</td>
+              <td><a href="https://www.cloudflare.com/pt-br/developer-platform/products/pages/" target="_blank" rel="noopener noreferrer">Cloudflare Pages</a></td>
+              <td><strong>Padrão único da dupla:</strong> permite uso comercial no plano gratuito com banda ilimitada e SSL automático (ao contrário da Vercel Hobby, que proíbe sites comerciais).</td>
+              <td>Sandro</td>
+            </tr>
+            <tr>
+              <td>Captura de contatos</td>
+              <td>Formulário Direto p/ WhatsApp (+ <a href="https://formspree.io/html/" target="_blank" rel="noopener noreferrer">Formspree</a> opcional)</td>
+              <td>O formulário monta a mensagem com Nome e Serviço e abre direto o WhatsApp do cliente (custo zero, sem limite de 50 envios/mês e resposta imediata). Formspree fica só se exigir e-mail.</td>
+              <td>Sandro</td>
+            </tr>
+            <tr>
+              <td>Endereço .com.br</td>
+              <td><a href="https://registro.br/dominio/" target="_blank" rel="noopener noreferrer">Registro.br</a></td>
+              <td>Registro oficial do endereço do cliente (ex.: <code>sorveteriasol.com.br</code>) no CPF ou CNPJ dele (R$ 40/ano pagos pelo cliente).</td>
+              <td>Sandro orienta e configura</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO 4: MAPA VISUAL DOS 6 PASSOS DE PRODUÇÃO -->
+  <section class="sec grid">
+    <div class="col-12">
+      <h2>O fluxo fixo de 6 passos depois que o cliente paga o sinal</h2>
+      <p class="measure">
+        Independentemente do prazo combinado com o cliente conforme a agenda de vocês, toda landing page segue exatamente os mesmos 6 passos abaixo:
+      </p>
+
+      <figure>
+        <div class="fig-title">Todo cliente passa pelos mesmos 6 passos em fila clara, sem um travar o trabalho do outro</div>
+        <svg viewBox="0 0 700 410" width="100%" role="img" aria-label="Fluxograma em 6 passos da produção entre Sandro e Mateus">
+          <!-- Step 1 -->
+          <rect x="16" y="28" width="196" height="128" fill="#FFFFFF" stroke="#0F172A" stroke-width="2"/>
+          <rect x="16" y="28" width="196" height="30" fill="#0F172A"/>
+          <text x="30" y="48" font-family="IBM Plex Mono, monospace" font-size="13" font-weight="500" fill="#FFFFFF">PASSO 1 · OS DOIS</text>
+          <text x="30" y="84" font-family="Space Grotesk, sans-serif" font-size="16" font-weight="700" fill="#0F172A">Fechar e coletar</text>
+          <text x="30" y="108" font-family="IBM Plex Sans, sans-serif" font-size="13.5" fill="#334155">De acordo + sinal 50%</text>
+          <text x="30" y="128" font-family="IBM Plex Sans, sans-serif" font-size="13.5" fill="#334155">+ 6 perguntas simples.</text>
+
+          <line x1="212" y1="92" x2="246" y2="92" stroke="#0F172A" stroke-width="2"/>
+          <polygon points="246,86 256,92 246,98" fill="#0F172A"/>
+
+          <!-- Step 2 -->
+          <rect x="256" y="28" width="196" height="128" fill="#FFFFFF" stroke="#1D4ED8" stroke-width="2"/>
+          <rect x="256" y="28" width="196" height="30" fill="#1D4ED8"/>
+          <text x="270" y="48" font-family="IBM Plex Mono, monospace" font-size="13" font-weight="500" fill="#FFFFFF">PASSO 2 · SANDRO</text>
+          <text x="270" y="84" font-family="Space Grotesk, sans-serif" font-size="16" font-weight="700" fill="#0F172A">Criar pasta base</text>
+          <text x="270" y="108" font-family="IBM Plex Sans, sans-serif" font-size="13.5" fill="#334155">Duplicar modelo no</text>
+          <text x="270" y="128" font-family="IBM Plex Sans, sans-serif" font-size="13.5" fill="#334155">GitHub + link teste.</text>
+
+          <line x1="452" y1="92" x2="486" y2="92" stroke="#0F172A" stroke-width="2"/>
+          <polygon points="486,86 496,92 486,98" fill="#0F172A"/>
+
+          <!-- Step 3 -->
+          <rect x="496" y="28" width="190" height="128" fill="#FFFFFF" stroke="#059669" stroke-width="2"/>
+          <rect x="496" y="28" width="190" height="30" fill="#059669"/>
+          <text x="510" y="48" font-family="IBM Plex Mono, monospace" font-size="13" font-weight="500" fill="#FFFFFF">PASSO 3 · MATEUS</text>
+          <text x="510" y="84" font-family="Space Grotesk, sans-serif" font-size="16" font-weight="700" fill="#0F172A">Visual + Rascunho</text>
+          <text x="510" y="108" font-family="IBM Plex Sans, sans-serif" font-size="13.5" fill="#334155">Gerar fotos, ícones e</text>
+          <text x="510" y="128" font-family="IBM Plex Sans, sans-serif" font-size="13.5" fill="#334155">página no Claude.</text>
+
+          <polyline fill="none" stroke="#0F172A" stroke-width="2" points="591,156 591,196 114,196 114,228"/>
+          <polygon points="108,228 114,238 120,228" fill="#0F172A"/>
+
+          <!-- Step 4 -->
+          <rect x="16" y="238" width="196" height="132" fill="#FFFFFF" stroke="#1D4ED8" stroke-width="2"/>
+          <rect x="16" y="238" width="196" height="30" fill="#1D4ED8"/>
+          <text x="30" y="258" font-family="IBM Plex Mono, monospace" font-size="13" font-weight="500" fill="#FFFFFF">PASSO 4 · SANDRO</text>
+          <text x="30" y="294" font-family="Space Grotesk, sans-serif" font-size="16" font-weight="700" fill="#0F172A">Montar e otimizar</text>
+          <text x="30" y="318" font-family="IBM Plex Sans, sans-serif" font-size="13.5" fill="#334155">Agentes Duais, WebP</text>
+          <text x="30" y="338" font-family="IBM Plex Sans, sans-serif" font-size="13.5" fill="#334155">e captura WhatsApp.</text>
+
+          <line x1="212" y1="304" x2="246" y2="304" stroke="#0F172A" stroke-width="2"/>
+          <polygon points="246,298 256,304 246,310" fill="#0F172A"/>
+
+          <!-- Step 5 -->
+          <rect x="256" y="238" width="196" height="132" fill="#FFFFFF" stroke="#0F172A" stroke-width="2"/>
+          <rect x="256" y="238" width="196" height="30" fill="#0F172A"/>
+          <text x="270" y="258" font-family="IBM Plex Mono, monospace" font-size="13" font-weight="500" fill="#FFFFFF">PASSO 5 · OS DOIS</text>
+          <text x="270" y="294" font-family="Space Grotesk, sans-serif" font-size="16" font-weight="700" fill="#0F172A">Conferir e aprovar</text>
+          <text x="270" y="318" font-family="IBM Plex Sans, sans-serif" font-size="13.5" fill="#334155">Checklist no celular +</text>
+          <text x="270" y="338" font-family="IBM Plex Sans, sans-serif" font-size="13.5" fill="#334155">aprovação do cliente.</text>
+
+          <line x1="452" y1="304" x2="486" y2="304" stroke="#0F172A" stroke-width="2"/>
+          <polygon points="486,298 496,304 486,310" fill="#0F172A"/>
+
+          <!-- Step 6 -->
+          <rect x="496" y="238" width="190" height="132" fill="#FFFFFF" stroke="#1D4ED8" stroke-width="2"/>
+          <rect x="496" y="238" width="190" height="30" fill="#1D4ED8"/>
+          <text x="510" y="258" font-family="IBM Plex Mono, monospace" font-size="13" font-weight="500" fill="#FFFFFF">PASSO 6 · SANDRO</text>
+          <text x="510" y="294" font-family="Space Grotesk, sans-serif" font-size="16" font-weight="700" fill="#0F172A">Colocar no ar</text>
+          <text x="510" y="318" font-family="IBM Plex Sans, sans-serif" font-size="13.5" fill="#334155">Cloudflare + .com.br</text>
+          <text x="510" y="338" font-family="IBM Plex Sans, sans-serif" font-size="13.5" fill="#334155">+ 50% finais.</text>
+
+          <text x="16" y="398" font-family="IBM Plex Sans, sans-serif" font-size="13.5" fill="#475569">Os passos 2 e 3 podem começar juntos: enquanto o Sandro prepara o GitHub em 10 min, o Mateus já inicia o visual.</text>
+        </svg>
+        <figcaption>Linha de montagem fixa para repetir em 100% das landing pages da parceria.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- SEÇÃO 5: PASSO A PASSO MASTIGADO COM EXPANDABLES -->
+  <section class="sec">
+    <h2>Passo a passo detalhado (clique para abrir o tutorial de cada tarefa)</h2>
+    <p class="measure">
+      A visão geral fica limpa para consultar rápido; sempre que bater dúvida de onde clicar ou o que mandar no WhatsApp, abra o <strong>▸ Veja como fazer passo a passo</strong> da etapa.
+    </p>
+
+    <!-- PASSO 1 -->
+    <div class="step-block">
+      <div class="step-meta">
+        <h3>Passo 1: Acordo, sinal e coleta de dados</h3>
+        <div class="owner-line juntos">Quem faz: Sandro e Mateus (50/50)</div>
+        <div class="time-line">Quando: Logo após o "sim" (20 min)</div>
+      </div>
+      <div class="step-body">
+        <p>
+          Antes de mandar a chave Pix dos 50%, enviem o <strong>resumo de "De acordo"</strong> abaixo para deixar tudo combinado por escrito. Regra fundamental: <strong>o prazo de entrega combinado só começa a contar depois que o cliente pagar os 50% E enviar as 6 respostas/materiais</strong> (assim um cliente demorado não trava a fila de vocês).
+        </p>
+        <ol class="steps">
+          <li>Nome exato do negócio e cidade/bairro onde atende.</li>
+          <li>Os 3 a 5 produtos ou serviços principais para destacar.</li>
+          <li>Número do WhatsApp e horário de funcionamento.</li>
+          <li>Logotipo, cores da marca e fotos reais disponíveis.</li>
+          <li>Principal diferencial (ex.: entrega rápida, experiência, atendimento).</li>
+          <li>Se já possui domínio <code>.com.br</code> ou quer registrar um novo no Registro.br.</li>
+        </ol>
+
+        <details class="howto">
+          <summary>Veja como fazer: mensagem pronta de "De acordo" no WhatsApp (enviar antes do Pix)</summary>
+          <div class="howto-body">
+            <p>Copie, preencha os campos entre <code>[colchetes]</code> e só envie a chave Pix depois que o cliente responder <em>"De acordo"</em>:</p>
+            <pre class="prompt script-msg">Perfeito, [Nome]! Só para deixar tudo bem alinhado e transparente antes de começarmos, segue o resumo do nosso combinado para a página da [Empresa]:
+
+• O que está incluso: criação da landing page otimizada para celular e computador, botão direto para WhatsApp, formulário inteligente de captura e 1 rodada de ajustes após a apresentação do link de teste.
+• Investimento: R$ [VALOR], sendo 50% na entrada (R$ [METADE]) e 50% na aprovação final antes da publicação no domínio oficial.
+• Prazo de entrega: [X dias úteis], contados a partir da confirmação da entrada e do envio das 6 informações/materiais iniciais.
+• Domínio (.com.br): registrado no CPF/CNPJ do cliente no Registro.br (taxa anual de R$ 40 paga direto ao Registro.br).
+• Gestão, hospedagem e ajustes futuros: opção de plano mensal (R$ [VALOR]/mês com até 3 ajustes simples por mês) ou atendimento por ajustes avulsos após a entrega, a definir no fechamento.
+
+Se estiver tudo certinho, responde um "De acordo" por aqui que eu já te envio a chave Pix da entrada e as 6 perguntinhas rápidas!</pre>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <!-- PASSO 2 -->
+    <div class="step-block">
+      <div class="step-meta">
+        <h3>Passo 2: Preparar a pasta do cliente</h3>
+        <div class="owner-line sandro">Quem faz: Sandro</div>
+        <div class="time-line">Quando: Início do projeto (10 minutos)</div>
+      </div>
+      <div class="step-body">
+        <p>Duplicar o Projeto Modelo no GitHub, dar acesso ao Mateus e conectar no Cloudflare Pages para já deixar o link de teste pronto.</p>
+
+        <details class="howto">
+          <summary>Veja como fazer passo a passo: duplicar o modelo e conectar no Cloudflare Pages</summary>
+          <div class="howto-body">
+            <ol class="steps">
+              <li>Abra o seu repositório modelo no GitHub e clique no botão verde <strong>Use this template → Create a new repository</strong>.</li>
+              <li>Coloque um nome simples sem espaços (ex.: <code>lp-advocacia-silva</code>), marque como <strong>Private</strong> e clique em <strong>Create repository</strong>.</li>
+              <li>No repositório novo, clique em <strong>Settings → Collaborators → Add people</strong>, digite o usuário do Mateus e envie o convite.</li>
+              <li>Entre no <a href="https://www.cloudflare.com/pt-br/developer-platform/products/pages/" target="_blank" rel="noopener noreferrer">Cloudflare Pages</a>, clique em <strong>Workers & Pages → Create → Pages → Connect to Git</strong> e selecione <code>lp-advocacia-silva</code> (preset <strong>Astro</strong>).</li>
+              <li>Mande o link da pasta do GitHub e o link de teste gerado no WhatsApp para o Mateus.</li>
+            </ol>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <!-- PASSO 3 -->
+    <div class="step-block">
+      <div class="step-meta">
+        <h3>Passo 3: Visual, fotos e rascunho</h3>
+        <div class="owner-line mateus">Quem faz: Mateus</div>
+        <div class="time-line">Quando: Primeiros blocos noturnos (21h–23h)</div>
+      </div>
+      <div class="step-body">
+        <p>Gerar as fotos/ícones que faltarem, montar o <code>rascunho.html</code> no Claude com direção visual definida e Google Fonts declaradas, e enviar tudo para a pasta <code>entrega-design/</code> no GitHub.</p>
+
+        <details class="howto green">
+          <summary>Veja como fazer passo a passo: prompt do Claude + como subir no GitHub sem comandos</summary>
+          <div class="howto-body">
+            <ol class="steps">
+              <li>Salve as fotos do cliente + fotos/ícones gerados com IA numa pasta no PC chamada <code>imagens-brutas</code>.</li>
+              <li>Cole o prompt abaixo no <strong>Claude</strong>, baixe o arquivo <code>rascunho.html</code> e abra no navegador para aprovar o visual.</li>
+              <li><strong>Para entregar ao Sandro (sem terminal):</strong> abra o link do repositório no GitHub, clique na pasta <code>entrega-design</code>, clique em <strong>Add file → Upload files</strong>, arraste o <code>rascunho.html</code> e as fotos, e clique em <strong>Commit changes</strong>. Avise o Sandro.</li>
+            </ol>
+
+            <div class="prompt-label">Prompt pronto para o Mateus colar no Claude (site completo sem cara genérica):</div>
+            <pre class="prompt mateus-prompt">Atue como um diretor de arte e designer especialista em landing pages de alta conversão para negócios locais no Brasil.
+
+Crie o esboço completo de uma landing page autoral, limpa e focada em celular (mobile-first) usando HTML semântico e Tailwind CSS (via CDN apenas para pré-visualização).
+
+Dados do cliente:
+- Nome do negócio: [NOME]
+- Cidade/Bairro: [CIDADE]
+- Tipo de negócio: [EX: LANCHONETE / ADVOCACIA / SORVETERIA]
+- Direção visual / Personalidade: [EX: EDITORIAL SÓBRIO / VIBRANTE ARTESANAL / CLÍNICO MODERNO]
+- Principais ofertas: [LISTAR 3 A 5 ITENS]
+- Diferencial: [DIFERENCIAL]
+- WhatsApp: [NÚMERO]
+
+Monte exatamente estas 6 seções bem separadas por comentários no código:
+1. Topo (Hero) com título direto, subtítulo curto, botão principal para WhatsApp e espaço para foto principal.
+2. Benefícios / Diferenciais (3 blocos curtos com ícones SVG inline simples).
+3. Cardápio ou Serviços principais (com espaço para foto e descrição curta).
+4. Prova social (espaço para 3 depoimentos de clientes locais).
+5. Formulário simples de captura (Nome + Serviço desejado + botão "Continuar no WhatsApp") e endereço/horário.
+6. Rodapé com resumo do negócio e link direto para WhatsApp.
+
+Regras obrigatórias:
+- Declare no topo do arquivo (em comentário HTML e na tag &lt;link&gt;) exatamente quais fontes do Google Fonts foram escolhidas (ex.: Fraunces + Plus Jakarta Sans) e a paleta hex principal.
+- Escreva textos reais e persuasivos em português do Brasil (nada de Lorem Ipsum).
+- Indique onde cada imagem deve entrar usando nomes simples: imagem-capa.webp, imagem-1.webp, imagem-2.webp.
+- Evite layouts genéricos e repetitivos: use hierarquia tipográfica marcante e bom respiro visual.
+- Entregue o código completo em um único arquivo HTML para eu abrir no navegador e enviar ao meu sócio.</pre>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <!-- PASSO 4 -->
+    <div class="step-block">
+      <div class="step-meta">
+        <h3>Passo 4: Estruturar, otimizar e ligar captura</h3>
+        <div class="owner-line sandro">Quem faz: Sandro</div>
+        <div class="time-line">Quando: Assim que o Mateus subir o rascunho</div>
+      </div>
+      <div class="step-body">
+        <p>Puxar o material que o Mateus subiu, usar seus <strong>Agentes Duais (Arquiteto no Antigravity 2.0 → Construtor na IDE)</strong> para estruturar os componentes Astro, otimizar imagens para WebP, conectar a captura no WhatsApp e atualizar o link de teste.</p>
+
+        <details class="howto">
+          <summary>Veja como fazer passo a passo: sincronizar o GitHub e rodar nos seus Agentes Duais</summary>
+          <div class="howto-body">
+            <ol class="steps">
+              <li>Abra o projeto no Antigravity e peça: <em>"Puxe as atualizações do GitHub (git pull)"</em> — os arquivos do Mateus vão aparecer na pasta <code>entrega-design/</code>.</li>
+              <li>Preencha os dados reais do cliente em <code>src/config/site.ts</code> (nome, WhatsApp, cidade e Formspree apenas se o cliente tiver exigido e-mail).</li>
+              <li>Cole o prompt abaixo para o seu <strong>Agente Arquiteto</strong> auditar o <code>rascunho.html</code> e gerar o plano para o <strong>Agente Construtor</strong> na IDE.</li>
+              <li>Após o Construtor finalizar o build sem erros, envie para o GitHub (<code>git push</code>). Em cerca de 1 minuto o link da Cloudflare Pages estará atualizado.</li>
+            </ol>
+
+            <div class="prompt-label">Prompt pronto para o Sandro colar no Agente Arquiteto:</div>
+            <pre class="prompt">Meu parceiro de design subiu o arquivo rascunho.html e as fotos dentro da pasta entrega-design/ para o cliente [NOME DO CLIENTE].
+
+Inspecione o material em entrega-design/ e gere o plano estruturado (PROMPT-XXX | ADR-XXX) para o Agente Construtor executar no projeto Astro + Tailwind CSS preservando a identidade visual aprovada e aplicando nosso padrão de engenharia:
+
+1. Estrutura de componentes: fatiar o rascunho.html em componentes limpos dentro de src/components/ (Hero, Beneficios, Ofertas, Depoimentos, Captura, Rodape) mantendo exatamente as fontes do Google Fonts declaradas no rascunho, e montar em src/pages/index.astro.
+2. Padrão de Mídia (web-media-standard): converter todas as imagens de entrega-design/ para .webp (máx. 1200px capa e 800px cards), salvar em public/images/, definir width/height explícitos para CLS=0, loading="lazy" abaixo da dobra e preload com fetchpriority="high" na imagem Hero.
+3. Captura e WhatsApp: conectar todos os CTAs ao src/config/site.ts e ligar o componente LeadWhatsAppForm.astro para redirecionar o cliente direto ao WhatsApp com os campos preenchidos (usando Formspree com honeypot apenas se configurado).
+4. Auditoria Cirúrgica (surgical-eye-audit + mobile-web-first): validar alvos de toque mínimos de 48x48px, zero overflow horizontal em 360px-390px e contraste adequado.
+5. SEO e WhatsApp Preview: preencher título, meta description e Open Graph (título, descrição e imagem de capa em WebP) no BaseLayout.astro.
+
+Ao final, peça ao Construtor para rodar npm.cmd run build, confirmar Exit Code 0 e atualizar o PROJECT_STATE.md.</pre>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <!-- PASSO 5 -->
+    <div class="step-block">
+      <div class="step-meta">
+        <h3>Passo 5: Conferência no celular e aprovação</h3>
+        <div class="owner-line juntos">Quem faz: Sandro e Mateus</div>
+        <div class="time-line">Quando: Antes de enviar ao cliente</div>
+      </div>
+      <div class="step-body">
+        <p>Abram o link de teste no celular e confiram os <strong>6 itens obrigatórios</strong> antes de mandar para o cliente:</p>
+        <ul class="clean">
+          <li><strong>Leitura no celular:</strong> nenhum texto cortado na lateral ou pequeno demais (testar em tela de 360px–390px).</li>
+          <li><strong>Botão e Formulário de WhatsApp:</strong> preencher o formulário e clicar nos botões para confirmar que abre no número certo com a mensagem montada.</li>
+          <li><strong>Sem erros visuais:</strong> conferir fontes carregadas, fotos nítidas e botões confortáveis para o dedo.</li>
+          <li><strong>Velocidade:</strong> testar no <a href="https://pagespeed.web.dev/?hl=pt" target="_blank" rel="noopener noreferrer">PageSpeed Insights</a> (buscar nota verde acima de 90, nível bom na <a href="https://developers.google.com/speed/docs/insights/v5/about?hl=pt-br" target="_blank" rel="noopener noreferrer">documentação oficial</a>).</li>
+          <li><strong>Miniatura no WhatsApp:</strong> mandar o link no grupo de vocês para ver se aparece foto e título bonitos.</li>
+          <li><strong>Dados corretos:</strong> nome, endereço, telefone e horários revisados.</li>
+        </ul>
+        <p style="margin-top: 14px;">
+          Tudo aprovado? Enviem ao cliente: <em>"Seu site de teste ficou pronto! Dá uma olhada pelo celular e me manda em uma mensagem única tudo o que quiser ajustar para fazermos a rodada de revisão."</em>
+        </p>
+      </div>
+    </div>
+
+    <!-- PASSO 6 -->
+    <div class="step-block">
+      <div class="step-meta">
+        <h3>Passo 6: Ajustes, domínio e pagamento final</h3>
+        <div class="owner-line sandro">Quem faz: Mateus (ajustes) + Sandro (publicação)</div>
+        <div class="time-line">Quando: Etapa final</div>
+      </div>
+      <div class="step-body">
+        <p>Aplicar a rodada única de ajustes visuais, conectar o domínio <code>.com.br</code> no Registro.br com o Cloudflare Pages, receber os 50% finais, formalizar o aceite e alinhar o plano de gestão/suporte.</p>
+
+        <details class="howto">
+          <summary>Veja como fazer passo a passo: ligar o domínio .com.br na Cloudflare Pages e encerrar a entrega</summary>
+          <div class="howto-body">
+            <ol class="steps">
+              <li><strong>Rodada única de ajustes:</strong> se o cliente pediu troca de texto ou foto, o Mateus sobe na pasta <code>entrega-design/</code> e o Sandro aplica e atualiza no GitHub.</li>
+              <li><strong>Adicionar o domínio na hospedagem:</strong> no painel do projeto no Cloudflare Pages, vá em <strong>Custom Domains</strong> e digite o domínio do cliente (ex.: <code>nomedocliente.com.br</code>). A plataforma vai te mostrar os dados de DNS/CNAME ou Nameservers.</li>
+              <li><strong>Apontar no Registro.br:</strong> acesse a conta do cliente no <a href="https://registro.br/dominio/" target="_blank" rel="noopener noreferrer">Registro.br</a> (ou oriente-o por chamada rápida), cole os dados de DNS fornecidos e salve. Aguarde a ativação e confira o cadeado HTTPS no navegador.</li>
+              <li><strong>Receber 50/50 e pedir indicação:</strong> enviem o link oficial, recebam os <strong>50% finais</strong> no Pix, confirmem o plano de gestão/suporte (com teto claro abaixo), salvem prints para o portfólio e peçam indicação: <em>"Se conhecer algum amigo empresário precisando de uma página assim, pode passar nosso contato!"</em></li>
+            </ol>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO 6: PÓS-ENTREGA — GESTÃO, HOSPEDAGEM, MENSALIDADE E TETO DE AJUSTES -->
+  <section class="sec grid">
+    <div class="col-12">
+      <h2>Pós-entrega: gestão, mensalidade de suporte e teto de ajustes</h2>
+      <p class="measure">
+        Depois que o site vai ao ar, é muito comum o cliente precisar trocar um telefone, atualizar preços, mudar o horário ou colocar uma promoção nova. Deixem o modelo de pós-entrega claro <strong>com teto definido de alterações</strong> desde o início — assim vocês geram <strong>renda recorrente mensal 50/50</strong> sem virar reféns de pedidos infinitos.
+      </p>
+    </div>
+
+    <div class="col-12 strip-2">
+      <div>
+        <h3>Opção 1 — Plano Mensal de Gestão + Suporte</h3>
+        <p>
+          O cliente paga um valor mensal combinado entre vocês (dividido 50/50) por tranquilidade e atualização contínua:
+        </p>
+        <ul class="clean green">
+          <li><strong>Monitoramento e publicação contínua:</strong> vocês mantêm o site no ar com alta velocidade na Cloudflare, certificado SSL (HTTPS) ativo e backups no GitHub.</li>
+          <li><strong>Teto claro de alterações:</strong> inclui até <strong>3 ajustes pontuais por mês</strong> (trocar fotos existentes, preços, horários, promoções ou número de WhatsApp) sem novo orçamento.</li>
+          <li><strong>Fora do teto:</strong> criação de novas páginas, novas seções complexas ou reformulação de layout são orçadas à parte com desconto de cliente mensalista.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Opção 2 — Sem plano mensal (Alterações avulsas)</h3>
+        <p>
+          Caso o cliente prefira não contratar a mensalidade de suporte contínuo:
+        </p>
+        <ul class="clean">
+          <li><strong>Site entregue no ar:</strong> após a aprovação final e o pagamento dos 50%, o site fica publicado e funcional.</li>
+          <li><strong>Ajustes futuros cobrados à parte:</strong> após a rodada única de revisão da entrega, qualquer modificação futura (troca de cardápio, fotos, textos ou seções) é orçada como ajuste avulso na hora.</li>
+          <li><strong>Sem surpresas:</strong> o cliente sabe exatamente o que está incluso e pode migrar para o plano mensal quando quiser.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <details class="howto green">
+        <summary>Veja como explicar ao cliente no WhatsApp (mensagem pronta com teto claro de ajustes)</summary>
+        <div class="howto-body">
+          <p>Use esta mensagem na hora de fechar o projeto ou na entrega final para apresentar a mensalidade de forma leve, justa e protegida:</p>
+          <pre class="prompt script-msg">Sobre a parte de manter o site atualizado depois que for ao ar, [Nome], a gente trabalha com duas opções bem simples para você escolher o que fica melhor:
+
+1. Plano Mensal de Gestão + Suporte (R$ [VALOR A TRATAR]/mês): a gente cuida do monitoramento do seu site, segurança e atualizações, e você tem direito a até 3 ajustes pontuais por mês direto pelo WhatsApp (trocar um preço, atualizar horário, colocar foto de produto novo ou subir uma promoção da semana), sem dor de cabeça. *(Páginas novas ou mudanças grandes de layout são orçadas à parte).*
+
+2. Sem mensalidade: entregamos o site publicado e, sempre que você precisar mudar alguma informação no futuro, a gente passa um valor avulso na hora só pelo ajuste pedido.
+
+A maioria dos clientes prefere a opção mensal justamente pela praticidade de mandar um áudio no WhatsApp e já ver a página atualizada no mesmo dia. Qual das duas faz mais sentido para você?</pre>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- SEÇÃO 7: ROTINA SEMANAL FLEXÍVEL -->
+  <section class="sec grid">
+    <div class="col-12">
+      <h2>Exemplo de divisão na semana (ajustável conforme a demanda)</h2>
+      <p class="measure">
+        Como o prazo varia conforme a demanda e a disponibilidade de vocês nas noites (21h–23h) e fins de semana, usem esta divisão como base:
+      </p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Bloco da semana</th>
+              <th>Foco do Sandro</th>
+              <th>Foco do Mateus</th>
+              <th>Objetivo do bloco</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Início (Seg–Ter)</td>
+              <td>20 min prospecção + Passo 2 (GitHub/Cloudflare).</td>
+              <td>20 min prospecção + Passo 3 (fotos, prévia e <code>rascunho.html</code>).</td>
+              <td>Novos contatos na planilha + visual entregue no GitHub.</td>
+            </tr>
+            <tr>
+              <td>Meio (Qua–Qui)</td>
+              <td>20 min prospecção + Passo 4 (Agentes Duais, WebP, Astro e WhatsApp).</td>
+              <td>20 min prospecção + prévias rápidas para leads quentes + revisão no celular.</td>
+              <td>Site completo funcionando no link de teste.</td>
+            </tr>
+            <tr>
+              <td>Fechamento (Sex–Sáb)</td>
+              <td>20 min prospecção + checklist de 6 itens + domínio e publicação.</td>
+              <td>20 min prospecção + rodada única de ajustes visuais + prints de portfólio.</td>
+              <td>Cliente aprovado, site no ar e 50% finais recebidos.</td>
+            </tr>
+            <tr>
+              <td>Domingo</td>
+              <td>Alinhamento rápido de 15 min sobre a fila da próxima semana e descanso.</td>
+              <td>Alinhamento rápido de 15 min sobre a fila da próxima semana e descanso.</td>
+              <td>Definir o prazo certo para os próximos fechamentos.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- FULL-BLEED BAND -->
+  <aside class="full-band">
+    <p class="pull-quote">
+      Seis regras que blindam a parceria Sandro + Mateus: "De acordo" + 50% antes de começar, prazo só conta após envio dos materiais, protótipo grátis só na 1ª tela em print, Cloudflare Pages como padrão comercial, mensalidade com teto de 3 ajustes/mês e prospecção sem link frio.
+    </p>
+    <p class="pull-note">
+      Com o portfólio montado usando os 3 sites que vocês já têm, o template Astro já equipado com os Agentes Duais e esse manual com tutoriais expansíveis em cada etapa, qualquer projeto novo segue o mesmo trilho do início ao fim.
+    </p>
+  </aside>
+
+  <!-- FONTES -->
+  <section class="sec grid">
+    <div class="col-10">
+      <h2>Links oficiais das ferramentas citadas</h2>
+      <ol class="sources">
+        <li><a href="https://docs.astro.build/en/concepts/why-astro/" target="_blank" rel="noopener noreferrer">Astro — Por que usar Astro</a> (estrutura leve para carregamento rápido no celular).</li>
+        <li><a href="https://tailwindcss.com/docs" target="_blank" rel="noopener noreferrer">Tailwind CSS — Documentação oficial</a> (estilo visual usado nos prompts do Claude e dos agentes).</li>
+        <li><a href="https://docs.github.com/pt/repositories/creating-and-managing-repositories/creating-a-template-repository" target="_blank" rel="noopener noreferrer">GitHub — Criar um repositório de modelos</a> e <a href="https://docs.github.com/pt/get-started/using-github/github-flow" target="_blank" rel="noopener noreferrer">Fluxo colaborativo no GitHub</a>.</li>
+        <li><a href="https://www.cloudflare.com/pt-br/developer-platform/products/pages/" target="_blank" rel="noopener noreferrer">Cloudflare Pages</a> (hospedagem padrão da dupla, liberada para uso comercial com banda ilimitada).</li>
+        <li><a href="https://formspree.io/html/" target="_blank" rel="noopener noreferrer">Formspree — Formulários HTML sem servidor</a> (opção secundária caso o cliente exija captura por e-mail).</li>
+        <li><a href="https://pagespeed.web.dev/?hl=pt" target="_blank" rel="noopener noreferrer">Google PageSpeed Insights</a> e <a href="https://developers.google.com/speed/docs/insights/v5/about?hl=pt-br" target="_blank" rel="noopener noreferrer">Sobre o PageSpeed Insights</a> (teste de velocidade no celular, nota 90+ considerada boa).</li>
+        <li><a href="https://registro.br/dominio/" target="_blank" rel="noopener noreferrer">Registro.br — Domínios .com.br</a> (registro oficial por R$ 40,00/ano).</li>
+      </ol>
+    </div>
+  </section>
+
+</body>
+</html>

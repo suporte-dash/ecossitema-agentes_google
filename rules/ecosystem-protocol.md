@@ -48,11 +48,12 @@ Para maximizar a precisão e evitar alterações colaterais fora de escopo, o Ar
 
 ---
 
-## 5. GATE DE VALIDAÇÃO (WINDOWS POWERSHELL), DOCUMENTAÇÃO E GIT
-Toda execução do Agente Construtor só é considerada concluída após cumprir esta sequência obrigatória:
-1. **Build de Validação:** Executar `npm.cmd run build` no PowerShell e confirmar **Exit Code 0** (zero erros de empacotamento, assets ou sintaxe).
-2. **Atualização de Estado & Liberação de Trava:** Registrar o resumo técnico do `ADR-XXX` concluído no arquivo `PROJECT_STATE.md` e liberar/remover a linha correspondente na tabela `## 🔒 Travas Ativas de Concorrência (Tabela Multi-Lock)`.
-3. **Padrão de Commit Git:** Sugerir ou preparar o commit seguindo o padrão semântico atrelado ao ADR:
+## 5. GATE DE VALIDAÇÃO (WINDOWS POWERSHELL), PURGA PRÉ-GIT, DOCUMENTAÇÃO E GIT
+Toda execução do Agente Construtor só é considerada concluída — e autorizada para envio ao Git — após cumprir esta sequência obrigatória:
+1. **Purga Pré-Git (`@[autonomous-deadcode-purger]`):** Antes de preparar o commit/push, varrer e remover código morto (imports, funções sem uso, seletores CSS zumbis, `console.log`), arquivos temporários e **mídias/rascunhos órfãos** (ex.: fotos brutas em `entrega-design/` ou PNGs redundantes já convertidos para `.webp` em `public/images/`), preservando estritamente `.agents/**`, `AGENTS.md`, `GEMINI.md`, `PROJECT_STATE.md`, `LEIA-ME.txt` e configs de build.
+2. **Build de Validação:** Executar `npm.cmd run build` no PowerShell após a purga e confirmar **Exit Code 0** (zero erros de empacotamento, assets ou sintaxe).
+3. **Atualização de Estado & Liberação de Trava:** Registrar o resumo técnico do `ADR-XXX` concluído no arquivo `PROJECT_STATE.md` e liberar/remover a linha correspondente na tabela `## 🔒 Travas Ativas de Concorrência (Tabela Multi-Lock)`.
+4. **Padrão de Commit Git:** Sugerir ou preparar o commit seguindo o padrão semântico atrelado ao ADR:
    * Formato: `tipo(escopo): descrição curta [ADR-XXX]` (ex: `refactor(footer): reordenar colunas e remover créditos [ADR-119]`).
 
 ---

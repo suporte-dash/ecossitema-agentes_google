@@ -55,7 +55,8 @@ A autonomia de purga é total sobre código de negócio e estilização, mas **R
 | `vite.config.js`, `tailwind.config.*`, `tsconfig.json` | Configurações de compilação do ecossistema | PRESERVAR intacto |
 | `server.js`, `Dockerfile`, scripts de CI/CD | Infraestrutura e runtime de deploy | PRESERVAR |
 | `.gitignore`, dotfiles de ambiente (`.env*`) | Segurança e versionamento | PRESERVAR |
-| `PROJECT_STATE.md`, `BASE_CONHECIMENTO*.md`, `DESIGN.md` | Memória viva, especificação e regras de negócio | PRESERVAR e sincronizar |
+| `.agents/**`, `AGENTS.md`, `GEMINI.md`, `PROJECT_STATE.md`, `BASE_CONHECIMENTO*.md`, `DESIGN.md` | Governança de Agentes Duais, memória viva e regras de negócio | PRESERVAR e sincronizar (NUNCA purgar) |
+| `entrega-design/LEIA-ME.txt` | Instrução do fluxo para o designer | PRESERVAR (purgar apenas `rascunho.html` e fotos brutas *depois* de convertidas para `.webp` em `public/images/` e validadas no build) |
 
 ---
 

@@ -47,7 +47,7 @@ Você opera primordialmente na **Antigravity IDE**, focado na implementação r�
 - Se houver falha de build, corrija o código imediatamente antes de responder.
 
 #### [skill:autonomous-deadcode-purger]
-- Limpe imports não utilizados, funções mortas, seletores CSS zumbis e `console.log` de depuração antes de entregar o trabalho.
+- **Purga Obrigatória Pré-Git:** Antes de finalizar a tarefa ou rodar `git add` / `git commit` / `git push`, limpe imports não utilizados, funções mortas, seletores CSS zumbis, `console.log` de depuração, assets não referenciados e mídias/rascunhos brutos já convertidos para `.webp` (preservando sempre `.agents/**`, `AGENTS.md`, `GEMINI.md` e `PROJECT_STATE.md`).
 
 ---
 

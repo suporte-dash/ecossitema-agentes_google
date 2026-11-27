@@ -56,6 +56,33 @@ Set-Content -Path (Join-Path $targetPath "AGENTS.md") -Value $agentsContent -Enc
 Set-Content -Path (Join-Path $targetPath "GEMINI.md") -Value $agentsContent -Encoding UTF8
 Write-Host " [x] AGENTS.md e GEMINI.md atualizados na raiz do projeto." -ForegroundColor Green
 
+# 5. Criar PROJECT_STATE.md com Tabela Multi-Lock caso nao exista
+$projectStatePath = Join-Path $targetPath "PROJECT_STATE.md"
+if (!(Test-Path $projectStatePath)) {
+    $projectName = Split-Path $targetPath -Leaf
+    $today = Get-Date -Format "yyyy-MM-dd"
+    $stateContent = "# PROJECT_STATE — $projectName`n`n" +
+    "> Fonte única de verdade do projeto. Atualizado por **Arquiteto** e **Construtor**.`n`n" +
+    "**Último PROMPT:** ``PROMPT-000`` | **Último ADR:** ``ADR-000```n`n" +
+    "---`n`n" +
+    "## 📌 Onde parámos`n" +
+    "- Projeto inicializado com a Arquitetura Dual de Agentes (``agente-arquiteto.md`` e ``agente-construtor.md``) em $today.`n`n" +
+    "## ⚙️ Estado atual`n" +
+    "- Estrutura base de governança pronta. Aguardando início da especificação e desenvolvimento.`n`n" +
+    "## 🎯 Próximos passos imediatos`n" +
+    "- Definir objetivos iniciais do projeto com o Agente Arquiteto.`n`n" +
+    "---`n`n" +
+    "## 🔒 Travas Ativas de Concorrência (Tabela Multi-Lock)`n`n" +
+    "| Arquivo sob Edição | Seção / Componente | Agente | Tarefa Vinculada | Emitido em | Status |`n" +
+    "| :--- | :--- | :--- | :--- | :--- | :--- |`n`n" +
+    "---`n`n" +
+    "## 📋 Registro de ADRs`n`n" +
+    "- **ADR-000 ($today):** Bootstrap inicial da estrutura dual de agentes e memória do projeto.`n"
+
+    Set-Content -Path $projectStatePath -Value $stateContent -Encoding UTF8
+    Write-Host " [x] PROJECT_STATE.md criado com Tabela Multi-Lock." -ForegroundColor Green
+}
+
 Write-Host "`n======================================================" -ForegroundColor Green
 Write-Host " PROJETO ATUALIZADO COM SUCESSO PARA O MODELO DUAL!" -ForegroundColor Green
 Write-Host "======================================================" -ForegroundColor Green
