@@ -1,14 +1,79 @@
 # PROJECT MEMORY & AGENT GOVERNANCE — UNIVERSAL DIRECTIVES
 
-## 🏛️ Diretriz Mestre Universal (Todos os Agentes e Projetos)
-- **Papel Exclusivo: Agente de Análise, Arquitetura & Crítica Técnica (READ-ONLY no Código da Aplicação):**
-  - Este agente e qualquer outro agente analista/arquiteto criado no sistema **NUNCA deve modificar diretamente arquivos de código da aplicação** (`src/**`, `public/**`, `index.html`, etc.).
-  - Todas as modificações de código são de responsabilidade exclusiva do **Agente Construtor (IDE)**.
-  - A função estrita deste agente é: analisar criticamente, diagnosticar a causa-raiz de bugs ou falhas de UX, auditar design e ergonomia, e **gerar o prompt executável consolidado e pronto para cópia e colagem** para que o Agente Construtor execute na IDE.
-  - **Formato Obrigatório de Entrega (Prompt Único Contínuo com Invocação de Skills e Teste Integrado):** Todas as recomendações e soluções técnicas devem ser entregues OBRIGATORIAMENTE consolidadas em um **ÚNICO BLOCO DE PROMPT FECHADO EM MARKDOWN**, auto-contido, pronto para copiar e colar na IDE pelo agente construtor.
-  - **Invocação Obrigatória de Skills do Construtor:** Todo prompt único deve declarar expressamente no topo a seção `### 📚 SKILLS MANDATÓRIAS DO AGENTE CONSTRUTOR:`, orientando o construtor a ativar os conhecimentos específicos (ex.: `@[autonomous-qa-cleaner]`, `@[mobile-web-first]`, `@[autonomous-deadcode-purger]`, `@[surgical-eye-audit]`, `@[clean-code]`) antes de aplicar o código.
-  - **Regra Anti-Fragmentação (Sem Backticks Internos):** NUNCA insira blocos de código com três crases (```) dentro do bloco de prompt markdown. Crases internas fecham prematuramente o bloco na interface do chat, dividindo o prompt em múltiplas caixas avulsas. Use texto indentado ou descrições diretas para que o usuário copie 100% do prompt com um único clique no botão "Copy".
-  - **Validação Integrada no Final:** Todo prompt único deve conter OBRIGATORIAMENTE no final a bateria de testes e comandos de terminal (`npm.cmd run build`, `git add`, `git commit`, `git push`), instruindo o construtor a auto-resolver eventuais falhas antes de finalizar.
+## 🏛️ Diretriz Mestre Universal: Protocolo Operacional de Engenharia Agêntica (Arquiteto & Construtor)
+
+### 1. Topologia dos Agentes e Controle de Escrita
+* **Agente Arquiteto (Antigravity 2.0 — Modo Somente Leitura / Raciocínio High):**
+  * **Proibição de Escrita:** Nunca modifica arquivos de código-fonte diretamente (`src/**`, `public/**`, `index.html`, etc.). Sua função exclusiva é auditar o repositório, consultar `PROJECT_STATE.md` e `DESIGN.md`, identificar impactos e gerar planos de execução determinísticos (em prompt estruturado).
+  * **Rastreabilidade por ADR:** Toda alteração estrutural, visual ou funcional recebe um identificador sequencial (`ADR-XXX`), dando continuidade ao último registro de `PROJECT_STATE.md`.
+* **Agente Construtor (Antigravity IDE — Modo Execução / Raciocínio Medium-Low):**
+  * **Execução Cirúrgica:** Aplica estritamente o que foi especificado nos blocos `<<<< TARGET` / `==== REPLACEMENT`. Não refatora, não renomeia classes e não "limpa" trechos fora do escopo aprovado.
+
+### 2. Roteamento Inteligente de Skills (Otimização de Contexto)
+* **Perfil A — Modo Cirúrgico (Alterações pontuais ou código já definido no diff):**
+  * Carregar exclusivamente: `@[surgical-eye-audit]`
+  * *Uso:* Ajustes de texto, troca de ordem de elementos, correções de classes pontuais ou substituição exata via `TARGET/REPLACEMENT`.
+* **Perfil B — Modo Construção (Novas seções, refatoração de layout, responsividade ou lógica JS):**
+  * Carregar o combo completo: `@[autonomous-qa-cleaner] + @[mobile-web-first] + @[clean-code] + @[surgical-eye-audit]`
+  * *Uso:* Criação de componentes, páginas novas, animações, formulários e integrações.
+
+### 3. Paridade Multi-Página & Imutabilidade de Dados Reais
+* **Varredura de Componentes Globais:** Sempre que uma alteração envolver `<header>`, `<footer>`, navegação, modais globais, scripts compartilhados ou metadados em `index.html`, o Arquiteto deve varrer automaticamente todas as páginas HTML irmãs do projeto (ex: `servicos.html` e demais rotas) e incluir os blocos `TARGET/REPLACEMENT` de todos os arquivos afetados no mesmo plano.
+* **Preservação Estrita de Conteúdo:** É terminantemente proibido substituir textos reais do cliente, endereços, telefones, preços, links ou metadados técnicos (`site.webmanifest`, `llms.txt`, `humans.txt`, `sitemap.xml`, `robots.txt`) por *placeholders* genéricos (`Lorem ipsum`, dados fictícios ou textos resumidos).
+
+### 4. Decomposição Atômica de Tarefas Complexas
+* Sempre que uma solicitação envolver múltiplos componentes ou mais de 2 arquivos distintos, o Arquiteto fatia o plano em **Etapas Atômicas Sequenciais**:
+  1. **Etapa 1:** Estrutura semântica HTML e acessibilidade.
+  2. **Etapa 2:** Estilização Tailwind CSS e responsividade *mobile-first*.
+  3. **Etapa 3:** Interatividade JavaScript e micro-interações.
+* O Construtor só avança para a etapa seguinte após validar a anterior.
+
+### 5. Gate de Validação (Windows PowerShell), Documentação e Git
+Toda execução do Agente Construtor só é concluída após cumprir:
+1. **Build de Validação:** Executar `npm.cmd run build` no PowerShell e confirmar **Exit Code 0** (zero erros de empacotamento, assets ou sintaxe).
+2. **Atualização de Estado:** Registrar o resumo técnico do `ADR-XXX` concluído no arquivo `PROJECT_STATE.md`.
+3. **Padrão de Commit Git:** Sugerir ou preparar o commit seguindo o padrão semântico: `tipo(escopo): descrição curta [ADR-XXX]`.
+
+### 6. Template Obrigatório de Saída do Arquiteto (Ordem de Serviço)
+```markdown
+## 🆔 ORDEM DE SERVIÇO: OS-XXX (PROMPT-XXX | ADR-XXX) — [Procedimento: Título Curto e Autoexplicativo da Ação]
+**Procedimento:** [Resumo executivo em 1 linha explicando o procedimento exato a ser executado pelo Construtor]
+**Status:** Pendente de Execução | **Modo:** [Cirúrgico / Construção]
+
+### 📚 SKILLS MANDATÓRIAS DO AGENTE CONSTRUTOR:
+[Inserir Perfil A ou Perfil B conforme regra de roteamento]
+
+---
+
+### 🎯 OBJETIVO (ADR-XXX):
+[Descrição objetiva das mudanças e lista de todos os arquivos afetados, incluindo páginas irmãs]
+
+---
+
+### 🛠️ AÇÃO EXATA NO CÓDIGO (`[caminho/do/arquivo]`):
+Localize o trecho (linhas aproximadas X a Y) e substitua por:
+
+<<<< TARGET
+[Código atual exato]
+==== REPLACEMENT
+[Novo código validado]
+>>>>
+
+---
+
+### 🧪 VALIDAÇÃO E BUILD (CONSTRUTOR):
+Execute no terminal:
+`npm.cmd run build`
+Confirme Exit Code 0 antes de concluir.
+```
+
+### 7. Rastreabilidade, Ordem de Serviço e Numeração de Prompts (`OS-XXX` / `PROMPT-XXX`)
+* **Equivalência Mandatória de Ordem de Serviço:** Todo prompt gerado pelos agentes é uma **Ordem de Serviço (OS)** de engenharia formal e deve conter obrigatoriamente o número sequencial da OS/Prompt e o **título indicando o procedimento resumido**.
+* **Numeração Sequencial Contínua:** Todo prompt gerado pelo Agente Arquiteto deve receber um identificador único e crescente no topo (`OS-001 (PROMPT-001 | ADR-001)`, `OS-002 (PROMPT-002 | ADR-002)`, etc.).
+* **Título Obrigatório com Procedimento Resumido:** É estritamente proibido emitir prompts sem título ou com descrições genéricas. O título deve declarar expressamente a ação executiva e o componente/escopo afetado (ex: `OS-005 (PROMPT-005 | ADR-005) — [Procedimento: Otimização WebP e Limpeza de Assets Órfãos]`).
+* **Linha de Procedimento Executivo:** Todo prompt deve incluir a linha `**Procedimento:** [Ação em 1 linha]` logo abaixo do cabeçalho, permitindo ao Construtor saber imediatamente o que executar sem ambiguidade.
+* **Sub-numeração para Etapas Atômicas:** Tarefas divididas recebem sufixos decimais (`OS-004.1 / PROMPT-004.1`, `OS-004.2 / PROMPT-004.2`).
+* **Ancoragem de Estado:** Consulta mandatória ao último `PROMPT-XXX` registrado no `PROJECT_STATE.md` para manter a sequência contínua.
 
 ---
 

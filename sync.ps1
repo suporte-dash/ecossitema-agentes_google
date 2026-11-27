@@ -10,12 +10,25 @@ $sourceMemory = Join-Path $sourceWorkspace ".agents\memory\MEMORY.md"
 
 Write-Host "Sincronizando arquivos locais com o repositorio..." -ForegroundColor Cyan
 
-# 1. Copiar Skills
+# 1. Copiar Skills (Globais, Plugins e Built-in)
+if (!(Test-Path "$repoDir\skills")) { New-Item -ItemType Directory -Path "$repoDir\skills" -Force | Out-Null }
 if (Test-Path $sourceSkills) {
-    if (!(Test-Path "$repoDir\skills")) { New-Item -ItemType Directory -Path "$repoDir\skills" -Force | Out-Null }
     Copy-Item -Path "$sourceSkills\*" -Destination "$repoDir\skills" -Recurse -Force
-    Write-Host "Skills sincronizadas com sucesso." -ForegroundColor Green
 }
+$pluginSkillsPath = "$env:USERPROFILE\.gemini\config\plugins\*\skills\*"
+if (Test-Path $pluginSkillsPath) {
+    Get-ChildItem -Path $pluginSkillsPath -Directory | ForEach-Object {
+        Copy-Item -Path $_.FullName -Destination "$repoDir\skills" -Recurse -Force
+    }
+}
+$builtinSkillsPath = "$env:USERPROFILE\.gemini\antigravity\builtin\skills\*"
+if (Test-Path $builtinSkillsPath) {
+    Get-ChildItem -Path $builtinSkillsPath -Directory | ForEach-Object {
+        Copy-Item -Path $_.FullName -Destination "$repoDir\skills" -Recurse -Force
+    }
+}
+$totalSyncedSkills = (Get-ChildItem -Path "$repoDir\skills" -Directory).Count
+Write-Host "Total de $totalSyncedSkills Skills sincronizadas com sucesso." -ForegroundColor Green
 
 # 2. Copiar Regras
 if (Test-Path $sourceRules) {

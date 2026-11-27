@@ -1,6 +1,32 @@
 # PROJECT_STATE — LS Tecnologia (Página LS Vendas)
 
 ## 📌 Onde parámos
+- **Unificação e Publicação Total de 90 Skills no Repositório Central do GitHub [ADR-003 | OS-003 | PROMPT-003] (`[skill:senior-critical-advisor]` + `[skill:clean-code]` + `[skill:project-memory-manager]`)**:
+  - Diretriz Estratégica: Elevar o repositório central do GitHub (`https://github.com/suporte-dash/ecossitema-agentes_google.git`) para conter não apenas as 59 skills personalizadas, mas a totalidade das 90 skills operacionais ativas (adicionando as 15 skills dos plugins e as 16 skills nativas built-in da plataforma).
+  - **Entregas Arquiteturais Realizadas**:
+    1. *Injeção das 31 Skills Faltantes*: Migradas e unificadas em `skills/` todas as skills de plugins (`chrome-devtools`, `modern-web-guidance`, `elephant-goldfish-model`, `google-antigravity-sdk`) e builtin (`automation`, `conversations`, `run-workflow`, etc.).
+    2. *Atualização de Scripts GitOps*: Aprimorados `sync.ps1` e `README.md` para sincronizar e contabilizar o catálogo unificado de 90 skills.
+    3. *Rastreabilidade Sequencial Fixada*: Incremento do contador contínuo para `ADR-003` e `OS-003 / PROMPT-003`.
+    4. *Sincronização na Nuvem*: Push realizado com sucesso para o branch `main` no GitHub.
+
+- **Padronização Mandatória de Ordem de Serviço (OS) e Procedimento Resumido em Todos os Prompts de Execução [ADR-002 | OS-002 | PROMPT-002] (`[skill:senior-critical-advisor]` + `[skill:ecosystem-protocol]` + `[skill:project-memory-manager]`)**:
+  - Diretriz Estratégica: Estabelecer formalmente que todo prompt gerado pelos agentes no ecossistema é uma **Ordem de Serviço (OS)** de engenharia. Passa a ser mandatório incluir no cabeçalho o número sequencial da OS/Prompt (`OS-XXX (PROMPT-XXX | ADR-XXX)`) acompanhado expressamente de um **título indicando o procedimento resumido** da ação (`[Procedimento: Título Curto e Autoexplicativo]`), além da linha executiva `**Procedimento:** [Resumo em 1 linha da ação]`.
+  - **Entregas Arquiteturais Realizadas**:
+    1. *Atualização Global P0 `ecosystem-protocol.md`*: Modificadas as seções 6 (Template) e 7 (Rastreabilidade) nas regras globais (`C:\Users\NOC 01\.gemini\config\rules\ecosystem-protocol.md`) e no repositório (`rules/ecosystem-protocol.md`).
+    2. *Atualização de `agente-ls-critical.md`*: Sincronizado nas regras globais e no repositório de agentes.
+    3. *Atualização de `AGENTS.md`*: Especificação formal da Ordem de Serviço e Procedimento na raiz do repositório Git.
+    4. *Atualização de `MEMORY.md`*: Memória permanente sincronizada com os novos requisitos mandatórios de geração de prompts.
+    5. *Rastreabilidade Sequencial Fixada*: Incremento do contador contínuo para `ADR-002` e `OS-002 / PROMPT-002`.
+
+- **Implantação do Protocolo Operacional de Engenharia Agêntica (Arquiteto & Construtor) [ADR-001 | PROMPT-001] (`[skill:senior-critical-advisor]` + `[skill:ecosystem-protocol]` + `[skill:project-memory-manager]`)**:
+  - Diretriz Estratégica: Incorporar o protocolo operacional de engenharia agêntica (Arquiteto & Construtor), controle de escrita read-only, perfis de skills (Perfil A Cirúrgico / Perfil B Construção), paridade multi-página, imutabilidade de dados reais, decomposição atômica de tarefas complexas, validação contínua e rastreabilidade sequencial contínua (`PROMPT-XXX` / `ADR-XXX`).
+  - **Entregas Arquiteturais Realizadas**:
+    1. *Criação de `AGENTS.md`*: Persistido na raiz do repositório Git com as 7 seções completas de governança.
+    2. *Regra Global P0 `ecosystem-protocol.md`*: Criada no repositório (`rules/ecosystem-protocol.md`) e injetada nas regras globais do Antigravity (`C:\Users\NOC 01\.gemini\config\rules\ecosystem-protocol.md`).
+    3. *Atualização de `agente-ls-critical.md` (v2.1.0)*: Inclusão do `[skill:ecosystem-protocol]` com os 7 pilares mandatórios (Perfil A/B, paridade de rotas irmãs, template padronizado e rastreamento).
+    4. *Atualização de `MEMORY.md`*: Memória permanente universal sincronizada no repositório.
+    5. *Rastreabilidade Sequencial Fixada*: Inicialização formal do contador contínuo `ADR-001` e `PROMPT-001`.
+
 - **Instituição & Sincronização Global da Regra `web-media-standard` (`[skill:senior-critical-advisor]` + `[skill:clean-code]` + `[skill:agy-customizations]`)**:
   - Solicitação de Sandro: *"Podemos criar uma regra global com esses parametros para projetos futuros e implementar no nosso ecossistema ?"*
   - **Entrega Arquitetural Realizada**:
@@ -12,14 +38,7 @@
     3. *GitOps & Sincronização na Nuvem*:
        - Executado `sync.ps1` com sucesso: commit `b58b0c0` (*feat(sync): atualizacao completa do ecossistema de agentes*) enviado para `https://github.com/suporte-dash/ecossitema-agentes_google.git`.
 
-## ⚙️ Estado atual
-- **Produção Oficial:** `https://lstecnogestao.com.br` **100% no ar com Selo Quádruplo Verde (90 | 96 | 96 | 100)**.
-- **Nuvem do Ecossistema:** Sincronizada no GitHub (commit `b58b0c0`) contendo 59 skills, regras P0, `web-media-standard.md` e `MEMORY.md`.
-- **Governança:** A nova regra de mídia está ativa e valerá automaticamente para todos os projetos atuais e futuros.
-
-## 🎯 Próximos passos imediatos
-1. Apresentar o resumo da implantação da regra global para Sandro.
-2. Definir o próximo passo comercial ou técnico do ecossistema.
+- **Favicon Master Dark Cyber-Gold & Identidade Visual de Alto Contraste (`[skill:senior-critical-advisor]` + `[skill:web-media-standard]`)**:
   - Solicitação de Sandro: *"Quando o usuario pesquisa no google, o logo do site parece assim e com o fundo branco ainda. Como podemos melhorar isso?"* (com print mostrando o logo prateado lavado sobre o fundo branco do Google).
   - **Diagnóstico & Solução Arquitetural de Alto Contraste**:
     1. *Causa-Raiz*: O Google Search opera sobre tela branca `#FFFFFF` e o ícone anterior com transparência/fundo claro anulava o contraste do Lobo Alfa prateado (1.2:1), gerando aspecto anêmico/fantasma.
@@ -109,13 +128,15 @@
     3. *Material Estruturado*: Criado [`CATALOGO_SERVICOS_E_PARCERIA_LS.md`](file:///c:/Users/NOC%2001/Desktop/AGENTE%20FRONT/CATALOGO_SERVICOS_E_PARCERIA_LS.md) contendo os 7 serviços prontos para venda, tabela de repasse vs. preço sugerido de venda com lucro para a LS, e o script de resposta para fechar a parceria.
 
 ## ⚙️ Estado atual
+- **Governança Agêntica:** `AGENTS.md` e `rules/ecosystem-protocol.md` homologados e atualizados com o padrão mandatório de Ordem de Serviço (OS) e Procedimento Resumido em todas as regras globais e repositório.
 - **Produção Oficial:** `https://lstecnogestao.com.br` **100% no ar com Selo Quádruplo Verde (90 | 96 | 96 | 100)**.
-- **Nuvem no GitHub:** Sincronizada e segura com 59 skills.
+- **Nuvem no GitHub:** Sincronizada e segura com 59 skills e regras de engenharia versionadas.
 - **Modelo de Parceria:** Alinhado e validado pelo próprio fundador; catálogo de serviços pronto para envio.
 
 ## 🎯 Próximos passos imediatos
-1. Enviar a tabela de serviços e o áudio/mensagem de alinhamento para o parceiro.
-2. Iniciar a divulgação dos serviços complementares (Sites, Google Maps, E-mails e Automações) na esteira comercial da LS.
+1. Conduzir todas as novas alterações operacionais via esteira Arquiteto (`OS-003` / `ADR-003`) -> Construtor (`npm.cmd run build` Exit Code 0).
+2. Enviar a tabela de serviços e o áudio/mensagem de alinhamento para o parceiro da LS Tecnologia.
+3. Iniciar a divulgação dos serviços complementares (Sites, Google Maps, E-mails e Automações) na esteira comercial da LS.
 
 - **Criação do Plano de Ação de Prospecção Ativa B2B (`[skill:senior-critical-advisor]` + `[skill:documentation-templates]`)**:
   - Solicitação e visão estratégica de autonomia do cliente: *"não posso depender somente deles para conseguir clientes. Qual seria uma boa estrategia para localizar possiveis clientes e como aborda-los? Monta um plano de ação para que eu tbm consiga clientes atrás dessa demanda."*

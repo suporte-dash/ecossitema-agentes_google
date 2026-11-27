@@ -8,15 +8,20 @@
 
 ```
 ecossitema-agentes_google/
-├── rules/                  # Regras Mandatórias P0 (agente-ls-critical, core-protocol, code-rules, etc.)
-├── skills/                 # Catálogo Completo de 59+ Skills Especializadas (YAML + Markdown)
+├── AGENTS.md               # Protocolo Operacional de Engenharia Agêntica (Arquiteto & Construtor, PROMPT-XXX / ADR-XXX)
+├── rules/                  # Regras Mandatórias P0 (ecosystem-protocol, agente-ls-critical, core-protocol, code-rules, etc.)
+├── skills/                 # Catálogo Completo de 90 Skills Ativas (59 Proprietárias + 15 de Plugins + 16 Built-in)
 │   ├── landing-page-factory/
 │   ├── surgical-eye-audit/
 │   ├── pre-flight-quality-gate/
 │   ├── autonomous-qa-cleaner/
 │   ├── mobile-web-first/
 │   ├── autonomous-deadcode-purger/
-│   └── ... (59+ skills)
+│   ├── chrome-devtools/
+│   ├── modern-web-guidance/
+│   ├── egm-review/
+│   ├── automation/
+│   └── ... (90 skills completas)
 ├── memory/                 # Memória Persistente Permanente (MEMORY.md)
 ├── docs/                   # Manuais de Negócio, Vendas, Briefings e Engenharia
 │   ├── GUIA_CONSTRUCAO_SITES_LS_DIGITAL.md
@@ -45,7 +50,7 @@ Ao instalar o Antigravity 2.0 e a IDE na sua nova máquina:
    cd ecossitema-agentes_google
    .\restore.ps1
    ```
-3. **Pronto!** O script injetará automaticamente todas as **59+ skills, regras P0 e a memória** na raiz do seu usuário (`C:\Users\<SeuUsuario>\.gemini\config\`).
+3. **Pronto!** O script injetará automaticamente todas as **90 skills completas, regras P0 e a memória** na raiz do seu usuário (`C:\Users\<SeuUsuario>\.gemini\config\`).
 Ao abrir a Antigravity IDE, todos os seus agentes já estarão 100% ativos e conscientes de todas as regras e conhecimentos!
 
 ---
