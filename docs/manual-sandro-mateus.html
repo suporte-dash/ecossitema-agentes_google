@@ -9,16 +9,25 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
   <style>
     :root {
+      --canvas: #F1F5F9;
       --paper: #FFFFFF;
-      --band: #F4F6F8;
+      --band: #0F172A;
       --ink: #0F172A;
       --ink2: #334155;
       --mute: #475569;
-      --hair: #CBD5E1;
+      --hair: #E2E8F0;
+      --hair-strong: #CBD5E1;
       --accent: #1D4ED8;
+      --accent-soft: #EFF6FF;
+      --accent-border: #BFDBFE;
       --accent-text: #1E3A8A;
       --accent-2: #059669;
+      --accent-2-soft: #ECFDF5;
+      --accent-2-border: #A7F3D0;
       --accent-2-text: #065F46;
+      --wa-bg: #F0FDF4;
+      --wa-border: #BBF7D0;
+      --wa-accent: #16A34A;
     }
 
     *, *::before, *::after {
@@ -28,7 +37,7 @@
     }
 
     html {
-      background: var(--paper);
+      background: var(--canvas);
       color: var(--ink);
       font-family: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
       font-size: 16px;
@@ -37,14 +46,26 @@
     }
 
     body {
-      background: var(--paper);
+      background: var(--canvas);
       color: var(--ink);
-      padding: 64px clamp(24px, 10vw, 112px) 92px;
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 40px clamp(16px, 4vw, 48px) 84px;
       overflow-x: hidden;
+    }
+
+    header.grid {
+      background: var(--paper);
+      border: 1px solid var(--hair);
+      border-top: 5px solid var(--ink);
+      border-radius: 16px;
+      padding: clamp(28px, 4vw, 48px);
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
     }
 
     a {
       color: var(--accent-text);
+      font-weight: 500;
       text-decoration: underline;
       text-decoration-thickness: 1px;
       text-underline-offset: 3px;
@@ -70,18 +91,18 @@
     h1 {
       font-family: 'Space Grotesk', sans-serif;
       font-weight: 700;
-      font-size: clamp(34px, 4.2vw, 50px);
-      line-height: 1.08;
+      font-size: clamp(30px, 3.8vw, 44px);
+      line-height: 1.1;
       letter-spacing: -0.025em;
       color: var(--ink);
       text-wrap: balance;
-      max-width: 25ch;
+      max-width: 26ch;
     }
 
     .deck {
-      margin-top: 18px;
-      font-size: 18px;
-      line-height: 1.55;
+      margin-top: 16px;
+      font-size: 17.5px;
+      line-height: 1.6;
       color: var(--ink2);
       max-width: 66ch;
     }
@@ -89,18 +110,18 @@
     h2 {
       font-family: 'Space Grotesk', sans-serif;
       font-weight: 700;
-      font-size: clamp(24px, 2.3vw, 30px);
+      font-size: clamp(22px, 2.2vw, 28px);
       line-height: 1.2;
       letter-spacing: -0.02em;
       color: var(--ink);
       text-wrap: balance;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
 
     h3 {
       font-family: 'Space Grotesk', sans-serif;
       font-weight: 600;
-      font-size: 20px;
+      font-size: 19px;
       line-height: 1.3;
       color: var(--ink);
       margin-bottom: 10px;
@@ -108,12 +129,12 @@
 
     p {
       color: var(--ink2);
-      font-size: 16px;
+      font-size: 15.5px;
       line-height: 1.65;
     }
 
     p + p {
-      margin-top: 14px;
+      margin-top: 12px;
     }
 
     strong {
@@ -123,32 +144,55 @@
 
     code {
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 13.5px;
+      font-size: 13px;
       color: var(--ink);
+      background: #E2E8F0;
+      padding: 2px 6px;
+      border-radius: 5px;
     }
 
     .sec {
-      margin-top: 64px;
-      padding-top: 32px;
-      border-top: 1px solid var(--hair);
+      margin-top: 28px;
+      background: var(--paper);
+      border: 1px solid var(--hair);
+      border-radius: 16px;
+      padding: clamp(24px, 3.5vw, 42px);
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
     }
 
-    /* Role Legend Strip (Emphasis Moment) */
+    /* Role Legend Strip */
     .role-strip {
-      margin-top: 34px;
+      margin-top: 28px;
       padding-top: 24px;
-      border-top: 2px solid var(--ink);
+      border-top: 1px solid var(--hair);
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 28px;
+      gap: 18px;
+    }
+
+    .role-strip > div {
+      background: #F8FAFC;
+      border: 1px solid var(--hair);
+      border-radius: 12px;
+      padding: 18px 20px;
+    }
+
+    .role-strip > div:nth-child(1) {
+      background: var(--accent-2-soft);
+      border-color: var(--accent-2-border);
+    }
+
+    .role-strip > div:nth-child(2) {
+      background: var(--accent-soft);
+      border-color: var(--accent-border);
     }
 
     .role-name {
       font-family: 'Space Grotesk', sans-serif;
       font-weight: 700;
-      font-size: 22px;
+      font-size: 19px;
       line-height: 1.2;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
 
     .sandro { color: var(--accent-text); }
@@ -156,41 +200,45 @@
     .juntos { color: var(--ink); }
 
     .role-desc {
-      font-size: 15px;
+      font-size: 14.5px;
       line-height: 1.55;
       color: var(--ink2);
     }
 
-    /* Open Multi-Column Strips */
+    /* Multi-Column Cards */
     .strip-2 {
-      margin-top: 28px;
-      padding-top: 24px;
-      border-top: 1px solid var(--hair);
+      margin-top: 22px;
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 32px;
+      gap: 20px;
     }
 
     .strip-3 {
-      margin-top: 28px;
-      padding-top: 24px;
-      border-top: 1px solid var(--hair);
+      margin-top: 22px;
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 28px;
+      gap: 18px;
+    }
+
+    .strip-2 > div,
+    .strip-3 > div {
+      background: #F8FAFC;
+      border: 1px solid var(--hair);
+      border-radius: 12px;
+      padding: 20px 22px;
     }
 
     /* Step Blocks */
     .step-block {
-      padding: 32px 0;
-      border-top: 1px solid var(--hair);
+      margin-top: 18px;
+      background: #F8FAFC;
+      border: 1px solid var(--hair);
+      border-left: 4px solid var(--ink);
+      border-radius: 14px;
+      padding: 24px 26px;
       display: grid;
       grid-template-columns: repeat(12, minmax(0, 1fr));
       column-gap: 24px;
-    }
-
-    .step-block:first-of-type {
-      margin-top: 20px;
     }
 
     .step-meta {
@@ -202,22 +250,49 @@
     }
 
     .owner-line {
-      font-size: 14px;
+      display: inline-block;
+      font-size: 13px;
       font-weight: 600;
-      margin-top: 6px;
+      margin-top: 8px;
+      padding: 4px 10px;
+      border-radius: 99px;
+    }
+
+    .owner-line.sandro {
+      background: var(--accent-soft);
+      color: var(--accent-text);
+      border: 1px solid var(--accent-border);
+    }
+
+    .owner-line.mateus {
+      background: var(--accent-2-soft);
+      color: var(--accent-2-text);
+      border: 1px solid var(--accent-2-border);
+    }
+
+    .owner-line.juntos {
+      background: #E2E8F0;
+      color: var(--ink);
+      border: 1px solid var(--hair-strong);
     }
 
     .time-line {
-      font-size: 14px;
+      font-size: 13.5px;
       color: var(--mute);
-      margin-top: 4px;
+      margin-top: 8px;
     }
 
     /* Native HTML Expandable How-To Drawers */
     details.howto {
-      margin-top: 20px;
-      border-top: 1px solid var(--hair);
-      border-bottom: 1px solid var(--hair);
+      margin-top: 18px;
+      background: var(--paper);
+      border: 1px solid var(--accent-border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    details.howto.green {
+      border-color: var(--accent-2-border);
     }
 
     details.howto + details.howto {
@@ -227,19 +302,30 @@
     details.howto > summary {
       list-style: none;
       cursor: pointer;
-      padding: 13px 0;
+      padding: 13px 18px;
+      background: var(--accent-soft);
       font-family: 'Space Grotesk', sans-serif;
       font-weight: 600;
-      font-size: 15.5px;
+      font-size: 15px;
       color: var(--accent-text);
       display: flex;
       align-items: center;
       gap: 10px;
       user-select: none;
+      transition: background-color 0.15s ease;
+    }
+
+    details.howto > summary:hover {
+      background: #DBEAFE;
     }
 
     details.howto.green > summary {
+      background: var(--accent-2-soft);
       color: var(--accent-2-text);
+    }
+
+    details.howto.green > summary:hover {
+      background: #D1FAE5;
     }
 
     details.howto > summary::-webkit-details-marker {
@@ -258,55 +344,53 @@
       transform: rotate(90deg);
     }
 
-    details.howto > summary:hover {
-      color: var(--ink);
-    }
-
     .howto-body {
-      padding: 4px 0 20px 22px;
-      border-left: 2px solid var(--accent);
-      margin-left: 4px;
-      margin-bottom: 12px;
-    }
-
-    details.howto.green .howto-body {
-      border-left-color: var(--accent-2);
+      padding: 18px 20px 20px;
+      border-top: 1px solid var(--hair);
+      background: var(--paper);
     }
 
     .howto-body p {
       font-size: 15px;
     }
 
-    /* Copy-paste Prompt / Script Blocks */
+    /* Copy-paste Prompt vs. WhatsApp Script Blocks */
     .prompt-label {
-      margin-top: 20px;
+      margin-top: 18px;
       margin-bottom: 8px;
-      font-size: 14.5px;
-      font-weight: 600;
+      font-size: 13.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
       color: var(--ink);
     }
 
     pre.prompt {
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 13.5px;
-      line-height: 1.6;
-      color: var(--ink);
-      background: #F8FAFC;
-      border-left: 3px solid var(--accent);
-      padding: 16px 20px;
+      font-size: 13px;
+      line-height: 1.65;
+      color: #F8FAFC;
+      background: #0F172A;
+      border-left: 4px solid #3B82F6;
+      border-radius: 10px;
+      padding: 18px 20px;
       white-space: pre-wrap;
       word-break: break-word;
     }
 
     pre.prompt.mateus-prompt {
-      border-left-color: var(--accent-2);
+      border-left-color: #10B981;
     }
 
     pre.prompt.script-msg {
       font-family: 'IBM Plex Sans', sans-serif;
       font-size: 15px;
       line-height: 1.6;
-      border-left-color: var(--ink);
+      color: var(--ink);
+      background: var(--wa-bg);
+      border: 1px solid var(--wa-border);
+      border-left: 4px solid var(--wa-accent);
+      border-radius: 10px;
     }
 
     /* Lists */
@@ -314,7 +398,7 @@
       margin-top: 12px;
       padding-left: 20px;
       color: var(--ink2);
-      font-size: 15.5px;
+      font-size: 15px;
       line-height: 1.6;
     }
 
@@ -333,7 +417,7 @@
       position: absolute;
       left: 0;
       color: var(--accent-text);
-      font-weight: 600;
+      font-weight: 700;
     }
 
     ul.clean.green li::before {
@@ -347,14 +431,18 @@
 
     /* Figures */
     figure {
-      margin-top: 28px;
+      margin-top: 26px;
+      padding: 20px 22px;
+      background: #F8FAFC;
+      border: 1px solid var(--hair);
+      border-radius: 12px;
       width: 100%;
     }
 
     .fig-title {
       font-family: 'Space Grotesk', sans-serif;
       font-weight: 600;
-      font-size: 19px;
+      font-size: 18px;
       line-height: 1.3;
       color: var(--ink);
       margin-bottom: 14px;
@@ -373,81 +461,90 @@
       color: var(--mute);
     }
 
-    /* Open Tables */
+    /* Structured Tables with Zebra & Distinct Header */
     .table-wrap {
-      margin-top: 22px;
+      margin-top: 20px;
       width: 100%;
       overflow-x: auto;
+      border: 1px solid var(--hair);
+      border-radius: 12px;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
       text-align: left;
-      font-size: 15px;
+      font-size: 14.5px;
+      background: var(--paper);
     }
 
     thead th {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 12px;
-      font-weight: 500;
-      color: var(--mute);
-      padding: 0 16px 12px 0;
-      border-bottom: 2px solid var(--ink);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--ink);
+      background: #F1F5F9;
+      padding: 13px 16px;
+      border-bottom: 2px solid var(--hair-strong);
       white-space: nowrap;
     }
 
-    thead th:last-child,
-    tbody td:last-child {
-      padding-right: 0;
+    tbody tr:nth-child(even) {
+      background: #F8FAFC;
     }
 
     tbody td {
-      padding: 14px 16px 14px 0;
+      padding: 14px 16px;
       border-bottom: 1px solid var(--hair);
       color: var(--ink2);
       vertical-align: top;
-      line-height: 1.5;
+      line-height: 1.55;
+    }
+
+    tbody tr:last-child td {
+      border-bottom: none;
     }
 
     tbody td:first-child {
       color: var(--ink);
       font-weight: 600;
+      background: rgba(241, 245, 249, 0.45);
     }
 
-    /* Full-bleed band */
+    /* Full-bleed dark summary band */
     .full-band {
-      margin-top: 64px;
-      margin-left: calc(clamp(24px, 10vw, 112px) * -1);
-      margin-right: calc(clamp(24px, 10vw, 112px) * -1);
-      padding: 44px clamp(24px, 10vw, 112px);
+      margin-top: 28px;
+      padding: clamp(28px, 4vw, 44px);
       background: var(--band);
-      border-top: 1px solid var(--hair);
-      border-bottom: 1px solid var(--hair);
+      color: #F8FAFC;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.12);
     }
 
     .pull-quote {
-      font-family: 'IBM Plex Sans', sans-serif;
-      font-size: clamp(21px, 2.3vw, 28px);
-      font-weight: 500;
-      line-height: 1.4;
-      color: var(--ink);
-      max-width: 52ch;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(20px, 2.2vw, 26px);
+      font-weight: 600;
+      line-height: 1.38;
+      color: #FFFFFF;
+      max-width: 54ch;
     }
 
     .pull-note {
       margin-top: 14px;
       font-size: 15.5px;
-      color: var(--ink2);
+      color: #CBD5E1;
       max-width: 66ch;
     }
 
     ol.sources {
-      margin-top: 16px;
+      margin-top: 14px;
       padding-left: 22px;
       color: var(--ink2);
       font-size: 14.5px;
-      line-height: 1.65;
+      line-height: 1.7;
     }
 
     ol.sources li + li {
@@ -463,7 +560,7 @@
       }
       .role-strip, .strip-2, .strip-3 {
         grid-template-columns: 1fr;
-        gap: 22px;
+        gap: 16px;
       }
     }
   </style>
