@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guia Prático do Sandro — Infra, Agentes Duais, Vendas e Publicação</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --canvas: #F1F5F9;
+      --paper: #FFFFFF;
+      --band: #0F172A;
+      --ink: #0F172A;
+      --ink2: #334155;
+      --mute: #475569;
+      --hair: #E2E8F0;
+      --hair-strong: #CBD5E1;
+      --accent: #1D4ED8;
+      --accent-soft: #EFF6FF;
+      --accent-border: #BFDBFE;
+      --accent-text: #1E3A8A;
+      --green: #059669;
+      --green-soft: #ECFDF5;
+      --green-border: #A7F3D0;
+      --green-text: #065F46;
+      --wa-bg: #F0FDF4;
+      --wa-border: #BBF7D0;
+      --wa-accent: #16A34A;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      background: var(--canvas);
+      color: var(--ink);
+      font-family: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background: var(--canvas);
+      color: var(--ink);
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 40px clamp(16px, 4vw, 48px) 84px;
+      overflow-x: hidden;
+    }
+
+    header.grid {
+      background: var(--paper);
+      border: 1px solid var(--hair);
+      border-top: 5px solid var(--accent);
+      border-radius: 16px;
+      padding: clamp(28px, 4vw, 48px);
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+    }
+
+    a {
+      color: var(--accent-text);
+      font-weight: 500;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    a:hover {
+      color: var(--ink);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      column-gap: 24px;
+    }
+
+    .col-12 { grid-column: 1 / -1; }
+
+    .measure {
+      max-width: 68ch;
+    }
+
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: clamp(30px, 3.8vw, 44px);
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+      color: var(--ink);
+      text-wrap: balance;
+      max-width: 26ch;
+    }
+
+    .deck {
+      margin-top: 16px;
+      font-size: 17.5px;
+      line-height: 1.6;
+      color: var(--ink2);
+      max-width: 66ch;
+    }
+
+    h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: clamp(22px, 2.2vw, 28px);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      text-wrap: balance;
+      margin-bottom: 14px;
+    }
+
+    h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 19px;
+      line-height: 1.3;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: var(--ink2);
+      font-size: 15.5px;
+      line-height: 1.65;
+    }
+
+    p + p {
+      margin-top: 12px;
+    }
+
+    strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    code {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 13px;
+      color: var(--ink);
+      background: #E2E8F0;
+      padding: 2px 6px;
+      border-radius: 5px;
+    }
+
+    .sec {
+      margin-top: 28px;
+      background: var(--paper);
+      border: 1px solid var(--hair);
+      border-radius: 16px;
+      padding: clamp(24px, 3.5vw, 42px);
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+    }
+
+    .role-strip {
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid var(--hair);
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .role-strip > div {
+      border-radius: 12px;
+      padding: 18px 20px;
+      border: 1px solid var(--hair);
+    }
+
+    .role-strip > div.sandro-box {
+      background: var(--accent-soft);
+      border-color: var(--accent-border);
+    }
+
+    .role-strip > div.mateus-box {
+      background: var(--green-soft);
+      border-color: var(--green-border);
+    }
+
+    .role-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 19px;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    .sandro { color: var(--accent-text); }
+    .mateus { color: var(--green-text); }
+
+    .role-desc {
+      font-size: 14.5px;
+      line-height: 1.55;
+      color: var(--ink2);
+    }
+
+    .strip-2 {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .strip-3 {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .strip-2 > div,
+    .strip-3 > div {
+      background: #F8FAFC;
+      border: 1px solid var(--hair);
+      border-radius: 12px;
+      padding: 20px 22px;
+    }
+
+    .step-block {
+      margin-top: 18px;
+      background: #F8FAFC;
+      border: 1px solid var(--hair);
+      border-left: 4px solid var(--accent);
+      border-radius: 14px;
+      padding: 24px 26px;
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      column-gap: 24px;
+    }
+
+    .step-meta {
+      grid-column: 1 / span 4;
+    }
+
+    .step-body {
+      grid-column: 5 / -1;
+    }
+
+    .owner-line {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 600;
+      margin-top: 8px;
+      padding: 4px 10px;
+      border-radius: 99px;
+    }
+
+    .owner-line.sandro {
+      background: var(--accent-soft);
+      color: var(--accent-text);
+      border: 1px solid var(--accent-border);
+    }
+
+    .owner-line.juntos {
+      background: #E2E8F0;
+      color: var(--ink);
+      border: 1px solid var(--hair-strong);
+    }
+
+    .time-line {
+      font-size: 13.5px;
+      color: var(--mute);
+      margin-top: 8px;
+    }
+
+    details.howto {
+      margin-top: 18px;
+      background: var(--paper);
+      border: 1px solid var(--accent-border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    details.howto > summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 13px 18px;
+      background: var(--accent-soft);
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--accent-text);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      user-select: none;
+      transition: background-color 0.15s ease;
+    }
+
+    details.howto > summary:hover {
+      background: #DBEAFE;
+    }
+
+    details.howto > summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details.howto > summary::before {
+      content: "▸";
+      display: inline-block;
+      font-size: 14px;
+      line-height: 1;
+      transition: transform 0.15s ease;
+    }
+
+    details.howto[open] > summary::before {
+      transform: rotate(90deg);
+    }
+
+    .howto-body {
+      padding: 18px 20px 20px;
+      border-top: 1px solid var(--hair);
+      background: var(--paper);
+    }
+
+    .howto-body p {
+      font-size: 15px;
+    }
+
+    .prompt-label {
+      margin-top: 18px;
+      margin-bottom: 8px;
+      font-size: 13.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--ink);
+    }
+
+    pre.prompt {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 13px;
+      line-height: 1.65;
+      color: #F8FAFC;
+      background: #0F172A;
+      border-left: 4px solid #3B82F6;
+      border-radius: 10px;
+      padding: 18px 20px;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    pre.prompt.script-msg {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--ink);
+      background: var(--wa-bg);
+      border: 1px solid var(--wa-border);
+      border-left: 4px solid var(--wa-accent);
+      border-radius: 10px;
+    }
+
+    ol.steps, ul.clean {
+      margin-top: 12px;
+      padding-left: 20px;
+      color: var(--ink2);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    ul.clean {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    ul.clean li {
+      position: relative;
+      padding-left: 18px;
+    }
+
+    ul.clean li::before {
+      content: "–";
+      position: absolute;
+      left: 0;
+      color: var(--accent-text);
+      font-weight: 700;
+    }
+
+    ol.steps li + li,
+    ul.clean li + li {
+      margin-top: 10px;
+    }
+
+    .table-wrap {
+      margin-top: 20px;
+      width: 100%;
+      overflow-x: auto;
+      border: 1px solid var(--hair);
+      border-radius: 12px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 14.5px;
+      background: var(--paper);
+    }
+
+    thead th {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--ink);
+      background: #F1F5F9;
+      padding: 13px 16px;
+      border-bottom: 2px solid var(--hair-strong);
+      white-space: nowrap;
+    }
+
+    tbody tr:nth-child(even) {
+      background: #F8FAFC;
+    }
+
+    tbody td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--hair);
+      color: var(--ink2);
+      vertical-align: top;
+      line-height: 1.55;
+    }
+
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    tbody td:first-child {
+      color: var(--ink);
+      font-weight: 600;
+      background: rgba(241, 245, 249, 0.45);
+    }
+
+    .full-band {
+      margin-top: 28px;
+      padding: clamp(28px, 4vw, 44px);
+      background: var(--band);
+      color: #F8FAFC;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.12);
+    }
+
+    .pull-quote {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(20px, 2.2vw, 26px);
+      font-weight: 600;
+      line-height: 1.38;
+      color: #FFFFFF;
+      max-width: 54ch;
+    }
+
+    .pull-note {
+      margin-top: 14px;
+      font-size: 15.5px;
+      color: #CBD5E1;
+      max-width: 66ch;
+    }
+
+    @media (max-width: 900px) {
+      .step-meta, .step-body {
+        grid-column: 1 / -1;
+      }
+      .step-body {
+        margin-top: 16px;
+      }
+      .role-strip, .strip-2, .strip-3 {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="grid">
+    <div class="col-12">
+      <h1>Painel Operacional do Sandro — Infra, Agentes Duais, Vendas e Deploy</h1>
+      <p class="deck">
+        O seu manual rápido com apenas o que você executa na parceria 50/50: preparação de repositórios, prospecção, conversão via <strong>Agentes Duais (Arquiteto + Construtor)</strong>, otimização, SEO, Cloudflare Pages e domínio <code>.com.br</code>.
+      </p>
+
+      <div class="role-strip">
+        <div class="sandro-box">
+          <div class="role-name sandro">O seu foco (Sandro)</div>
+          <p class="role-desc">
+            Duplicar o template no GitHub, ligar na Cloudflare Pages, operar seus <strong>Agentes Duais</strong> para estruturar o Astro + WebP + SEO + captura no WhatsApp, validar o build e publicar no domínio oficial.
+          </p>
+        </div>
+        <div class="mateus-box">
+          <div class="role-name mateus">O que vem pronto do Mateus</div>
+          <p class="role-desc">
+            Ele prospecta a metade dele, gera prévias de 1ª tela quando pedirem demo, cria as imagens/textos e sobe o <code>rascunho.html</code> + fotos brutas direto em <code>entrega-design/</code> no GitHub.
+          </p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- SEÇÃO 1: STACK E FERRAMENTAS PADRÃO -->
+  <section class="sec grid">
+    <div class="col-12">
+      <h2>1. Sua stack padrão e regras de infraestrutura</h2>
+      <p class="measure">
+        Sua esteira já é padronizada para velocidade máxima no 4G e zero dor de cabeça comercial:
+      </p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Camada</th>
+              <th>Ferramenta</th>
+              <th>Regra técnica do Sandro</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Template Base</td>
+              <td><a href="https://github.com/suporte-dash/Modelo_pasta-vertex" target="_blank" rel="noopener noreferrer">Modelo_pasta-vertex</a></td>
+              <td>Repositório molde com Astro + Tailwind + <code>.agents/</code> (Agentes Duais) + <code>PROJECT_STATE.md</code> + componentes WhatsApp prontos.</td>
+            </tr>
+            <tr>
+              <td>Hospedagem oficial</td>
+              <td><a href="https://www.cloudflare.com/pt-br/developer-platform/products/pages/" target="_blank" rel="noopener noreferrer">Cloudflare Pages</a></td>
+              <td><strong>Padrão único:</strong> permite uso comercial no plano free com banda ilimitada e SSL automático (nunca usar Vercel Hobby em site de cliente).</td>
+            </tr>
+            <tr>
+              <td>Captura de Leads</td>
+              <td><code>LeadWhatsAppForm.astro</code></td>
+              <td>Envia Nome + Serviço direto para o WhatsApp do cliente (custo zero, sem limite de 50/mês). Formspree com honeypot só se o cliente exigir e-mail.</td>
+            </tr>
+            <tr>
+              <td>Domínio</td>
+              <td><a href="https://registro.br/dominio/" target="_blank" rel="noopener noreferrer">Registro.br</a></td>
+              <td>Sempre no CPF ou CNPJ do cliente (R$ 40/ano pagos por ele). Você só aponta o DNS/CNAME para a Cloudflare Pages.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <details class="howto">
+        <summary>▸ Referência: Prompt do Template (caso precise recriar ou evoluir o Modelo_pasta-vertex)</summary>
+        <div class="howto-body">
+          <pre class="prompt">Crie a estrutura completa do nosso Projeto Modelo (Template Repository) para landing pages comerciais de negócios locais utilizando Astro + Tailwind CSS.
+
+ATENÇÃO À GOVERNANÇA EXISTENTE:
+- Esta pasta já contém a Arquitetura Dual de Agentes (.agents/rules/agente-arquiteto.md, agente-construtor.md, AGENTS.md, GEMINI.md e PROJECT_STATE.md). PRESERVE integralmente esses arquivos e NÃO os sobrescreva.
+- Garanta que o .gitignore ignore node_modules/, dist/, .astro/ e arquivos temporários, mas NUNCA ignore a pasta .agents/ nem o PROJECT_STATE.md.
+
+ESTRUTURA OBRIGATÓRIA A CONSTRUIR:
+1. Pasta de entrega do designer: entrega-design/ com LEIA-ME.txt explicando para subir ali rascunho.html, imagens brutas e fontes do Google Fonts.
+2. Pasta public/images/ pronta para WebP (web-media-standard).
+3. src/layouts/BaseLayout.astro com HTML pt-BR, meta viewport, SEO, Open Graph e slots para Google Fonts.
+4. src/components/WhatsAppButton.astro (botão flutuante + CTA com área mínima 48x48px).
+5. src/components/LeadWhatsAppForm.astro (redireciona direto ao WhatsApp, com Formspree + honeypot opcional).
+6. src/pages/index.astro base limpa.
+7. src/config/site.ts centralizado com dados do cliente, emProducao e siteUrl.
+
+VALIDAÇÃO FINAL E ENVIO AO GITHUB:
+- Instale as dependências, rode npm.cmd run build (Exit Code 0) e atualize o PROJECT_STATE.md.
+- git branch -M main && git add . && git commit -m "feat(template): estrutura base Astro + Tailwind + captura WhatsApp [ADR-001]" && git push -u origin main</pre>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- SEÇÃO 2: PROSPECÇÃO E VENDAS (SUA METADE) -->
+  <section class="sec grid">
+    <div class="col-12">
+      <h2>2. Sua cota de prospecção (Google Maps + WhatsApp)</h2>
+      <p class="measure">
+        Sua meta semanal: <strong>20 minutos em 3 dias da semana</strong> = 15 empresas sem site (ou site quebrado) com 4+ estrelas no Maps e WhatsApp visível.
+      </p>
+
+      <div class="strip-2">
+        <div>
+          <h3>1ª abordagem (Sem link para evitar ban!)</h3>
+          <pre class="prompt script-msg">Olá, [Nome ou equipe da Empresa]! Tudo bem?
+
+Encontrei o perfil de vocês aqui no Google Maps (vi as ótimas avaliações de quem atende aí no [bairro/cidade]!) e notei que vocês ainda não têm um site ligado ali no perfil.
+
+Eu e meu sócio criamos páginas rápidas focadas em trazer clientes direto para o WhatsApp de quem pesquisa por [ramo] aqui na região.
+
+Posso te mandar alguns modelos prontos que já fizemos para você ver como fica no celular? Sem compromisso.</pre>
+        </div>
+        <div>
+          <h3>Follow-up + Objeções rápidas</h3>
+          <ul class="clean">
+            <li><strong>Dia 3 (sem link):</strong> <em>"Oi [Nome], passando só para saber se conseguiu ver minha mensagem. Posso te mostrar rapidinho alguns exemplos que fizemos para negócios da região?"</em></li>
+            <li><strong>Dia 6 (encerramento):</strong> <em>"Oi [Nome], para não te incomodar, vou encerrar por aqui. Se em algum momento quiserem colocar a página de vocês no Google para receber mais contatos no WhatsApp, fico à disposição!"</em></li>
+            <li><strong>Se pedir protótipo:</strong> Mande o link do Portfólio + áudio. Se insistir em ver a cara dele, passe para o Mateus gerar <strong>só a 1ª tela (Capa) em print</strong> (15 min).</li>
+          </ul>
+        </div>
+      </div>
+
+      <details class="howto">
+        <summary>▸ Mensagem pronta de "De acordo" + 6 perguntas iniciais (enviar antes do Pix de 50%)</summary>
+        <div class="howto-body">
+          <pre class="prompt script-msg">Perfeito, [Nome]! Só para deixar tudo bem alinhado e transparente antes de começarmos, segue o resumo do nosso combinado para a página da [Empresa]:
+
+• O que está incluso: criação da landing page otimizada para celular e computador, botão direto para WhatsApp, formulário inteligente de captura e 1 rodada de ajustes após a apresentação do link de teste.
+• Investimento: R$ [VALOR], sendo 50% na entrada (R$ [METADE]) e 50% na aprovação final antes da publicação no domínio oficial.
+• Prazo de entrega: [X dias úteis], contados a partir da confirmação da entrada e do envio das 6 informações/materiais iniciais.
+• Domínio (.com.br): registrado no CPF/CNPJ do cliente no Registro.br (taxa anual de R$ 40 paga direto ao Registro.br).
+• Gestão e ajustes futuros: opção de plano mensal (R$ [VALOR]/mês com até 3 ajustes simples por mês) ou atendimento por ajustes avulsos após a entrega, a definir no fechamento.
+
+Se estiver tudo certinho, responde um "De acordo" por aqui que eu já te envio a chave Pix da entrada e as 6 perguntinhas rápidas!</pre>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- SEÇÃO 3: SUA ESTEIRA TÉCNICA DE PRODUÇÃO -->
+  <section class="sec">
+    <h2>3. Sua linha de montagem técnica (Passo a Passo)</h2>
+    <p class="measure">
+      Assim que o cliente fecha os 50% e manda as 6 respostas, esta é a sua sequência exata até o site oficial ir ao ar:
+    </p>
+
+    <!-- PASSO 2 -->
+    <div class="step-block">
+      <div class="step-meta">
+        <h3>Etapa 1: Duplicar molde e ligar Cloudflare</h3>
+        <div class="owner-line sandro">Quem faz: Sandro (10 min)</div>
+        <div class="time-line">Logo após fechar o cliente</div>
+      </div>
+      <div class="step-body">
+        <ol class="steps">
+          <li>No GitHub, entre em <code>Modelo_pasta-vertex</code> → clique em <strong>Use this template → Create a new repository</strong> (nome sem espaços, ex: <code>lp-clinica-vida</code>, modo <strong>Private</strong>).</li>
+          <li>No repo novo: <strong>Settings → Collaborators → Add people</strong> → convide o Mateus (para ele subir em <code>entrega-design/</code>).</li>
+          <li>Na <a href="https://dash.cloudflare.com" target="_blank" rel="noopener noreferrer">Cloudflare</a>: <strong>Workers &amp; Pages → Create application → Pages → Import an existing Git repository</strong> → escolha o repo novo → preset <strong>Astro</strong> → <strong>Save and Deploy</strong>.</li>
+          <li>Clone o repositório novo na sua máquina (ou peça aqui para o Agente Principal clonar) e mande os links ao Mateus.</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- PASSO 4 -->
+    <div class="step-block">
+      <div class="step-meta">
+        <h3>Etapa 2: Converter com os Agentes Duais</h3>
+        <div class="owner-line sandro">Quem faz: Sandro (Arquiteto → Construtor)</div>
+        <div class="time-line">Quando o Mateus subir em entrega-design/</div>
+      </div>
+      <div class="step-body">
+        <p>
+          <strong>Lembrete da "Chave Liga/Desliga":</strong> enquanto o site estiver no link de teste (<code>.pages.dev</code>), a chave <code>emProducao</code> em <code>src/config/site.ts</code> começa como <code>false</code> — isso coloca uma "placa de Em Obras" para o Google não indexar o link provisório, mas libera o teste completo no celular e WhatsApp.
+        </p>
+
+        <details class="howto">
+          <summary>▸ Veja como fazer: puxar design + Prompt Oficial para o Agente Arquiteto</summary>
+          <div class="howto-body">
+            <ol class="steps">
+              <li>Abra a pasta do projeto no Antigravity 2.0 (Arquiteto) e na IDE (Construtor) e puxe o que o Mateus subiu (<code>git pull</code>).</li>
+              <li>Preencha os dados reais do cliente em <code>src/config/site.ts</code>.</li>
+              <li>Cole o prompt abaixo para o <strong>Agente Arquiteto</strong> gerar a Ordem de Serviço (<code>OS-XXX | PROMPT-XXX | ADR-XXX</code>) e execute com o <strong>Agente Construtor</strong> na IDE.</li>
+              <li>Ao finalizar o build e a purga, envie para o GitHub (<code>git push</code>) — em ~1 minuto a Cloudflare atualiza o link de teste.</li>
+            </ol>
+
+            <div class="prompt-label">Prompt oficial para colar no Agente Arquiteto:</div>
+            <pre class="prompt">Meu parceiro de design subiu o arquivo rascunho.html e as fotos dentro da pasta entrega-design/ para o cliente [NOME DO CLIENTE].
+
+Inspecione o material em entrega-design/ e gere a Ordem de Serviço estruturada (OS-XXX | PROMPT-XXX | ADR-XXX) para o Agente Construtor executar no projeto Astro + Tailwind CSS preservando a identidade visual aprovada e aplicando nosso padrão completo de engenharia:
+
+1. Estrutura de componentes: fatiar o rascunho.html em componentes limpos dentro de src/components/ (Hero, Beneficios, Ofertas, Depoimentos, Captura, Rodape) mantendo exatamente as fontes do Google Fonts declaradas no rascunho, e montar em src/pages/index.astro.
+2. Padrão de Mídia (web-media-standard): converter todas as imagens de entrega-design/ para .webp (máx. 1200px capa e 800px cards), salvar em public/images/, definir width/height explícitos para CLS=0, loading="lazy" abaixo da dobra, preload com fetchpriority="high" na imagem Hero e gerar o kit de favicons (WebP + PNG 48x48 + favicon.ico).
+3. Captura e WhatsApp: conectar todos os CTAs ao src/config/site.ts e ligar o componente LeadWhatsAppForm.astro para redirecionar o cliente direto ao WhatsApp com os campos preenchidos (usando Formspree com honeypot apenas se configurado).
+4. Auditoria Cirúrgica (surgical-eye-audit + mobile-web-first): validar alvos de toque mínimos de 48x48px, zero overflow horizontal em 360px-390px e contraste adequado.
+5. Chave Geral de Produção, SEO Local e Arquivos de Infra:
+   - Adicione em src/config/site.ts os campos emProducao (começando como false) e siteUrl (começando com a URL provisória .pages.dev).
+   - Gere os arquivos robots.txt, sitemap.xml e llms.txt dinamicamente (src/pages/robots.txt.ts, sitemap.xml.ts e llms.txt.ts) lendo direto do site.ts: enquanto emProducao for false, bloqueie a indexação do Google (Disallow: / e meta noindex) sem bloquear o WhatsApp Preview (Open Graph); quando virar true, libere tudo com a URL oficial.
+   - Preencha título, meta description, Open Graph e Schema.org (LocalBusiness em JSON-LD) no BaseLayout.astro, além de site.webmanifest e humans.txt em public/.
+6. Purga Pré-Git (autonomous-deadcode-purger): após validar que tudo está funcionando em public/images/, purgar código morto, CSS zumbi, console.log e o rascunho.html/fotos brutas de entrega-design/ (preservando sempre entrega-design/LEIA-ME.txt, .agents/**, AGENTS.md, GEMINI.md e PROJECT_STATE.md).
+
+Ao final, peça ao Construtor para rodar npm.cmd run build, confirmar Exit Code 0 e atualizar o PROJECT_STATE.md.</pre>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <!-- PASSO 5 -->
+    <div class="step-block">
+      <div class="step-meta">
+        <h3>Etapa 3: Checklist Técnico &amp; PageSpeed</h3>
+        <div class="owner-line juntos">Quem faz: Você (e Mateus revisa)</div>
+        <div class="time-line">Antes de mandar o link ao cliente</div>
+      </div>
+      <div class="step-body">
+        <ul class="clean">
+          <li><strong>Mobile 360px–390px:</strong> zero scroll horizontal e botões fáceis de tocar.</li>
+          <li><strong>WhatsApp + Formulário:</strong> testar o envio real confirmando o redirecionamento com a mensagem montada.</li>
+          <li><strong><a href="https://pagespeed.web.dev/?hl=pt" target="_blank" rel="noopener noreferrer">PageSpeed Insights</a>:</strong> buscar nota verde 90+.</li>
+          <li><strong>Miniatura WhatsApp:</strong> mandar o link no grupo da dupla para validar foto e título (Open Graph).</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- PASSO 6 -->
+    <div class="step-block">
+      <div class="step-meta">
+        <h3>Etapa 4: Domínio .com.br e Inauguração</h3>
+        <div class="owner-line sandro">Quem faz: Sandro</div>
+        <div class="time-line">Etapa final após aprovação</div>
+      </div>
+      <div class="step-body">
+        <ol class="steps">
+          <li><strong>Ajustes finais (se houver):</strong> se o cliente pediu ajustes na rodada única de revisão, peça uma <code>OS-XXX</code> cirúrgica ao Arquiteto e rode no Construtor.</li>
+          <li><strong>Cloudflare Pages → Custom Domains:</strong> adicione <code>nomedocliente.com.br</code> e copie os registros DNS/CNAME.</li>
+          <li><strong><a href="https://registro.br/dominio/" target="_blank" rel="noopener noreferrer">Registro.br</a>:</strong> cole os registros DNS na conta do cliente e aguarde o cadeado HTTPS ativar.</li>
+          <li><strong>Ligar a Chave para Produção:</strong> cole o mini-prompt abaixo no agente para ativar <code>emProducao: true</code> e o domínio oficial em todos os arquivos do Google e IAs!</li>
+          <li><strong>Receber os 50% finais</strong> no Pix, alinhar o plano mensal e pedir indicação.</li>
+        </ol>
+
+        <details class="howto">
+          <summary>▸ Mini-prompt pronto para ligar a chave de produção (quando o .com.br estiver no ar)</summary>
+          <div class="howto-body">
+            <pre class="prompt">O domínio oficial do cliente foi comprado e configurado na Cloudflare Pages: https://[NOMEDOCLIENTE.COM.BR]
+
+Por favor:
+1. Atualize src/config/site.ts definindo emProducao: true e siteUrl: "https://[NOMEDOCLIENTE.COM.BR]".
+2. Rode o pre-flight-quality-gate, execute npm.cmd run build (confirmando Exit Code 0) e faça o git commit + git push para liberar o site oficial para o Google e IAs!</pre>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO 4: PÓS-ENTREGA E ROTINA SEMANAL -->
+  <section class="sec grid">
+    <div class="col-12">
+      <h2>4. Pós-entrega (Plano Mensal) e sua Rotina Semanal</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Bloco</th>
+              <th>Seu foco técnico &amp; comercial (Sandro)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Seg – Ter</td>
+              <td>20 min prospecção no Maps + Etapa 1 (duplicar molde no GitHub + ligar Cloudflare Pages para o novo cliente).</td>
+            </tr>
+            <tr>
+              <td>Qua – Qui</td>
+              <td>20 min prospecção no Maps + Etapa 2 (puxar <code>entrega-design/</code> do Mateus e rodar Arquiteto → Construtor → WebP → WhatsApp).</td>
+            </tr>
+            <tr>
+              <td>Sex – Sáb</td>
+              <td>20 min prospecção + Etapa 3 e 4 (PageSpeed 90+, <code>.com.br</code> no Registro.br, ligar chave <code>emProducao: true</code> e receber 50%).</td>
+            </tr>
+            <tr>
+              <td>Mensalidade</td>
+              <td>Monitoramento no ar + até <strong>3 ajustes pontuais por mês</strong> (via <code>OS-XXX</code> cirúrgica em minutos). Novas páginas cobradas à parte.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <aside class="full-band">
+    <p class="pull-quote">
+      Fluxo limpo do Sandro: Molde no GitHub → Cloudflare Pages → Agentes Duais (Chave desligada no teste) → PageSpeed 90+ → Domínio .com.br + Ligar chave de produção → Purga Pré-Git sempre ativa.
+    </p>
+    <p class="pull-note">
+      Sempre que quiser trazer um projeto novo ou atualizar seus Agentes Duais globais, basta chamar o Agente Principal aqui no Antigravity 2.0.
+    </p>
+  </aside>
+
+</body>
+</html>
