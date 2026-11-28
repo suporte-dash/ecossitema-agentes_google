@@ -89,12 +89,11 @@ Localize o trecho (linhas aproximadas X a Y) e substitua por:
 
 ---
 
-### 🧪 VALIDAÇÃO, BUILD E DEPLOY (CONSTRUTOR):
+### 🧪 VALIDAÇÃO E BUILD (CONSTRUTOR):
 Execute no terminal:
-1. `npm.cmd run build` (Confirme Exit Code 0 antes de prosseguir).
+1. `npm.cmd run build` (Confirme Exit Code 0 antes de concluir).
 2. Atualize o `PROJECT_STATE.md` liberando a trava na tabela Multi-Lock.
-3. Suba para o GitHub para disparar o deploy automático na Cloudflare Pages:
-   `git add . && git commit -m "tipo(escopo): descrição curta [ADR-XXX]" && git push origin main`
+*(Nota: O envio para o Git/Cloudflare é realizado sob demanda quando o usuário solicitar).*
 ````
 
 ---
