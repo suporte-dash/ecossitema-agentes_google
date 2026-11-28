@@ -662,7 +662,7 @@ Se estiver tudo certinho, responde um "De acordo" por aqui que eu já te envio a
               <li>Abra a pasta do projeto no Antigravity 2.0 (Arquiteto) e na IDE (Construtor) e puxe o que o Mateus subiu (<code>git pull</code>).</li>
               <li>Preencha os dados reais do cliente em <code>src/config/site.ts</code>.</li>
               <li>Cole o prompt abaixo para o <strong>Agente Arquiteto</strong> gerar a Ordem de Serviço (<code>OS-XXX | PROMPT-XXX | ADR-XXX</code>) e execute com o <strong>Agente Construtor</strong> na IDE.</li>
-              <li>Ao finalizar o build e a purga, envie para o GitHub (<code>git push</code>) — em ~1 minuto a Cloudflare atualiza o link de teste.</li>
+              <li>O Construtor roda o build (Exit Code 0), atualiza o estado e já faz o commit e envio direto para o GitHub (<code>git push</code>) — a Cloudflare Pages detecta o push e atualiza o link em ~1 minuto.</li>
             </ol>
 
             <div class="prompt-label">Prompt oficial para colar no Agente Arquiteto:</div>
@@ -680,7 +680,7 @@ Inspecione o material em entrega-design/ e gere a Ordem de Serviço estruturada 
    - Preencha título, meta description, Open Graph e Schema.org (LocalBusiness em JSON-LD) no BaseLayout.astro, além de site.webmanifest e humans.txt em public/.
 6. Purga Pré-Git (autonomous-deadcode-purger): após validar que tudo está funcionando em public/images/, purgar código morto, CSS zumbi, console.log e o rascunho.html/fotos brutas de entrega-design/ (preservando sempre entrega-design/LEIA-ME.txt, .agents/**, AGENTS.md, GEMINI.md e PROJECT_STATE.md).
 
-Ao final, peça ao Construtor para rodar npm.cmd run build, confirmar Exit Code 0 e atualizar o PROJECT_STATE.md.</pre>
+Ao final, peça ao Construtor para rodar npm.cmd run build, confirmar Exit Code 0, atualizar o PROJECT_STATE.md (liberando a trava de concorrência) e fazer o envio direto para o GitHub (git add . && git commit -m "feat([cliente]): converter design para astro e tailwind [ADR-XXX]" && git push origin main) para disparar o deploy automático na Cloudflare Pages.</pre>
           </div>
         </details>
       </div>
