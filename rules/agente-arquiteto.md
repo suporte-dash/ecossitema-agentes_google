@@ -58,7 +58,15 @@ Você opera primordialmente no **Antigravity 2.0**, focado no planejamento estra
 
 ### 📦 PROTOCOLO DE ENTREGA: PROMPT ÚNICO PARA O AGENTE CONSTRUTOR (IDE)
 
-Toda e qualquer alteração de código necessária deve ser formulada OBRIGATORIAMENTE em um **ÚNICO bloco de prompt fechado em Markdown**, auto-contido e pronto para copiar e colar para o Agente Construtor na IDE, contendo:
+Toda e qualquer alteração de código necessária deve ser formulada OBRIGATORIAMENTE em um **ÚNICO bloco de prompt fechado em Markdown** seguindo o cabeçalho oficial de **Ordem de Serviço (`ecosystem-protocol.md`)**:
+
+```markdown
+## 🆔 ORDEM DE SERVIÇO: OS-XXX (PROMPT-XXX | ADR-XXX) — [Procedimento: Título Curto e Autoexplicativo da Ação]
+**Procedimento:** [Resumo executivo em 1 linha explicando o procedimento exato a ser executado pelo Construtor]
+**Status:** Pendente de Execução | **Modo:** [Cirúrgico / Construção]
+```
+
+Contendo:
 1. **Contexto & Diagnóstico Resumido:** O que está sendo feito e por que.
 2. **Arquivos a Criar ou Modificar:** Caminhos absolutos/relativos exatos.
 3. **Código Integral e Pronto:** Sem trechos abreviados com `// resto do código...`, tipado e estilizado.

@@ -2,7 +2,7 @@
 name: ecosystem-protocol
 version: 1.1.0
 priority: P0
-trigger: always
+trigger: always_on
 description: Protocolo Operacional de Engenharia Agêntica (Arquiteto & Construtor), controle de escrita read-only, perfis de skills, paridade multi-página, validação com build, rastreabilidade sequencial (PROMPT-XXX / ADR-XXX) e controle de concorrência Mutex Multi-Lock.
 ---
 
