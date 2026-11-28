@@ -665,14 +665,18 @@ Se estiver tudo certinho, responde um "De acordo" por aqui que eu já te envio a
               <li>O Construtor roda o build (Exit Code 0) e atualiza o estado. Quando você decidir que o site está pronto para visualização, basta pedir a ele para subir ao GitHub (<code>git push</code>) para a Cloudflare Pages gerar o link de teste.</li>
             </ol>
 
-            <div class="prompt-label">Prompt oficial para colar no Agente Arquiteto:</div>
+            <div class="prompt-label">Prompt oficial para colar no Agente Arquiteto (Protocolo de Transplante Fiel & Zero Rewriting):</div>
             <pre class="prompt">Meu parceiro de design subiu o arquivo rascunho.html e as fotos dentro da pasta entrega-design/ para o cliente [NOME DO CLIENTE].
 
-Inspecione o material em entrega-design/ e gere a Ordem de Serviço estruturada (OS-XXX | PROMPT-XXX | ADR-XXX) para o Agente Construtor executar no projeto Astro + Tailwind CSS preservando a identidade visual aprovada e aplicando nosso padrão completo de engenharia:
+Inspecione o material em entrega-design/ e gere a Ordem de Serviço estruturada (OS-XXX | PROMPT-XXX | ADR-XXX) para o Agente Construtor executar no projeto Astro + Tailwind CSS aplicando o Protocolo de Transplante Fiel (Zero Rewriting) e nosso padrão completo de engenharia:
 
-1. Estrutura de componentes e rotas: fatiar o rascunho.html em componentes limpos dentro de src/components/ respeitando a estrutura real do projeto (Landing Page, Site Institucional com seções de Quem Somos/Serviços/Equipe ou Cardápio Digital com categorias e itens), mantendo exatamente as fontes do Google Fonts declaradas no rascunho e montando as páginas em src/pages/.
-2. Padrão de Mídia (web-media-standard): converter todas as imagens de entrega-design/ para .webp (máx. 1200px capa e 800px cards), salvar em public/images/, definir width/height explícitos para CLS=0, loading="lazy" abaixo da dobra, preload com fetchpriority="high" na imagem Hero e gerar o kit de favicons (WebP + PNG 48x48 + favicon.ico).
-3. Captura e WhatsApp: conectar todos os CTAs ao src/config/site.ts e ligar o componente LeadWhatsAppForm.astro para redirecionar o cliente direto ao WhatsApp com os campos preenchidos (usando Formspree com honeypot apenas se configurado).
+1. Protocolo de Transplante Fiel (Zero Rewriting / Fidelidade 100%): É TERMINANTEMENTE PROIBIDO reescrever, simplificar, resumir, mudar nomes de classes CSS ou omitir qualquer seção, aba, modal ou script JavaScript criado pelo designer. O Astro atua como casca de produção de alta performance:
+   - Extraia e converta todas as imagens de entrega-design/ para .webp (máx. 1200px capa e 800px cards), salvando em public/images/ com width/height explícitos para CLS=0.
+   - Ajuste os caminhos de <img> e estilos para apontar para /images/...
+   - Faça o transplante de 100% do DOM HTML, CSS e JavaScript do rascunho.html diretamente para o Astro (em src/pages/index.astro ou componentes fiéis), garantindo paridade visual e funcional absoluta de 100% com o rascunho original do designer.
+   - Mantenha exatamente as fontes do Google Fonts declaradas no rascunho (injetando no slot 'fonts' do BaseLayout.astro).
+2. Padrão de Mídia (web-media-standard): loading="lazy" abaixo da dobra, preload com fetchpriority="high" na imagem Hero e gerar o kit de favicons (WebP + PNG 48x48 + favicon.ico).
+3. Captura e WhatsApp: conectar todos os CTAs ao src/config/site.ts. Se o rascunho contiver formulário de lead/contato, garanta o envio e redirecionamento direto para o WhatsApp oficial com a mensagem montada.
 4. Auditoria Cirúrgica (surgical-eye-audit + mobile-web-first): validar alvos de toque mínimos de 48x48px, zero overflow horizontal em 360px-390px e contraste adequado.
 5. Chave Geral de Produção, SEO Local e Arquivos de Infra:
    - Adicione em src/config/site.ts os campos emProducao (começando como false) e siteUrl (começando com a URL provisória .pages.dev).

@@ -806,7 +806,7 @@ Se estiver tudo certinho, responde um "De acordo" por aqui que eu já te envio a
               <li><strong>Como entregar para o Sandro (100% pelo navegador):</strong> abra o link do repositório no GitHub que o Sandro te mandou, entre na pasta <code>entrega-design</code>, clique em <strong>Add file → Upload files</strong>, arraste o <code>rascunho.html</code> e todas as fotos, e clique no botão verde <strong>Commit changes</strong>. Aí é só avisar o Sandro no WhatsApp!</li>
             </ol>
 
-            <div class="prompt-label">Prompt pronto para você colar no Claude (site completo):</div>
+            <div class="prompt-label">Prompt pronto para você colar no Claude (site completo sem cara genérica e 100% funcional):</div>
             <pre class="prompt">Atue como um diretor de arte e designer especialista em landing pages de alta conversão para negócios locais no Brasil.
 
 Crie o esboço completo de um projeto web autoral, limpo e focado em celular (mobile-first) usando HTML semântico e Tailwind CSS (via CDN apenas para pré-visualização).
@@ -826,12 +826,14 @@ Adapte a estrutura de seções (bem separadas por comentários no código) confo
 - Se for SITE INSTITUCIONAL: Cabeçalho de navegação, Apresentação/Hero, Quem Somos/História, Áreas de Atuação ou Serviços detalhados, Equipe/Diferenciais, Contato/Mapa e Rodapé.
 - Se for CARDÁPIO DIGITAL: Topo com marca/horário de atendimento, Abas/filtros por categoria, Lista de itens com foto/descrição/preço e Botão de pedido direto para o WhatsApp.
 
-Regras obrigatórias:
-- Declare no topo do arquivo (em comentário HTML e na tag &lt;link&gt;) exatamente quais fontes do Google Fonts foram escolhidas (ex.: Fraunces + Plus Jakarta Sans) e a paleta hex principal.
-- Escreva textos reais e persuasivos em português do Brasil (nada de Lorem Ipsum).
-- Indique onde cada imagem deve entrar usando nomes simples: imagem-capa.webp, imagem-1.webp, imagem-2.webp.
-- Evite layouts genéricos e repetitivos: use hierarquia tipográfica marcante e bom respiro visual.
-- Entregue o código completo em um único arquivo HTML para eu abrir no navegador e enviar ao meu sócio.</pre>
+Regras obrigatórias de entrega (Qualidade Máxima & Zero Erros):
+1. PROIBIDO IMAGENS EM BASE64: NUNCA gere imagens embutidas em base64 (data:image/...). Use sempre nomes simples com caminhos relativos (ex: images/hero.webp, images/foto-1.webp, images/logo.webp).
+2. CÓDIGO 100% COMPLETO E FUNCIONAL: NUNCA resuma ou omita partes do código com '<!-- restante do código aqui -->'. Entregue todas as seções, textos e scripts do início ao fim (&lt;!DOCTYPE html&gt; até &lt;/html&gt;).
+3. INTERATIVIDADE JAVASCRIPT REAL: Se houver abas (tabs), modais, carrossel de fotos, seleção de cores ou filtros, inclua todo o JavaScript em Vanilla JS (puro) autocontido no final do arquivo, totalmente testado e funcional ao clicar.
+4. TIPOGRAFIA E CORES: Declare no topo do arquivo (em comentário HTML e na tag &lt;link&gt;) exatamente quais fontes do Google Fonts foram escolhidas (ex.: Fraunces + Plus Jakarta Sans) e a paleta hex principal.
+5. CONTEÚDO E PERSUASÃO: Escreva textos reais e persuasivos em português do Brasil (nada de Lorem Ipsum ou textos rasos).
+6. MOBILE-FIRST & ERGONOMIA: Garanta alvos de toque mínimos de 48x48px no celular, zero rolagem horizontal indesejada (overflow-x-hidden seguro), contrastes nítidos e transições suaves nos botões e cards.
+7. Entregue o código completo em um único arquivo HTML pronto para abrir com duplo clique no navegador e enviar ao meu sócio.</pre>
           </div>
         </details>
       </div>

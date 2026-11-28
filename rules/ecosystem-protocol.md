@@ -21,6 +21,16 @@ description: Protocolo Operacional de Engenharia Agêntica (Arquiteto & Construt
 
 ---
 
+## 1.1 PROTOCOLO DE TRANSPLANTE FIEL & ZERO REWRITING (PARIDADE ABSOLUTA 100%)
+* **Proibição Absoluta de Reescrever/Resumir:** Ao converter o layout de `entrega-design/rascunho.html` (ou HTML puro aprovado) para o ecossistema Astro, é **TERMINANTEMENTE PROIBIDO** reescrever, sintetizar, simplificar classes CSS, remover abas (tabs), modais, seções (como 'Sobre Nós', 'Depoimentos', etc.) ou descartar scripts JavaScript interativos.
+* **Astro como Casca de Produção e Otimização:** O framework Astro atua exclusivamente como veículo de infraestrutura e performance:
+  1. **Otimização de Imagens:** Converter mídias para `.webp` em `public/images/` e ajustar links (`/images/...`).
+  2. **Transplante Fiel de DOM:** O HTML, classes Tailwind/CSS e scripts Vanilla JS devem ser transplantados com 100% de integridade em `src/pages/index.astro` (ou componentes fiéis se isolados sem perda).
+  3. **Camada de SEO & PWA:** Injetar metadados (`BaseLayout.astro`, `robots.txt.ts`, `sitemap.xml.ts`, `llms.txt.ts`, `site.webmanifest`).
+  4. **Fidelidade Visual & Funcional Obrigatória:** O site publicado no Cloudflare Pages deve ser **100% idêntico** em layout, animações, filtros e interações ao arquivo HTML original do designer.
+
+---
+
 ## 2. ROTEAMENTO INTELIGENTE DE SKILLS (OTIMIZAÇÃO DE CONTEXTO)
 Para maximizar a precisão e evitar alterações colaterais fora de escopo, o Arquiteto deve selecionar o perfil de skills conforme a natureza da tarefa:
 
